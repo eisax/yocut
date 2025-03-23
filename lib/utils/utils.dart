@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yocut/ui/widgets/errorMessageOverlayContainer.dart';
+import 'package:yocut/utils/constants.dart';
 import 'package:yocut/utils/errorMessageKeysAndCode.dart';
 
 class Utils {
@@ -19,5 +21,28 @@ class Utils {
     return Utils.getTranslatedLabel(
       ErrorMessageKeysAndCode.getErrorMessageKeyFromCode(errorCode),
     );
+  }
+
+  static Future<void> showCustomSnackBar({
+    required BuildContext context,
+    required String errorMessage,
+    required Color backgroundColor,
+    Duration delayDuration = errorMessageDisplayDuration,
+  }) async {
+    OverlayState? overlayState = Overlay.of(context);
+    OverlayEntry overlayEntry = OverlayEntry(
+      builder: (context) => ErrorMessageOverlayContainer(
+        backgroundColor: backgroundColor,
+        errorMessage: errorMessage,
+      ),
+    );
+
+    overlayState.insert(overlayEntry);
+    await Future.delayed(delayDuration);
+    overlayEntry.remove();
+  }
+
+  static ColorScheme getColorScheme(BuildContext context) {
+    return Theme.of(context).colorScheme;
   }
 }

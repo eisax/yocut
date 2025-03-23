@@ -46,4 +46,11 @@ class AppConfigurationCubit extends Cubit<AppConfigurationState> {
       emit(AppConfigurationFetchFailure(e.toString()));
     }
   }
+
+  AppConfiguration getAppConfiguration() {
+    if (state is AppConfigurationFetchSuccess) {
+      return (state as AppConfigurationFetchSuccess).appConfiguration;
+    }
+    return AppConfiguration.fromJson({});
+  }
 }

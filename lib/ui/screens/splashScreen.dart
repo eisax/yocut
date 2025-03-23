@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (context.read<AuthCubit>().state is Unauthenticated) {
       Get.offNamed(Routes.auth);
     } else {
-      Get.offNamed(Routes.home);
+      Get.offNamed(Routes.auth);
     }
   }
 
