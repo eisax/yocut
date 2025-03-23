@@ -32,13 +32,13 @@ class AppConfigurationCubit extends Cubit<AppConfigurationState> {
       emit(
         AppConfigurationFetchSuccess(
           appConfiguration: AppConfiguration(
-            appLink: "",
-            iosAppLink: "",
-            appVersion: "",
-            iosAppVersion: "",
-            forceAppUpdate: "",
-            appMaintenance: "",
-            fileUploadSizeLimit: "",
+            appLink: "null",
+            iosAppLink: "null",
+            appVersion: "null",
+            iosAppVersion: "null",
+            forceAppUpdate: "null",
+            appMaintenance: "null",
+            fileUploadSizeLimit: "null",
           ),
         ),
       );
