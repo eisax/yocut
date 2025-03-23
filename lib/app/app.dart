@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
 import 'package:yocut/app/routes.dart';
+import 'package:yocut/cubits/appConfigurationCubit.dart';
 import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/data/repositories/authRepository.dart';
+import 'package:yocut/data/repositories/systemRepository.dart';
 
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +37,9 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthCubit>(create: (_) => AuthCubit(AuthRepository())),
+        BlocProvider<AppConfigurationCubit>(
+          create: (context) => AppConfigurationCubit(SystemRepository()),
+        ),
       ],
       child: Builder(
         builder: (context) {
@@ -43,6 +48,7 @@ class _MyAppState extends State<MyApp> {
             color: Colors.white,
             getPages: Routes.getPages,
             initialRoute: Routes.splash,
+            
           );
         },
       ),
