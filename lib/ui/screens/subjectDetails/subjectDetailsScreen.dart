@@ -78,7 +78,7 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
     if (isLessonManagementModuleEnable() &&
         isAnnouncementManagementModuleEnable()) {
       context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-            classSubjectId: widget.subject. ?? 0,
+            classSubjectId: widget.subject.moduleId ?? 0,
             useParentApi: context.read<AuthCubit>().isParent(),
             childId: widget.childId,
           );
