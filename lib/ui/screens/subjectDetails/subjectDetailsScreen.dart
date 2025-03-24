@@ -116,11 +116,11 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
         _scrollController.position.maxScrollExtent) {
       if (_selectedTabTitle == announcementKey) {
         if (context.read<SubjectAnnouncementCubit>().hasMore()) {
-          context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
-                useParentApi: context.read<AuthCubit>().isParent(),
-                classSubjectId: widget.subject.classSubjectId ?? 0,
-                childId: widget.childId,
-              );
+          // context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
+          //       useParentApi: context.read<AuthCubit>().isParent(),
+          //       classSubjectId: widget.subject.classSubjectId ?? 0,
+          //       childId: widget.childId,
+          //     );
         }
         //to scroll to last in order for users to see the progress
         Future.delayed(const Duration(milliseconds: 10), () {
