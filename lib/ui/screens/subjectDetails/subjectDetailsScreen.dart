@@ -75,37 +75,37 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
       context: context, moduleId: announcementManagementModuleId.toString());
 
   void initializeTabBar() {
-    if (isLessonManagementModuleEnable() &&
-        isAnnouncementManagementModuleEnable()) {
-      context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-            classSubjectId: widget.subject.moduleId ?? 0,
-            useParentApi: context.read<AuthCubit>().isParent(),
-            childId: widget.childId,
-          );
-      context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-            useParentApi: context.read<AuthCubit>().isParent(),
-            classSubjectId: widget.subject.classSubjectId ?? 0,
-            childId: widget.childId,
-          );
-      _selectedTabTitle = chaptersKey;
-    } else {
-      if (isAnnouncementManagementModuleEnable()) {
-        context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-              useParentApi: context.read<AuthCubit>().isParent(),
-              classSubjectId: widget.subject.classSubjectId ?? 0,
-              childId: widget.childId,
-            );
-        _selectedTabTitle = announcementKey;
-      }
-      if (isLessonManagementModuleEnable()) {
-        context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-              classSubjectId: widget.subject.classSubjectId ?? 0,
-              useParentApi: context.read<AuthCubit>().isParent(),
-              childId: widget.childId,
-            );
-        _selectedTabTitle = chaptersKey;
-      }
-    }
+    // if (isLessonManagementModuleEnable() &&
+    //     isAnnouncementManagementModuleEnable()) {
+    //   context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+    //         classSubjectId: widget.subject.moduleId ?? 0,
+    //         useParentApi: context.read<AuthCubit>().isParent(),
+    //         childId: widget.childId,
+    //       );
+    //   context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+    //         useParentApi: context.read<AuthCubit>().isParent(),
+    //         classSubjectId: widget.subject.classSubjectId ?? 0,
+    //         childId: widget.childId,
+    //       );
+    //   _selectedTabTitle = chaptersKey;
+    // } else {
+    //   if (isAnnouncementManagementModuleEnable()) {
+    //     context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+    //           useParentApi: context.read<AuthCubit>().isParent(),
+    //           classSubjectId: widget.subject.classSubjectId ?? 0,
+    //           childId: widget.childId,
+    //         );
+    //     _selectedTabTitle = announcementKey;
+    //   }
+    //   if (isLessonManagementModuleEnable()) {
+    //     context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+    //           classSubjectId: widget.subject.classSubjectId ?? 0,
+    //           useParentApi: context.read<AuthCubit>().isParent(),
+    //           childId: widget.childId,
+    //         );
+    //     _selectedTabTitle = chaptersKey;
+    //   }
+    // }
 
     //
     setState(() {});
