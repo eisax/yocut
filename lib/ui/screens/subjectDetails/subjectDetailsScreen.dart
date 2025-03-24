@@ -260,17 +260,17 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                   ),
                   child: Column(
                     children: [
-                      _selectedTabTitle == chaptersKey
-                          ? ChaptersContainer(
-                              childId: widget.childId,
-                              classSubjectId:
-                                  widget.subject.classSubjectId ?? 0,
-                            )
-                          : AnnouncementContainer(
-                              classSubjectId:
-                                  widget.subject.classSubjectId ?? 0,
-                              childId: widget.childId,
-                            )
+                      // _selectedTabTitle == chaptersKey
+                      //     ? ChaptersContainer(
+                      //         childId: widget.childId,
+                      //         classSubjectId:
+                      //             widget.subject.classSubjectId ?? 0,
+                      //       )
+                      //     : AnnouncementContainer(
+                      //         classSubjectId:
+                      //             widget.subject.classSubjectId ?? 0,
+                      //         childId: widget.childId,
+                      //       )
                     ],
                   ),
                 ),
