@@ -235,11 +235,11 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                   //     );
                 }
                 if (isLessonManagementModuleEnable()) {
-                  context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-                        classSubjectId: widget.subject.classSubjectId ?? 0,
-                        useParentApi: context.read<AuthCubit>().isParent(),
-                        childId: widget.childId,
-                      );
+                  // context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+                  //       classSubjectId: widget.subject.classSubjectId ?? 0,
+                  //       useParentApi: context.read<AuthCubit>().isParent(),
+                  //       childId: widget.childId,
+                  //     );
                 }
               },
               displacment: Utils.getScrollViewTopPadding(
