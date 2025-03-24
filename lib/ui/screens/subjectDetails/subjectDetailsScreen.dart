@@ -146,15 +146,15 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                 child: Container(
                   alignment: Alignment.topCenter,
                   width: boxConstraints.maxWidth * (0.5),
-                  child: Text(
-                    widget.subject.getSubjectName(context: context),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      fontSize: Utils.screenTitleFontSize,
-                    ),
-                  ),
+                  // child: Text(
+                  //   widget.subject.getSubjectName(context: context),
+                  //   maxLines: 1,
+                  //   overflow: TextOverflow.ellipsis,
+                  //   style: TextStyle(
+                  //     color: Theme.of(context).scaffoldBackgroundColor,
+                  //     fontSize: Utils.screenTitleFontSize,
+                  //   ),
+                  // ),
                 ),
               ),
               (isAnnouncementManagementModuleEnable() &&
