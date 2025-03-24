@@ -226,13 +226,13 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
             child: CustomRefreshIndicator(
               onRefreshCallback: () {
                 if (isAnnouncementManagementModuleEnable()) {
-                  context
-                      .read<SubjectAnnouncementCubit>()
-                      .fetchSubjectAnnouncement(
-                        useParentApi: context.read<AuthCubit>().isParent(),
-                        classSubjectId: widget.subject.classSubjectId ?? 0,
-                        childId: widget.childId,
-                      );
+                  // context
+                  //     .read<SubjectAnnouncementCubit>()
+                  //     .fetchSubjectAnnouncement(
+                  //       useParentApi: context.read<AuthCubit>().isParent(),
+                  //       classSubjectId: widget.subject.classSubjectId ?? 0,
+                  //       childId: widget.childId,
+                  //     );
                 }
                 if (isLessonManagementModuleEnable()) {
                   context.read<SubjectLessonsCubit>().fetchSubjectLessons(
