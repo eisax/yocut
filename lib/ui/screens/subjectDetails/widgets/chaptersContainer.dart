@@ -180,11 +180,11 @@ class _ChaptersContainerState extends State<ChaptersContainer> {
           return ErrorContainer(
             errorMessageCode: state.errorMessage,
             onTapRetry: () {
-              context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-                    classSubjectId: widget.classSubjectId,
-                    useParentApi: context.read<AuthCubit>().isParent(),
-                    childId: widget.childId,
-                  );
+              // context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+              //       classSubjectId: widget.classSubjectId,
+              //       useParentApi: context.read<AuthCubit>().isParent(),
+              //       childId: widget.childId,
+              //     );
             },
           );
         }
