@@ -262,7 +262,7 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                     children: [
                       _selectedTabTitle == chaptersKey
                           ? ChaptersContainer(
-                              childId: widget,
+                              childId: 0,
                               classSubjectId:
                                   widget.subject.moduleId ?? 0,
                             )
