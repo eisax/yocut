@@ -274,7 +274,7 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                             classSubjectId: widget.subject.moduleId,
                           )
                           : AnnouncementContainer(
-                            classSubjectId: widget.subject.classSubjectId ?? 0,
+                            classSubjectId: widget.subject.moduleId ?? 0,
                             childId: widget.childId,
                           ),
                     ],
