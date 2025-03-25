@@ -100,11 +100,11 @@ class _AnnouncementContainerState extends State<AnnouncementContainer> {
           return ErrorContainer(
             errorMessageCode: state.errorMessage,
             onTapRetry: () {
-              context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-                    classSubjectId: widget.classSubjectId,
-                    useParentApi: context.read<AuthCubit>().isParent(),
-                    childId: widget.childId,
-                  );
+              // context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+              //       classSubjectId: widget.classSubjectId,
+              //       useParentApi: context.read<AuthCubit>().isParent(),
+              //       childId: widget.childId,
+              //     );
             },
           );
         }
