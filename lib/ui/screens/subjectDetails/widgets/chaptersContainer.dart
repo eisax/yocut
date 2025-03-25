@@ -16,7 +16,7 @@ import 'package:get/get.dart';
 
 class ChaptersContainer extends StatefulWidget {
   final String classSubjectId;
-  final int? childId;
+
   const ChaptersContainer(
       {super.key, required this.classSubjectId, this.childId});
 
