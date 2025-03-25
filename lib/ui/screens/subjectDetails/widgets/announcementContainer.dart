@@ -53,11 +53,11 @@ class _AnnouncementContainerState extends State<AnnouncementContainer> {
             child: CupertinoButton(
               child: Text(Utils.getTranslatedLabel(retryKey)),
               onPressed: () {
-                context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
-                      useParentApi: context.read<AuthCubit>().isParent(),
-                      classSubjectId: widget.classSubjectId,
-                      childId: widget.childId,
-                    );
+                // context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
+                //       useParentApi: context.read<AuthCubit>().isParent(),
+                //       classSubjectId: widget.classSubjectId,
+                //       childId: widget.childId,
+                //     );
               },
             ),
           ),
