@@ -264,7 +264,7 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                           ? ChaptersContainer(
                               childId: widget.childId,
                               classSubjectId:
-                                  widget.subject.classSubjectId ?? 0,
+                                  widget.subject. ?? 0,
                             )
                           : AnnouncementContainer(
                               classSubjectId:
