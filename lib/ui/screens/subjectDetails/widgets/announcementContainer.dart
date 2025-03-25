@@ -14,7 +14,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AnnouncementContainer extends StatefulWidget {
-  final int classSubjectId;
+  final String classSubjectId;
   final int? childId;
   const AnnouncementContainer(
       {super.key, required this.classSubjectId, this.childId});
