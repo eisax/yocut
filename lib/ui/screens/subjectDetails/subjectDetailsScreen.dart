@@ -93,22 +93,22 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
           );
       _selectedTabTitle = chaptersKey;
     } else {
-      if (isAnnouncementManagementModuleEnable()) {
-        context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-              useParentApi: context.read<AuthCubit>().isParent(),
-              classSubjectId: widget.subject.classSubjectId ?? 0,
-              childId: widget.childId,
-            );
-        _selectedTabTitle = announcementKey;
-      }
-      if (isLessonManagementModuleEnable()) {
-        context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-              classSubjectId: widget.subject.classSubjectId ?? 0,
-              useParentApi: context.read<AuthCubit>().isParent(),
-              childId: widget.childId,
-            );
-        _selectedTabTitle = chaptersKey;
-      }
+      // if (isAnnouncementManagementModuleEnable()) {
+      //   context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+      //         useParentApi: context.read<AuthCubit>().isParent(),
+      //         classSubjectId: widget.subject.classSubjectId ?? 0,
+      //         childId: widget.childId,
+      //       );
+      //   _selectedTabTitle = announcementKey;
+      // }
+      // if (isLessonManagementModuleEnable()) {
+      //   context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+      //         classSubjectId: widget.subject.classSubjectId ?? 0,
+      //         useParentApi: context.read<AuthCubit>().isParent(),
+      //         childId: widget.childId,
+      //       );
+      //   _selectedTabTitle = chaptersKey;
+      // }
     }
 
     
