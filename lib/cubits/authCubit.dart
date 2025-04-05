@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yocut/data/models/Student.dart';
+import 'package:yocut/data/models/guardian.dart';
+import 'package:yocut/data/models/student.dart';
 import 'package:yocut/data/repositories/authRepository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class AuthState extends Equatable {}
 
@@ -19,22 +20,19 @@ class Authenticated extends AuthState {
   final String jwtToken;
   final bool isStudent;
   final Student student;
-  // final Guardian parent;
+  final Guardian parent;
   final String schoolCode;
 
   Authenticated({
     required this.jwtToken,
     required this.isStudent,
     required this.student,
-    // required this.parent,
+    required this.parent,
     required this.schoolCode,
   });
 
   @override
-  List<Object?> get props => [jwtToken,
-  
-  //  parent,
-  student, isStudent];
+  List<Object?> get props => [jwtToken, parent, student, isStudent];
 }
 
 class AuthCubit extends Cubit<AuthState> {
@@ -46,19 +44,19 @@ class AuthCubit extends Cubit<AuthState> {
 
   void _checkIsAuthenticated() {
     if (authRepository.getIsLogIn()) {
-      // emit(
-      //   // Authenticated(
-      //   //   schoolCode: authRepository.schoolCode,
-      //   //   jwtToken: authRepository.getJwtToken(),
-      //   //   isStudent: AuthRepository.getIsStudentLogIn(),
-      //   //   // parent: AuthRepository.getIsStudentLogIn()
-      //   //   //     ? Guardian.fromJson({})
-      //   //   //     : AuthRepository.getParentDetails(),
-      //   //   student: AuthRepository.getIsStudentLogIn()
-      //   //       ? AuthRepository.getStudentDetails()
-      //   //       : Student.fromJson({}),
-      //   // ),
-      // );
+      emit(
+        Authenticated(
+          schoolCode: authRepository.schoolCode,
+          jwtToken: authRepository.getJwtToken(),
+          isStudent: AuthRepository.getIsStudentLogIn(),
+          parent: AuthRepository.getIsStudentLogIn()
+              ? Guardian.fromJson({})
+              : AuthRepository.getParentDetails(),
+          student: AuthRepository.getIsStudentLogIn()
+              ? AuthRepository.getStudentDetails()
+              : Student.fromJson({}),
+        ),
+      );
     } else {
       emit(Unauthenticated());
     }
@@ -68,16 +66,16 @@ class AuthCubit extends Cubit<AuthState> {
     required String schoolCode,
     required String jwtToken,
     required bool isStudent,
-    // required Guardian parent,
+    required Guardian parent,
     required Student student,
   }) {
     //
-    // authRepository.schoolCode = schoolCode;
-    // authRepository.setJwtToken(jwtToken);
-    // authRepository.setIsLogIn(true);
-    // authRepository.setIsStudentLogIn(isStudent);
-    // authRepository.setStudentDetails(student);
-    // authRepository.setParentDetails(parent);
+    authRepository.schoolCode = schoolCode;
+    authRepository.setJwtToken(jwtToken);
+    authRepository.setIsLogIn(true);
+    authRepository.setIsStudentLogIn(isStudent);
+    authRepository.setStudentDetails(student);
+    authRepository.setParentDetails(parent);
 
     //emit new state
     emit(
@@ -86,7 +84,7 @@ class AuthCubit extends Cubit<AuthState> {
         jwtToken: jwtToken,
         isStudent: isStudent,
         student: student,
-        // parent: parent,
+        parent: parent,
       ),
     );
   }
@@ -98,12 +96,12 @@ class AuthCubit extends Cubit<AuthState> {
     return Student.fromJson({});
   }
 
-  // Guardian getParentDetails() {
-  //   if (state is Authenticated) {
-  //     return (state as Authenticated).parent;
-  //   }
-  //   return Guardian.fromJson({});
-  // }
+  Guardian getParentDetails() {
+    if (state is Authenticated) {
+      return (state as Authenticated).parent;
+    }
+    return Guardian.fromJson({});
+  }
 
   bool isParent() {
     if (state is Authenticated) {
@@ -113,7 +111,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   void signOut() {
-    // authRepository.signOutUser();
+    authRepository.signOutUser();
     emit(Unauthenticated());
   }
 }

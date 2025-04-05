@@ -1,7 +1,6 @@
-
+import 'package:yocut/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:yocut/utils/constants.dart';
 
 /*
  change the effects to apply your own custom effects - only if you know about the flutter_animate package

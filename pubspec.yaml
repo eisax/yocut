@@ -14,8 +14,33 @@ dependencies:
   equatable: ^2.0.7
   flutter_animate: ^4.5.2
   flutter_svg: ^2.0.17
-  intl: ^0.20.2
+  intl: ^0.18.1
   lottie: ^3.3.1
+  google_fonts: ^6.2.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  dio: ^5.8.0+1
+  cached_network_image: ^3.4.1
+  image_picker: ^1.1.2
+  web_socket_channel: ^3.0.2
+  permission_handler: ^11.4.0
+  file_picker: ^9.2.1
+  flutter_tex: ^4.0.13
+  wakelock_plus: ^1.2.10
+  device_info_plus: ^11.3.3
+  timeago: ^3.7.0
+  pinch_zoom: ^2.0.0
+  readmore: ^3.0.0
+  youtube_player_flutter: ^9.1.1
+  video_player: ^2.9.3
+  dotted_border: ^2.1.0
+  url_launcher: ^6.3.1
+  table_calendar: ^3.0.9
+  flutter_widget_from_html: ^0.16.0
+  carousel_slider: ^5.0.0
+  shimmer: ^3.0.0
+  shared_preferences: ^2.5.2
+  
 
 dev_dependencies:
   flutter_test:
@@ -25,5 +50,8 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/languages/
     - assets/animations/
+    - assets/images/
+    - google_fonts/
 

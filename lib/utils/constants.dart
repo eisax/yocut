@@ -1,7 +1,3 @@
-
-
-//database urls
-//Please add your admin panel url here and make sure you do not add '/' at the end of the url
 import 'package:yocut/utils/labelKeys.dart';
 
 const String baseUrl = "";

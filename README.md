@@ -1,4 +1,4 @@
-# yocut
+# yocut app
 
 A new Flutter project.
 
