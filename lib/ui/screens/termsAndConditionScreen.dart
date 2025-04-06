@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TermsAndConditionScreen extends StatefulWidget {
-  const TermsAndConditionScreen({Key? key}) : super(key: key);
+  const TermsAndConditionScreen({super.key});
 
   @override
   State<TermsAndConditionScreen> createState() =>

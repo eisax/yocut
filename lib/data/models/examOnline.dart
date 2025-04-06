@@ -59,7 +59,7 @@ class ExamOnline {
       Subject? subject,
       String? totalMarks}) {
     return ExamOnline(
-      examStaus: examStaus ?? this.examStaus,
+      examStaus: examStaus ?? examStaus,
       subject: subject ?? this.subject,
       totalMarks: totalMarks ?? this.totalMarks,
       id: id ?? this.id,

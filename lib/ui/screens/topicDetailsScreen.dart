@@ -24,8 +24,7 @@ import 'package:get/get.dart';
 class TopicDetailsScreen extends StatefulWidget {
   final Topic topic;
   final int? childId;
-  const TopicDetailsScreen({Key? key, required this.topic, this.childId})
-      : super(key: key);
+  const TopicDetailsScreen({super.key, required this.topic, this.childId});
 
   @override
   State<TopicDetailsScreen> createState() => _TopicDetailsScreenState();

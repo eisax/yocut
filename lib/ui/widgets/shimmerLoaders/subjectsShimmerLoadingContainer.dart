@@ -3,7 +3,7 @@ import 'package:yocut/ui/widgets/shimmerLoadingContainer.dart';
 import 'package:flutter/material.dart';
 
 class SubjectsShimmerLoadingContainer extends StatelessWidget {
-  const SubjectsShimmerLoadingContainer({Key? key}) : super(key: key);
+  const SubjectsShimmerLoadingContainer({super.key});
 
   Widget _buildSubjectShimmerLoadingContainer({
     required BoxConstraints boxConstraints,

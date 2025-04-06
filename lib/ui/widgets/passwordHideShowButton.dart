@@ -7,11 +7,11 @@ class PasswordHideShowButton extends StatelessWidget {
   final Function onTap;
   final double? allSidePadding;
   const PasswordHideShowButton({
-    Key? key,
+    super.key,
     required this.hidePassword,
     required this.onTap,
     this.allSidePadding,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

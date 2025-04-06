@@ -14,11 +14,11 @@ class QuestionContainer extends StatelessWidget {
   final int? questionNumber;
 
   const QuestionContainer({
-    Key? key,
+    super.key,
     this.question,
     this.questionColor,
     this.questionNumber,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GuardianProfileContainer extends StatefulWidget {
-  const GuardianProfileContainer({Key? key}) : super(key: key);
+  const GuardianProfileContainer({super.key});
 
   @override
   State<GuardianProfileContainer> createState() =>

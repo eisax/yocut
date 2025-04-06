@@ -28,14 +28,14 @@ class TimeTableSlot {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['start_time'] = startTime;
-    _data['end_time'] = endTime;
-    _data['day'] = day;
-    _data['note'] = note;
-    _data['subject'] = subject.toJson();
-    _data['teacher_first_name'] = teacherFirstName;
-    _data['teacher_last_name'] = teacherLastName;
-    return _data;
+    final data = <String, dynamic>{};
+    data['start_time'] = startTime;
+    data['end_time'] = endTime;
+    data['day'] = day;
+    data['note'] = note;
+    data['subject'] = subject.toJson();
+    data['teacher_first_name'] = teacherFirstName;
+    data['teacher_last_name'] = teacherLastName;
+    return data;
   }
 }

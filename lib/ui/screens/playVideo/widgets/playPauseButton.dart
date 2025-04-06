@@ -8,12 +8,12 @@ class PlayPauseButtonContainer extends StatefulWidget {
   final VideoPlayerController? videoPlayerController;
   final YoutubePlayerController? youtubePlayerController;
   const PlayPauseButtonContainer({
-    Key? key,
+    super.key,
     this.youtubePlayerController,
     this.videoPlayerController,
     required this.isYoutubeVideo,
     required this.controlsAnimationController,
-  }) : super(key: key);
+  });
 
   @override
   State<PlayPauseButtonContainer> createState() =>

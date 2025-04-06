@@ -17,8 +17,7 @@ import 'package:get/get.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
-  const ChildTeachersScreen({Key? key, required this.childId})
-      : super(key: key);
+  const ChildTeachersScreen({super.key, required this.childId});
 
   @override
   State<ChildTeachersScreen> createState() => _ChildTeachersScreenState();

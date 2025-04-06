@@ -37,7 +37,7 @@ class DownloadFeeReceiptCubit extends Cubit<DownloadFeeReceiptState> {
 
       String filePath = "";
       final path = (await getApplicationDocumentsDirectory()).path;
-      filePath = "$path/Fees-Receipts/${childId}-${feeId}.pdf";
+      filePath = "$path/Fees-Receipts/$childId-$feeId.pdf";
 
       final File file = File(filePath);
 

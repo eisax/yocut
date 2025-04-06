@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TermsAndConditionAndPrivacyPolicyContainer extends StatelessWidget {
-  const TermsAndConditionAndPrivacyPolicyContainer({Key? key})
-      : super(key: key);
+  const TermsAndConditionAndPrivacyPolicyContainer({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(

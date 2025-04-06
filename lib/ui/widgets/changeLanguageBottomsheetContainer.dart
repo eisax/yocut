@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChangeLanguageBottomsheetContainer extends StatelessWidget {
-  const ChangeLanguageBottomsheetContainer({Key? key}) : super(key: key);
+  const ChangeLanguageBottomsheetContainer({super.key});
 
   Widget _buildAppLanguageTile({
     required AppLanguage appLanguage,

@@ -7,10 +7,10 @@ class AssignmentFilterBottomsheetContainer extends StatefulWidget {
   final AssignmentFilters initialAssignmentFilterValue;
   final Function changeAssignmentFilter;
   const AssignmentFilterBottomsheetContainer({
-    Key? key,
+    super.key,
     required this.initialAssignmentFilterValue,
     required this.changeAssignmentFilter,
-  }) : super(key: key);
+  });
 
   @override
   State<AssignmentFilterBottomsheetContainer> createState() =>

@@ -32,7 +32,7 @@ class SendMessageState {
 class SendMessageCubit extends Cubit<SendMessageState> {
   SendMessageCubit() : super(SendMessageState());
 
-  ChatRepository _chatRepository = ChatRepository();
+  final ChatRepository _chatRepository = ChatRepository();
 
   void sendMessage({
     required int receiverId,

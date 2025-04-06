@@ -59,7 +59,6 @@ class Installments extends StatelessWidget {
 
           double installmentAmount =
               (installment.minimumAmount ?? 0.0) - totalAdvancePaidAmount;
-          ;
 
           return Container(
             padding: EdgeInsets.symmetric(vertical: 7.5),

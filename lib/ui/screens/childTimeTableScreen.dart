@@ -7,8 +7,7 @@ import 'package:get/get.dart';
 
 class ChildTimeTableScreen extends StatelessWidget {
   final int childId;
-  const ChildTimeTableScreen({Key? key, required this.childId})
-      : super(key: key);
+  const ChildTimeTableScreen({super.key, required this.childId});
 
   static Widget routeInstance() {
     return BlocProvider<TimeTableCubit>(

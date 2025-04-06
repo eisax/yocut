@@ -38,7 +38,7 @@ class ChatUsersState {
 class ChatUsersCubit extends Cubit<ChatUsersState> {
   ChatUsersCubit() : super(ChatUsersState());
 
-  ChatRepository _chatRepository = ChatRepository();
+  final ChatRepository _chatRepository = ChatRepository();
 
   void fetchChatUsers({
     required ChatUserRole role,

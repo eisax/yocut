@@ -8,12 +8,12 @@ class CustomShimmerContainer extends StatelessWidget {
   final double? borderRadius;
   final EdgeInsetsGeometry? margin;
   const CustomShimmerContainer({
-    Key? key,
+    super.key,
     this.height,
     this.width,
     this.borderRadius,
     this.margin,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

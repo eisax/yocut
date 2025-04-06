@@ -33,7 +33,7 @@ class SelectElectiveSubjectsCubit extends Cubit<SelectElectiveSubjectsState> {
       classSubjectIds.addAll(electedSubjectGroups[key]!.toList());
     }
 
-    print("Class subject ids : ${classSubjectIds}");
+    print("Class subject ids : $classSubjectIds");
     return classSubjectIds;
   }
 

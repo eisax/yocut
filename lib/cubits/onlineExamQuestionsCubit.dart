@@ -70,13 +70,13 @@ class OnlineExamQuestionsCubit extends Cubit<OnlineExamQuestionsState> {
     marks.sort((first, second) => first.compareTo(second));
 
     //arrange questions from low to high mark
-    marks.forEach((questionMark) {
+    for (var questionMark in marks) {
       arrangedQuestions.addAll(
         questions
             .where((element) => (element.marks ?? 0).toString() == questionMark)
             .toList(),
       );
-    });
+    }
 
     return arrangedQuestions;
   }

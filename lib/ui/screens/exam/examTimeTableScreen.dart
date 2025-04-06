@@ -24,11 +24,11 @@ class ExamTimeTableScreen extends StatefulWidget {
   final String examName;
 
   const ExamTimeTableScreen({
-    Key? key,
+    super.key,
     this.childID,
     required this.examID,
     required this.examName,
-  }) : super(key: key);
+  });
 
   @override
   State<ExamTimeTableScreen> createState() => _ExamTimeTableState();

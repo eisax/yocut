@@ -330,8 +330,8 @@ class Utils {
           : "${Utils.getTranslatedLabel(tomorrowKey)}, $formattedTime";
     } else {
       date = fromResult
-          ? '${Utils.getTranslatedLabel(submittedKey)} : ${formattedDate}'
-          : '$formattedDate';
+          ? '${Utils.getTranslatedLabel(submittedKey)} : $formattedDate'
+          : formattedDate;
     }
     return date;
   }
@@ -429,7 +429,7 @@ class Utils {
         .enabledModules;
 
     //Module id will have "1" or "1#2".
-    final ids = moduleId.split("$moduleIdJoiner").toList();
+    final ids = moduleId.split(moduleIdJoiner).toList();
     if (ids.contains(defaultModuleId.toString())) {
       return true;
     }
@@ -479,17 +479,17 @@ class Utils {
 
 extension DateTimeExtension on DateTime {
   bool isSameDayAs(DateTime other) =>
-      this.day == other.day &&
-      this.month == other.month &&
-      this.year == other.year;
+      day == other.day &&
+      month == other.month &&
+      year == other.year;
 
   String get relativeFormatedDate {
     final today = DateTime.now();
     final yesterday = today.subtract(const Duration(days: 1));
 
-    if (this.isSameDayAs(today)) {
+    if (isSameDayAs(today)) {
       return "today";
-    } else if (this.isSameDayAs(yesterday)) {
+    } else if (isSameDayAs(yesterday)) {
       return "yesterday";
     } else {
       return intl.DateFormat('d MMMM yyyy').format(this);

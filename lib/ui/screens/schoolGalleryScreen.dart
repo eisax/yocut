@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 
 class SchoolGalleryScreen extends StatelessWidget {
   final Student student;
-  SchoolGalleryScreen({Key? key, required this.student}) : super(key: key);
+  const SchoolGalleryScreen({super.key, required this.student});
 
   static Widget routeInstance() {
     return MultiBlocProvider(

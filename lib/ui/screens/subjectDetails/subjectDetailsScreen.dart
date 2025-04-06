@@ -21,8 +21,7 @@ import 'package:get/get.dart';
 class SubjectDetailsScreen extends StatefulWidget {
   final Subject subject;
   final int? childId;
-  const SubjectDetailsScreen({Key? key, required this.subject, this.childId})
-      : super(key: key);
+  const SubjectDetailsScreen({super.key, required this.subject, this.childId});
 
   @override
   State<SubjectDetailsScreen> createState() => _SubjectDetailsScreenState();

@@ -6,10 +6,10 @@ class BottomsheetTopTitleAndCloseButton extends StatelessWidget {
   final String titleKey;
   final Function onTapCloseButton;
   const BottomsheetTopTitleAndCloseButton({
-    Key? key,
+    super.key,
     required this.onTapCloseButton,
     required this.titleKey,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -23,11 +23,9 @@ import 'package:yocut/ui/widgets/customTabBarContainer.dart';
 import 'package:yocut/ui/widgets/screenTopBackgroundContainer.dart';
 import 'package:yocut/ui/widgets/tabBarBackgroundContainer.dart';
 import 'package:yocut/utils/constants.dart';
-import 'package:yocut/utils/errorMessageKeysAndCodes.dart';
 import 'package:yocut/utils/labelKeys.dart';
 import 'package:yocut/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_stripe/flutter_stripe.dart';
@@ -40,9 +38,8 @@ import 'package:get/get.dart';
 class ChildFeeDetailsScreen extends StatefulWidget {
   final ChildFeeDetails childFeeDetails;
   final Student child;
-  ChildFeeDetailsScreen(
-      {Key? key, required this.childFeeDetails, required this.child})
-      : super(key: key);
+  const ChildFeeDetailsScreen(
+      {super.key, required this.childFeeDetails, required this.child});
 
   static Widget routeInstance() {
     final arguments = Get.arguments as Map<String, dynamic>;
@@ -68,7 +65,7 @@ class ChildFeeDetailsScreen extends StatefulWidget {
 
 class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
   late String _currentlySelectedTabKey = compulsoryTitleKey;
-  late List<int> _toPayOptionalFeeIds = [];
+  late final List<int> _toPayOptionalFeeIds = [];
   late bool _enablePayInInstallments = false;
   late bool showPendingTransactionDialog = true;
   late double _advanceAmount = 0;
@@ -553,7 +550,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                   Row(
                     children: [
                       Text(
-                        "${widget.childFeeDetails.currentInstallment().name ?? ''}",
+                        widget.childFeeDetails.currentInstallment().name ?? '',
                         style: getPaymentInfoTitleStyle(),
                       ),
                       const Spacer(),
@@ -942,7 +939,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                       Text("${Utils.getTranslatedLabel(dueDateKey)} "),
                       const Spacer(),
                       Text(
-                        "${widget.childFeeDetails.dueDate ?? '-'}",
+                        widget.childFeeDetails.dueDate ?? '-',
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.primary),
                       )
@@ -1034,7 +1031,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                   Row(
                     children: [
                       Text(
-                        "${Utils.getTranslatedLabel(paidOnKey)}",
+                        Utils.getTranslatedLabel(paidOnKey),
                       ),
                       const Spacer(),
                       Text(

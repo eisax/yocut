@@ -12,14 +12,14 @@ class OptionContainer extends StatefulWidget {
   final BoxConstraints constraints;
   final List<int> submittedAnswerIds;
 
-  OptionContainer({
-    Key? key,
+  const OptionContainer({
+    super.key,
     required this.constraints,
     required this.submitAnswer,
     required this.question,
     required this.answerOption,
     required this.submittedAnswerIds,
-  }) : super(key: key);
+  });
 
   @override
   State<OptionContainer> createState() => _OptionContainerState();

@@ -4,7 +4,7 @@ import 'package:yocut/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class FaqsScreen extends StatelessWidget {
-  const FaqsScreen({Key? key}) : super(key: key);
+  const FaqsScreen({super.key});
 
   static Widget routeInstance() {
     return const FaqsScreen();

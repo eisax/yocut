@@ -13,14 +13,14 @@ class ListItemForExamAndResult extends StatelessWidget {
   final VoidCallback onItemTap;
 
   const ListItemForExamAndResult({
-    Key? key,
+    super.key,
     required this.examStartingDate,
     required this.examName,
     required this.resultGrade,
     required this.resultPercentage,
     required this.onItemTap,
     required this.index,
-  }) : super(key: key);
+  });
 
   Widget _buildDetailsBackgroundContainer({
     required Widget child,

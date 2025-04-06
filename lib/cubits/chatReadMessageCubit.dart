@@ -6,7 +6,7 @@ enum ChatReadMessageStatus { initial, loading, success, failure }
 class ChatReadMessageCubit extends Cubit<ChatReadMessageStatus> {
   ChatReadMessageCubit() : super(ChatReadMessageStatus.initial);
 
-  ChatRepository _chatRepository = ChatRepository();
+  final ChatRepository _chatRepository = ChatRepository();
 
   void readMessage({required List<int> messagesIds}) async {
     emit(ChatReadMessageStatus.loading);

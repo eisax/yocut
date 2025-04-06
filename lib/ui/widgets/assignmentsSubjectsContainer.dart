@@ -15,12 +15,12 @@ class AssignmentsSubjectContainer extends StatefulWidget {
   final String cubitAndState;
 
   const AssignmentsSubjectContainer({
-    Key? key,
+    super.key,
     required this.subjects,
     required this.onTapSubject,
     required this.selectedClassSubjectId,
     required this.cubitAndState,
-  }) : super(key: key);
+  });
 
   @override
   State<AssignmentsSubjectContainer> createState() =>

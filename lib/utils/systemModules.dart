@@ -1,6 +1,7 @@
 ///
 ///[PLEASE DO NOT MODIFIED THIS MODULE IDS]
 ///
+library;
 
 const int studentManagementModuleId = 1;
 const int academicsManagementModuleId = 2;

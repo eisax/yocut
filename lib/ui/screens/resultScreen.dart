@@ -19,8 +19,7 @@ class ResultScreen extends StatelessWidget {
   final Result result;
   final int? childId;
 
-  const ResultScreen({Key? key, required this.result, this.childId})
-      : super(key: key);
+  const ResultScreen({super.key, required this.result, this.childId});
 
   static Widget routeInstance() {
     final arguments = Get.arguments as Map<String, dynamic>;
@@ -289,7 +288,7 @@ class ResultScreen extends StatelessWidget {
                       subjectMark: subjectMark,
                     ),
                   )
-                  .toList(),
+                  ,
               const SizedBox(
                 height: 10.0,
               ),

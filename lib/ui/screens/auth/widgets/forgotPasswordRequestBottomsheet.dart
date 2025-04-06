@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 
 class ForgotPasswordRequestBottomsheet extends StatefulWidget {
-  const ForgotPasswordRequestBottomsheet({Key? key}) : super(key: key);
+  const ForgotPasswordRequestBottomsheet({super.key});
 
   @override
   State<ForgotPasswordRequestBottomsheet> createState() =>

@@ -568,6 +568,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 );
               },
               child: CircleAvatar(
+                radius: 15.5,
+                backgroundColor: Theme.of(context).colorScheme.primary,
                 child: Transform.rotate(
                     transformHitTests: true,
                     angle: -pi / 2,
@@ -576,8 +578,6 @@ class _ChatScreenState extends State<ChatScreen> {
                       size: 20.0,
                       color: Theme.of(context).scaffoldBackgroundColor,
                     )),
-                radius: 15.5,
-                backgroundColor: Theme.of(context).colorScheme.primary,
               ),
             ),
             const SizedBox(width: 10),

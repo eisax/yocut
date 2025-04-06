@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ParentProfileScreen extends StatelessWidget {
-  const ParentProfileScreen({Key? key}) : super(key: key);
+  const ParentProfileScreen({super.key});
 
   static Widget routeInstance() {
     return const ParentProfileScreen();

@@ -21,7 +21,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 
 class SelectSubjectsScreen extends StatefulWidget {
-  const SelectSubjectsScreen({Key? key}) : super(key: key);
+  const SelectSubjectsScreen({super.key});
 
   @override
   State<SelectSubjectsScreen> createState() => _SelectSubjectsScreenState();
@@ -260,7 +260,7 @@ class _SelectSubjectsScreenState extends State<SelectSubjectsScreen> {
                   groupId: electiveSubjectGroup.id,
                 ),
               )
-              .toList()
+              
         ],
       ),
     );
@@ -285,7 +285,7 @@ class _SelectSubjectsScreenState extends State<SelectSubjectsScreen> {
             .read<ClassElectiveSubjectsCubit>()
             .getElectiveSubjectGroups()
             .map((e) => _buildElectiveSubjectGroup(electiveSubjectGroup: e))
-            .toList(),
+            ,
       ],
     );
   }

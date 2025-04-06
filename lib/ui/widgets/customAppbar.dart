@@ -10,12 +10,12 @@ class CustomAppBar extends StatelessWidget {
   final String? subTitle;
   final bool? showBackButton;
   const CustomAppBar({
-    Key? key,
+    super.key,
     this.onPressBackButton,
     required this.title,
     this.subTitle,
     this.showBackButton,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

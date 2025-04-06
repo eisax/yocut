@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SlidersContainer extends StatefulWidget {
   final List<SliderDetails> sliders;
-  const SlidersContainer({Key? key, required this.sliders}) : super(key: key);
+  const SlidersContainer({super.key, required this.sliders});
 
   @override
   State<SlidersContainer> createState() => _SlidersContainerState();
