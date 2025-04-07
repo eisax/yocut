@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 class GuardianDetailsContainer extends StatelessWidget {
   final Guardian guardian;
   const GuardianDetailsContainer({
-    Key? key,
+    super.key,
     required this.guardian,
-  }) : super(key: key);
+  });
 
   Widget _buildGuardianDetailsTitleAndValue({
     required String title,

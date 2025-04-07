@@ -16,10 +16,10 @@ class PlayVideoScreen extends StatefulWidget {
   final List<StudyMaterial> relatedVideos;
   final StudyMaterial currentlyPlayingVideo;
   const PlayVideoScreen({
-    Key? key,
+    super.key,
     required this.relatedVideos,
     required this.currentlyPlayingVideo,
-  }) : super(key: key);
+  });
 
   @override
   State<PlayVideoScreen> createState() => _PlayVideoScreenState();

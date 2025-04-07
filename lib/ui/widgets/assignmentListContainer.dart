@@ -25,14 +25,14 @@ class AssignmentListContainer extends StatelessWidget {
   final int isAssignmentSubmitted;
   final bool animateItems;
   const AssignmentListContainer({
-    Key? key,
+    super.key,
     required this.assignmentTabTitle,
     required this.currentSelectedSubjectId,
     this.childId,
     required this.selectedAssignmentFilter,
     required this.isAssignmentSubmitted,
     this.animateItems = true,
-  }) : super(key: key);
+  });
 
   Widget _buildShimmerLoadingAssignmentContainer(BuildContext context) {
     return Container(

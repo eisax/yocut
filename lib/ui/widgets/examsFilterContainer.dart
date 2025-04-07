@@ -7,10 +7,10 @@ class ExamFiltersContainer extends StatefulWidget {
   final int selectedExamFilterIndex;
 
   const ExamFiltersContainer({
-    Key? key,
+    super.key,
     required this.onTapSubject,
     required this.selectedExamFilterIndex,
-  }) : super(key: key);
+  });
 
   @override
   State<ExamFiltersContainer> createState() => _ExamFiltersContainerState();

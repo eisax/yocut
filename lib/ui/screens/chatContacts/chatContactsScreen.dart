@@ -17,7 +17,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class ChatContactsScreen extends StatefulWidget {
-  ChatContactsScreen({Key? key}) : super(key: key);
+  const ChatContactsScreen({super.key});
 
   static Widget routeInstance() {
     // final args = Get.arguments as Map<String, dynamic>;
@@ -89,8 +89,9 @@ class _ChatContactsScreenState extends State<ChatContactsScreen> {
 
                 if (state is UserChatHistoryFetchSuccess) {
                   /// if there are no chat contacts, show a message to start a new chat
-                  if (state.userChatHistory.chatContacts.isEmpty)
+                  if (state.userChatHistory.chatContacts.isEmpty) {
                     return _buildStartNewChat(context);
+                  }
 
                   /// if there are chat contacts, show the chat contacts
                   return BlocListener<SocketSettingCubit, SocketSettingState>(
@@ -121,7 +122,7 @@ class _ChatContactsScreenState extends State<ChatContactsScreen> {
                       children: [
                         ...state.userChatHistory.chatContacts
                             .map((contact) => _buildChatContact(contact))
-                            .toList(),
+                            ,
 
                         ///
                         if (state.loadMore)

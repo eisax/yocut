@@ -19,14 +19,14 @@ class ExamQuestionStatusBottomSheetContainer extends StatelessWidget {
   final Map<int, List<int>> submittedAnswers;
   final int onlineExamId;
 
-  ExamQuestionStatusBottomSheetContainer({
-    Key? key,
+  const ExamQuestionStatusBottomSheetContainer({
+    super.key,
     required this.pageController,
     required this.navigateToResultScreen,
     required this.submitOnlineExamAnswersCubit,
     required this.submittedAnswers,
     required this.onlineExamId,
-  }) : super(key: key);
+  });
 
   Widget buildQuestionAttemptedByMarksContainer({
     required BuildContext context,
@@ -206,7 +206,7 @@ class ExamQuestionStatusBottomSheetContainer extends StatelessWidget {
                     .read<OnlineExamQuestionsCubit>()
                     .getQuestionsByMark(questionMark),
               );
-            }).toList(),
+            }),
             const Divider(),
             const SizedBox(
               height: 5.0,

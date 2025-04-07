@@ -100,7 +100,7 @@ class _NewChatContactsScreenState extends State<NewChatContactsScreen> {
           value: currentStudent,
           items: children
               ?.map((student) =>
-                  DropdownMenuItem(child: Text('$student'), value: student))
+                  DropdownMenuItem(value: student, child: Text('$student')))
               .toList(),
           onChanged: (value) {
             if (value != currentStudent) {

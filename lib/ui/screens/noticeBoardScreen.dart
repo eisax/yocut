@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class NoticeBoardScreen extends StatelessWidget {
   final int? childId;
-  const NoticeBoardScreen({Key? key, this.childId}) : super(key: key);
+  const NoticeBoardScreen({super.key, this.childId});
 
   static Widget routeInstance() {
     return NoticeBoardScreen(

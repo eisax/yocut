@@ -10,8 +10,7 @@ import 'package:get/get.dart';
 
 class VideosContainer extends StatelessWidget {
   final List<StudyMaterial> studyMaterials;
-  const VideosContainer({Key? key, required this.studyMaterials})
-      : super(key: key);
+  const VideosContainer({super.key, required this.studyMaterials});
 
   Widget _buildVideoContainer({
     required StudyMaterial studyMaterial,

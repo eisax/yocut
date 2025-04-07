@@ -38,7 +38,6 @@ import 'package:yocut/ui/widgets/timetableContainer.dart';
 import 'package:yocut/utils/constants.dart';
 import 'package:yocut/utils/homeBottomsheetMenu.dart';
 import 'package:yocut/utils/labelKeys.dart';
-import 'package:yocut/utils/notificationUtility.dart';
 import 'package:yocut/utils/systemModules.dart';
 import 'package:yocut/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +49,7 @@ import '../../widgets/resultsContainer.dart';
 class HomeScreen extends StatefulWidget {
   static GlobalKey<HomeScreenState> homeScreenKey =
       GlobalKey<HomeScreenState>();
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => HomeScreenState();

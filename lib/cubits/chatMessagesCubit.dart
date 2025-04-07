@@ -25,7 +25,7 @@ class ChatMessagesFetchSuccess extends ChatMessagesState {
 class ChatMessagesCubit extends Cubit<ChatMessagesState> {
   ChatMessagesCubit() : super(ChatMessagesInitial());
 
-  ChatRepository _chatRepository = ChatRepository();
+  final ChatRepository _chatRepository = ChatRepository();
 
   void fetchChatMessages({required int receiverId, int page = 1}) async {
     emit(ChatMessagesFetchInProgress());

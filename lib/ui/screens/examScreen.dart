@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class ExamScreen extends StatelessWidget {
   final int? childId;
   final List<Subject>? subjects;
-  const ExamScreen({Key? key, this.childId, this.subjects}) : super(key: key);
+  const ExamScreen({super.key, this.childId, this.subjects});
 
   static Widget routeInstance() {
     final arguments = Get.arguments as Map<String, dynamic>;

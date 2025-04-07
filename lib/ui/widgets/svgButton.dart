@@ -9,13 +9,13 @@ class SvgButton extends StatelessWidget {
   final double? height;
 
   const SvgButton({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     required this.onTap,
     this.buttonColor,
     required this.svgIconUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

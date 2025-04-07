@@ -2,7 +2,7 @@ import 'package:yocut/ui/widgets/settingsContainer.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   static Widget routeInstance() {
     return const SettingsScreen();

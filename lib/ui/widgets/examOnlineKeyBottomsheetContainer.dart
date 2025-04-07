@@ -16,10 +16,10 @@ class ExamOnlineKeyBottomsheetContainer extends StatefulWidget {
   final ExamOnline exam;
   final Function navigateToExamScreen;
   const ExamOnlineKeyBottomsheetContainer({
-    Key? key,
+    super.key,
     required this.exam,
     required this.navigateToExamScreen,
-  }) : super(key: key);
+  });
 
   @override
   ExamOnlineKeyBottomsheetContainerState createState() =>

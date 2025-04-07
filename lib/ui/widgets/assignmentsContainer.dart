@@ -30,9 +30,9 @@ class AssignmentsContainer extends StatefulWidget {
   //If it is just for background showing purpose then it will not reactive or not making any api call
   final bool isForBottomMenuBackground;
   const AssignmentsContainer({
-    Key? key,
+    super.key,
     required this.isForBottomMenuBackground,
-  }) : super(key: key);
+  });
 
   @override
   State<AssignmentsContainer> createState() => _AssignmentsContainerState();

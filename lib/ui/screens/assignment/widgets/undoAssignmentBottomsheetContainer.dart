@@ -10,9 +10,9 @@ import 'package:get/route_manager.dart';
 class UndoAssignmentBottomsheetContainer extends StatefulWidget {
   final int assignmentSubmissionId;
   const UndoAssignmentBottomsheetContainer({
-    Key? key,
+    super.key,
     required this.assignmentSubmissionId,
-  }) : super(key: key);
+  });
 
   @override
   State<UndoAssignmentBottomsheetContainer> createState() =>

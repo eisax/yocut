@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class SubjectCodeContainer extends StatelessWidget {
   final String subjectCode;
-  const SubjectCodeContainer({Key? key, required this.subjectCode})
-      : super(key: key);
+  const SubjectCodeContainer({super.key, required this.subjectCode});
 
   @override
   Widget build(BuildContext context) {

@@ -8,13 +8,13 @@ class CustomTextFieldContainer extends StatelessWidget {
   final Widget? suffixWidget;
   final TextEditingController? textEditingController;
   const CustomTextFieldContainer({
-    Key? key,
+    super.key,
     this.bottomPadding,
     this.suffixWidget,
     required this.hideText,
     required this.hintTextKey,
     this.textEditingController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

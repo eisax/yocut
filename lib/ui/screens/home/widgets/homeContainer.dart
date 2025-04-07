@@ -24,8 +24,7 @@ class HomeContainer extends StatefulWidget {
 
   //If it is just for background showing purpose then it will not reactive or not making any api call
   final bool isForBottomMenuBackground;
-  const HomeContainer({Key? key, required this.isForBottomMenuBackground})
-      : super(key: key);
+  const HomeContainer({super.key, required this.isForBottomMenuBackground});
 
   @override
   State<HomeContainer> createState() => _HomeContainerState();

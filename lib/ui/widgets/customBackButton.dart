@@ -8,11 +8,11 @@ class CustomBackButton extends StatelessWidget {
   final double? topPadding;
   final AlignmentDirectional? alignmentDirectional;
   const CustomBackButton({
-    Key? key,
+    super.key,
     this.onTap,
     this.topPadding,
     this.alignmentDirectional,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

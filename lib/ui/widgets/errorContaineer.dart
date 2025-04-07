@@ -18,7 +18,7 @@ class ErrorContainer extends StatelessWidget {
   final Color? retryButtonTextColor;
   final bool animate;
   const ErrorContainer({
-    Key? key,
+    super.key,
     required this.errorMessageCode,
     this.errorMessageColor,
     this.errorMessageFontSize,
@@ -28,7 +28,7 @@ class ErrorContainer extends StatelessWidget {
     this.retryButtonTextColor,
     this.showRetryButton,
     this.animate = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

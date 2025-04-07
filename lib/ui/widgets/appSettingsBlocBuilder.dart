@@ -9,8 +9,7 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 class AppSettingsBlocBuilder extends StatelessWidget {
   final String appSettingsType;
 
-  const AppSettingsBlocBuilder({Key? key, required this.appSettingsType})
-      : super(key: key);
+  const AppSettingsBlocBuilder({super.key, required this.appSettingsType});
 
   @override
   Widget build(BuildContext context) {

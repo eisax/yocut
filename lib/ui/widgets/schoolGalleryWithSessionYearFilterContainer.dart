@@ -163,7 +163,7 @@ class _SchoolGalleryWithSessionYearFilterContainerState
                                   "sessionYear": selectedSessionYear
                                 });
                               },
-                              child: Container(
+                              child: SizedBox(
                                 width: MediaQuery.of(context).size.width,
                                 height: 175,
                                 child: ClipRRect(

@@ -7,11 +7,11 @@ class BorderedProfilePictureContainer extends StatelessWidget {
   final Function? onTap;
   final double heightAndWidth;
   const BorderedProfilePictureContainer({
-    Key? key,
+    super.key,
     required this.imageUrl,
     required this.heightAndWidth,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

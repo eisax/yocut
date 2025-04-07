@@ -7,8 +7,7 @@ import 'package:get/get.dart';
 
 class ChildAttendanceScreen extends StatelessWidget {
   final int childId;
-  const ChildAttendanceScreen({Key? key, required this.childId})
-      : super(key: key);
+  const ChildAttendanceScreen({super.key, required this.childId});
 
   static Widget routeInstance() {
     return BlocProvider<AttendanceCubit>(

@@ -15,7 +15,7 @@ class SubjectImageContainer extends StatelessWidget {
   final bool showShadow;
   final bool animate;
   const SubjectImageContainer({
-    Key? key,
+    super.key,
     this.border,
     required this.showShadow,
     required this.height,
@@ -23,7 +23,7 @@ class SubjectImageContainer extends StatelessWidget {
     required this.subject,
     required this.width,
     this.animate = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

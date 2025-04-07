@@ -22,10 +22,10 @@ class ChildAssignmentsScreen extends StatefulWidget {
   final int childId;
   final List<Subject> subjects;
   const ChildAssignmentsScreen({
-    Key? key,
+    super.key,
     required this.childId,
     required this.subjects,
-  }) : super(key: key);
+  });
 
   @override
   State<ChildAssignmentsScreen> createState() => _ChildAssignmentsScreenState();

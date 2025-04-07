@@ -38,7 +38,7 @@ class DownloadStudentResultCubit extends Cubit<DownloadStudentResultState> {
 
       String filePath = "";
       final path = (await getApplicationDocumentsDirectory()).path;
-      filePath = "$path/Results/${childId}-${examId}.pdf";
+      filePath = "$path/Results/$childId-$examId.pdf";
 
       final File file = File(filePath);
 

@@ -18,11 +18,11 @@ class SchoolDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['school_name'] = this.schoolName;
-    data['school_tagline'] = this.schoolTagline;
-    data['school_logo'] = this.schoolLogo;
-    data['school_images'] = this.schoolImages;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['school_name'] = schoolName;
+    data['school_tagline'] = schoolTagline;
+    data['school_logo'] = schoolLogo;
+    data['school_images'] = schoolImages;
     return data;
   }
 }

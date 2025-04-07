@@ -13,10 +13,10 @@ class DownloadFileBottomsheetContainer extends StatefulWidget {
   final bool storeInExternalStorage;
 
   const DownloadFileBottomsheetContainer({
-    Key? key,
+    super.key,
     required this.studyMaterial,
     required this.storeInExternalStorage,
-  }) : super(key: key);
+  });
 
   @override
   State<DownloadFileBottomsheetContainer> createState() =>

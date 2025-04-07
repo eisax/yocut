@@ -8,10 +8,10 @@ class ExamTimerContainer extends StatefulWidget {
   final int examDurationInMinutes;
   final Function navigateToResultScreen;
   const ExamTimerContainer({
-    Key? key,
+    super.key,
     required this.examDurationInMinutes,
     required this.navigateToResultScreen,
-  }) : super(key: key);
+  });
 
   @override
   ExamTimerContainerState createState() => ExamTimerContainerState();

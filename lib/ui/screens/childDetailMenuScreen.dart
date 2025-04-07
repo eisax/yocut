@@ -20,10 +20,10 @@ class ChildDetailMenuScreen extends StatefulWidget {
   final Student student;
   final List<Subject> subjectsForFilter;
   const ChildDetailMenuScreen({
-    Key? key,
+    super.key,
     required this.student,
     required this.subjectsForFilter,
-  }) : super(key: key);
+  });
 
   @override
   ChildDetailMenuScreenState createState() => ChildDetailMenuScreenState();

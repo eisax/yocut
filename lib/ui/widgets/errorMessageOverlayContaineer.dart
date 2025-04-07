@@ -5,10 +5,10 @@ class ErrorMessageOverlayContainer extends StatefulWidget {
   final String errorMessage;
   final Color backgroundColor;
   const ErrorMessageOverlayContainer({
-    Key? key,
+    super.key,
     required this.errorMessage,
     required this.backgroundColor,
-  }) : super(key: key);
+  });
 
   @override
   State<ErrorMessageOverlayContainer> createState() =>

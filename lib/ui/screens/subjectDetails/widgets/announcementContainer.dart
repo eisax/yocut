@@ -17,8 +17,7 @@ class AnnouncementContainer extends StatefulWidget {
   final int classSubjectId;
   final int? childId;
   const AnnouncementContainer(
-      {Key? key, required this.classSubjectId, this.childId})
-      : super(key: key);
+      {super.key, required this.classSubjectId, this.childId});
 
   @override
   State<AnnouncementContainer> createState() => _AnnouncementContainerState();

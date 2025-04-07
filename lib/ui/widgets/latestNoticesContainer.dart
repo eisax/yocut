@@ -15,10 +15,10 @@ class LatestNoticiesContainer extends StatelessWidget {
   final bool animate;
   final int? childId;
   const LatestNoticiesContainer({
-    Key? key,
+    super.key,
     this.animate = true,
     this.childId,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -6,8 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class DownloadFileButton extends StatelessWidget {
   final StudyMaterial studyMaterial;
-  const DownloadFileButton({Key? key, required this.studyMaterial})
-      : super(key: key);
+  const DownloadFileButton({super.key, required this.studyMaterial});
 
   @override
   Widget build(BuildContext context) {

@@ -32,7 +32,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 
 class ExamOnlineScreen extends StatefulWidget {
   final ExamOnline exam;
-  const ExamOnlineScreen({Key? key, required this.exam}) : super(key: key);
+  const ExamOnlineScreen({super.key, required this.exam});
 
   @override
   ExamOnlineScreenState createState() => ExamOnlineScreenState();
@@ -59,7 +59,7 @@ class ExamOnlineScreenState extends State<ExamOnlineScreen>
   bool isSubmissionInProgress = false;
 
   int currentQuestionIndex = 0;
-  Map<int, List<int>> _selectedAnswersWithQuestionId = {};
+  final Map<int, List<int>> _selectedAnswersWithQuestionId = {};
 
   Timer? canGiveExamAgainTimer;
   bool canGiveExamAgain = true;
@@ -386,7 +386,7 @@ class ExamOnlineScreenState extends State<ExamOnlineScreen>
                             submitAnswer: submitQuestionAnswer,
                           ),
                         )
-                        .toList(),
+                        ,
                   ],
                 ),
               );

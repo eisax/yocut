@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionsScreen extends StatefulWidget {
-  const TransactionsScreen({Key? key}) : super(key: key);
+  const TransactionsScreen({super.key});
 
   static Widget routeInstance() {
     return MultiBlocProvider(
@@ -138,7 +138,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                           height: 5.0,
                         ),
                         Text(
-                          "${transaction.school?.name ?? '-'}",
+                          transaction.school?.name ?? '-',
                           style: TextStyle(fontSize: 15),
                         ),
                         Row(

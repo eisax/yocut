@@ -10,7 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class LogoutButton extends StatelessWidget {
-  const LogoutButton({Key? key}) : super(key: key);
+  const LogoutButton({super.key});
 
   void showLogOutDialog(BuildContext context) {
     Get.dialog(

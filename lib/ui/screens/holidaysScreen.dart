@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 class HolidaysScreen extends StatelessWidget {
   final int? childId;
-  const HolidaysScreen({Key? key, this.childId}) : super(key: key);
+  const HolidaysScreen({super.key, this.childId});
 
   static Widget routeInstance() {
     return BlocProvider<HolidaysCubit>(

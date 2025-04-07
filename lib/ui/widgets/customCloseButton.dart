@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomCloseButton extends StatelessWidget {
   final Function onTapCloseButton;
-  const CustomCloseButton({Key? key, required this.onTapCloseButton})
-      : super(key: key);
+  const CustomCloseButton({super.key, required this.onTapCloseButton});
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,7 @@ class CustomRoundedButton extends StatelessWidget {
 
   //if child pass then button title will be ignored
   const CustomRoundedButton({
-    Key? key,
+    super.key,
     required this.widthPercentage,
     required this.backgroundColor,
     this.textAlign,
@@ -36,7 +36,7 @@ class CustomRoundedButton extends StatelessWidget {
     this.titleColor,
     this.fontWeight,
     this.textSize,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class CustomRoundedButton extends StatelessWidget {
           width: MediaQuery.of(context).size.width * widthPercentage,
           child: child ??
               Text(
-                "${Utils.getTranslatedLabel(buttonTitle ?? '')}",
+                Utils.getTranslatedLabel(buttonTitle ?? ''),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: textAlign,
