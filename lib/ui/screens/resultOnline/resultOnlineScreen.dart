@@ -23,12 +23,12 @@ class ResultOnlineScreen extends StatefulWidget {
   final String examName, subjectName;
   final int? childId;
   const ResultOnlineScreen({
-    Key? key,
+    super.key,
     required this.examId,
     required this.examName,
     required this.subjectName,
     this.childId,
-  }) : super(key: key);
+  });
 
   @override
   ResultOnlineScreenState createState() => ResultOnlineScreenState();

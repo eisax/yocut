@@ -4,7 +4,7 @@ import 'package:yocut/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class AnnouncementShimmerLoadingContainer extends StatelessWidget {
-  const AnnouncementShimmerLoadingContainer({Key? key}) : super(key: key);
+  const AnnouncementShimmerLoadingContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -8,13 +8,13 @@ class CustomTabBarContainer extends StatelessWidget {
   final String titleKey;
   final Function onTap;
   const CustomTabBarContainer({
-    Key? key,
+    super.key,
     required this.boxConstraints,
     required this.alignment,
     required this.isSelected,
     required this.onTap,
     required this.titleKey,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

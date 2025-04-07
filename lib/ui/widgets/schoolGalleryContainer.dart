@@ -59,7 +59,7 @@ class SchoolGalleryContainer extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 height: 220,
                 child: ListView.builder(
                     padding: EdgeInsets.symmetric(
@@ -76,7 +76,7 @@ class SchoolGalleryContainer extends StatelessWidget {
                               .withValues(alpha: 0.65));
                       return Padding(
                         padding: EdgeInsetsDirectional.only(end: 20),
-                        child: Container(
+                        child: SizedBox(
                           width: 145,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,8 +92,9 @@ class SchoolGalleryContainer extends StatelessWidget {
                                             .sessionYear
                                       });
                                 },
-                                child: Container(
+                                child: SizedBox(
                                   width: 145,
+                                  height: 145,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(
                                         Utils.bottomSheetTopRadius),
@@ -105,7 +106,6 @@ class SchoolGalleryContainer extends StatelessWidget {
                                             fit: BoxFit.cover,
                                           ),
                                   ),
-                                  height: 145,
                                 ),
                               ),
                               const SizedBox(

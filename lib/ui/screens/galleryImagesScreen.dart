@@ -13,9 +13,8 @@ import '../widgets/studyMaterialWithDownloadButtonContainer.dart';
 class GalleryImagesScreen extends StatefulWidget {
   final List<GalleryFile> images;
   final int currentImageIndex;
-  GalleryImagesScreen(
-      {Key? key, required this.currentImageIndex, required this.images})
-      : super(key: key);
+  const GalleryImagesScreen(
+      {super.key, required this.currentImageIndex, required this.images});
 
   static Widget routeInstance() {
     final arguments = Get.arguments as Map<String, dynamic>;
@@ -72,7 +71,7 @@ class _GalleryImagesScreenState extends State<GalleryImagesScreen> {
                           padding: EdgeInsets.only(
                               top: MediaQuery.of(context).size.height *
                                   (Utils.appBarSmallerHeightPercentage)),
-                          child: Container(
+                          child: SizedBox(
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height * 0.4,
                             child: PinchZoom(

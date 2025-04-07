@@ -18,8 +18,7 @@ class ChaptersContainer extends StatefulWidget {
   final int classSubjectId;
   final int? childId;
   const ChaptersContainer(
-      {Key? key, required this.classSubjectId, this.childId})
-      : super(key: key);
+      {super.key, required this.classSubjectId, this.childId});
 
   @override
   State<ChaptersContainer> createState() => _ChaptersContainerState();

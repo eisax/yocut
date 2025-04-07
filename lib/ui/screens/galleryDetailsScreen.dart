@@ -16,9 +16,8 @@ class GalleryDetailsScreen extends StatefulWidget {
   final Gallery gallery;
   final SessionYear sessionYear;
 
-  GalleryDetailsScreen(
-      {Key? key, required this.gallery, required this.sessionYear})
-      : super(key: key);
+  const GalleryDetailsScreen(
+      {super.key, required this.gallery, required this.sessionYear});
 
   static Widget routeInstance() {
     final arguments = Get.arguments as Map<String, dynamic>;
@@ -143,6 +142,8 @@ class _GalleryDetailsScreenState extends State<GalleryDetailsScreen> {
                         borderRadius: BorderRadius.circular(
                           Utils.bottomSheetTopRadius,
                         )),
+                    width: boxConstraints.maxWidth * (0.48),
+                    height: boxConstraints.maxWidth * (0.48),
                     child: galleryFile.isSvgImage()
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(
@@ -152,8 +153,6 @@ class _GalleryDetailsScreenState extends State<GalleryDetailsScreen> {
                                 fit: BoxFit.cover),
                           )
                         : null,
-                    width: boxConstraints.maxWidth * (0.48),
-                    height: boxConstraints.maxWidth * (0.48),
                   ),
                 ))
             .toList(),

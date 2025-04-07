@@ -11,8 +11,7 @@ import 'package:get/get.dart';
 class TopicsContainer extends StatelessWidget {
   final List<Topic> topics;
   final int? childId;
-  const TopicsContainer({Key? key, required this.topics, this.childId})
-      : super(key: key);
+  const TopicsContainer({super.key, required this.topics, this.childId});
 
   Widget _buildTopicDetailsContainer({
     required Topic topic,

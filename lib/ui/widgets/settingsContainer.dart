@@ -19,7 +19,7 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsContainer extends StatelessWidget {
-  const SettingsContainer({Key? key}) : super(key: key);
+  const SettingsContainer({super.key});
 
   Future<void> _shareApp(BuildContext context) async {
     final appUrl = context.read<AppConfigurationCubit>().getAppLink();

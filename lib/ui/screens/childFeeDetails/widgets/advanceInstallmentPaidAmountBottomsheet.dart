@@ -52,7 +52,7 @@ class AdvanceInstallmentPaidAmountBottomsheet extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  "${currencySymbol}${totalAdvancePaidAmount.toStringAsFixed(2)}",
+                  "$currencySymbol${totalAdvancePaidAmount.toStringAsFixed(2)}",
                   style: TextStyle(
                       fontSize: 16.0,
                       color: Theme.of(context).colorScheme.primary),
@@ -83,7 +83,7 @@ class AdvanceInstallmentPaidAmountBottomsheet extends StatelessWidget {
                         const Divider(),
                       ],
                     ))
-                .toList(),
+                ,
           ],
         ),
       ),

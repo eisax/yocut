@@ -6,11 +6,11 @@ class ScreenTopBackgroundContainer extends StatelessWidget {
   final double? heightPercentage;
   final EdgeInsets? padding;
   const ScreenTopBackgroundContainer({
-    Key? key,
+    super.key,
     this.child,
     this.heightPercentage,
     this.padding,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

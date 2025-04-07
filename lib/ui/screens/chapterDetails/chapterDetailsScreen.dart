@@ -13,8 +13,7 @@ class ChapterDetailsScreen extends StatefulWidget {
   final Lesson lesson;
 
   final int? childId;
-  const ChapterDetailsScreen({Key? key, required this.lesson, this.childId})
-      : super(key: key);
+  const ChapterDetailsScreen({super.key, required this.lesson, this.childId});
 
   @override
   State<ChapterDetailsScreen> createState() => _ChapterDetailsScreenState();

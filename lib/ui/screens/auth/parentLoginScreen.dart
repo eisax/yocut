@@ -18,7 +18,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class ParentLoginScreen extends StatefulWidget {
-  const ParentLoginScreen({Key? key}) : super(key: key);
+  const ParentLoginScreen({super.key});
 
   @override
   State<ParentLoginScreen> createState() => _ParentLoginScreenState();

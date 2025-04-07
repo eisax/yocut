@@ -15,9 +15,9 @@ class UploadAssignmentFilesBottomsheetContainer extends StatefulWidget {
   final Assignment assignment;
 
   const UploadAssignmentFilesBottomsheetContainer({
-    Key? key,
+    super.key,
     required this.assignment,
-  }) : super(key: key);
+  });
 
   @override
   State<UploadAssignmentFilesBottomsheetContainer> createState() =>
@@ -206,7 +206,7 @@ class _UploadAssignmentFilesBottomsheetContainerState
               ),
               ...List.generate(uploadedFiles.length, (index) => index)
                   .map((fileIndex) => _buildUploadedFileContainer(fileIndex))
-                  .toList(),
+                  ,
               uploadedFiles.isEmpty
                   ? const SizedBox()
                   : SizedBox(

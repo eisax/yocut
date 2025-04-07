@@ -22,10 +22,10 @@ class SubjectWiseDetailedReport extends StatefulWidget {
   final Subject subject;
   final int? childId;
   const SubjectWiseDetailedReport({
-    Key? key,
+    super.key,
     required this.subject,
     this.childId,
-  }) : super(key: key);
+  });
 
   @override
   SubjectWiseDetailedReportState createState() =>

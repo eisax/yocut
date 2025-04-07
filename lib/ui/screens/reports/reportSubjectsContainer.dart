@@ -17,8 +17,7 @@ import 'package:get/get.dart';
 class ReportSubjectsContainer extends StatefulWidget {
   final int? childId;
   final List<Subject>? subjects;
-  const ReportSubjectsContainer({Key? key, this.childId, this.subjects})
-      : super(key: key);
+  const ReportSubjectsContainer({super.key, this.childId, this.subjects});
 
   @override
   ReportSubjectsContainerState createState() => ReportSubjectsContainerState();

@@ -15,7 +15,7 @@ import 'package:get/get.dart';
 
 class ChildFeesScreen extends StatefulWidget {
   final Student child;
-  ChildFeesScreen({Key? key, required this.child}) : super(key: key);
+  const ChildFeesScreen({super.key, required this.child});
 
   static Widget routeInstance() {
     return ChildFeesScreen(

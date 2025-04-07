@@ -16,7 +16,7 @@ class Schooldetailsfetch {
 
       return schoolDetails;
     } catch (e, st) {
-      print("this is School details error : ${st}");
+      print("this is School details error : $st");
       throw ApiException(e.toString());
     }
   }

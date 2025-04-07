@@ -10,7 +10,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 
 class FilesContainer extends StatefulWidget {
   final List<StudyMaterial> files;
-  const FilesContainer({Key? key, required this.files}) : super(key: key);
+  const FilesContainer({super.key, required this.files});
 
   @override
   State<FilesContainer> createState() => _FilesContainerState();

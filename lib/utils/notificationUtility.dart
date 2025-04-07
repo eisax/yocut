@@ -3,16 +3,9 @@ import 'dart:async';
 // import 'package:awesome_notifications/awesome_notifications.dart';
 
 import 'package:yocut/app/routes.dart';
-import 'package:yocut/data/models/notificationDetails.dart';
-import 'package:yocut/data/repositories/authRepository.dart';
-import 'package:yocut/data/repositories/notificationRepository.dart';
 import 'package:yocut/ui/screens/home/homeScreeen.dart';
-import 'package:yocut/utils/constants.dart';
-import 'package:yocut/utils/hiveBoxKeys.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 // ignore: avoid_classes_with_only_static_members

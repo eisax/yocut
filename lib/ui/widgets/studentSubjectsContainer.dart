@@ -13,13 +13,13 @@ class StudentSubjectsContainer extends StatelessWidget {
   final bool showReport;
   final bool animate;
   const StudentSubjectsContainer({
-    Key? key,
+    super.key,
     this.childId,
     required this.subjects,
     required this.subjectsTitleKey,
     this.showReport = false,
     this.animate = true,
-  }) : super(key: key);
+  });
 
   Widget _buildSubjectContainer({
     required BoxConstraints boxConstraints,

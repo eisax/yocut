@@ -5,11 +5,11 @@ class ChangeCalendarMonthButton extends StatelessWidget {
   final bool isDisable;
   final bool isNextButton;
   const ChangeCalendarMonthButton({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.isDisable,
     required this.isNextButton,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

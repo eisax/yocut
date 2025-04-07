@@ -23,7 +23,7 @@ class BottomNavItemContainer extends StatefulWidget {
   final Function onTap;
   final String showCaseDescription;
   const BottomNavItemContainer({
-    Key? key,
+    super.key,
     required this.boxConstraints,
     required this.currentIndex,
     required this.showCaseDescription,
@@ -31,7 +31,7 @@ class BottomNavItemContainer extends StatefulWidget {
     required this.animationController,
     required this.onTap,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   State<BottomNavItemContainer> createState() => _BottomNavItemContainerState();

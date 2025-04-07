@@ -9,12 +9,12 @@ class VideoControlsContainer extends StatefulWidget {
   final YoutubePlayerController? youtubePlayerController;
   final VideoPlayerController? videoPlayerController;
   const VideoControlsContainer({
-    Key? key,
+    super.key,
     required this.isYoutubeVideo,
     this.videoPlayerController,
     required this.controlsAnimationController,
     this.youtubePlayerController,
-  }) : super(key: key);
+  });
 
   @override
   State<VideoControlsContainer> createState() => _VideoControlsContainerState();

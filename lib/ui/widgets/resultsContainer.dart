@@ -34,8 +34,7 @@ class ResultsContainer extends StatefulWidget {
   final int? childId;
   final List<Subject>? subjects;
 
-  const ResultsContainer({Key? key, this.childId, this.subjects})
-      : super(key: key);
+  const ResultsContainer({super.key, this.childId, this.subjects});
 
   @override
   State<ResultsContainer> createState() => _ResultsContainerState();

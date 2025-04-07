@@ -9,8 +9,7 @@ class NoDataContainer extends StatelessWidget {
   final String titleKey;
   final bool animate;
   const NoDataContainer(
-      {Key? key, this.textColor, required this.titleKey, this.animate = true})
-      : super(key: key);
+      {super.key, this.textColor, required this.titleKey, this.animate = true});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ enum ChatDeleteMessageStatus { initial, loading, success, failure }
 class ChatDeleteMessageCubit extends Cubit<ChatDeleteMessageStatus> {
   ChatDeleteMessageCubit() : super(ChatDeleteMessageStatus.initial);
 
-  ChatRepository _chatRepository = ChatRepository();
+  final ChatRepository _chatRepository = ChatRepository();
 
   void deleteMessage({required List<int> messagesIds}) async {
     emit(ChatDeleteMessageStatus.loading);

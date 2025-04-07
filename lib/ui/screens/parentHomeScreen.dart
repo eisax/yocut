@@ -16,7 +16,6 @@ import 'package:yocut/ui/widgets/screenTopBackgroundContainer.dart';
 import 'package:yocut/ui/widgets/svgButton.dart';
 import 'package:yocut/utils/animationConfiguration.dart';
 import 'package:yocut/utils/labelKeys.dart';
-import 'package:yocut/utils/notificationUtility.dart';
 import 'package:yocut/utils/systemModules.dart';
 import 'package:yocut/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class ParentHomeScreen extends StatefulWidget {
-  const ParentHomeScreen({Key? key}) : super(key: key);
+  const ParentHomeScreen({super.key});
 
   @override
   State<ParentHomeScreen> createState() => _ParentHomeScreenState();

@@ -18,7 +18,7 @@ import 'package:get/get.dart';
 class StudentProfileScreen extends StatefulWidget {
   final int? childId;
 
-  const StudentProfileScreen({Key? key, this.childId}) : super(key: key);
+  const StudentProfileScreen({super.key, this.childId});
 
   @override
   State<StudentProfileScreen> createState() => _StudentProfileScreenState();
@@ -313,7 +313,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                           iconUrl: Utils.getImagePath("info_pro_icon.svg"),
                         ),
                       )
-                      .toList(),
+                      ,
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.1),
                   ),

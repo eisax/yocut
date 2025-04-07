@@ -15,7 +15,7 @@ class ListItemForOnlineExamAndOnlineResult extends StatelessWidget {
   final bool isExamStarted;
 
   const ListItemForOnlineExamAndOnlineResult({
-    Key? key,
+    super.key,
     required this.examStartingDate,
     this.examEndingDate,
     required this.examName,
@@ -25,7 +25,7 @@ class ListItemForOnlineExamAndOnlineResult extends StatelessWidget {
     required this.isExamStarted,
     required this.subjectName,
     this.isSubjectSelected = false,
-  }) : super(key: key);
+  });
 
   bool get isForResult => marks.isNotEmpty;
 

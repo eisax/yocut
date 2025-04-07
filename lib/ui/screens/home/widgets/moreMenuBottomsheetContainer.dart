@@ -14,10 +14,10 @@ class MoreMenuBottomsheetContainer extends StatelessWidget {
   final Function onTapMoreMenuItemContainer;
   final Function closeBottomMenu;
   const MoreMenuBottomsheetContainer({
-    Key? key,
+    super.key,
     required this.onTapMoreMenuItemContainer,
     required this.closeBottomMenu,
-  }) : super(key: key);
+  });
 
   Widget _buildMoreMenuContainer(
       {required BuildContext context,

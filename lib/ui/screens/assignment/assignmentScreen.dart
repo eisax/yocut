@@ -18,8 +18,7 @@ import 'package:get/route_manager.dart';
 
 class AssignmentScreen extends StatefulWidget {
   final Assignment assignment;
-  const AssignmentScreen({Key? key, required this.assignment})
-      : super(key: key);
+  const AssignmentScreen({super.key, required this.assignment});
 
   @override
   State<AssignmentScreen> createState() => _AssignmentScreenState();
@@ -449,7 +448,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                       studyMaterial: studyMaterial,
                     ),
                   )
-                  .toList(),
+                  ,
             ],
           );
         },
@@ -484,7 +483,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                       studyMaterial: studyMaterial,
                     ),
                   )
-                  .toList(),
+                  ,
             ],
           );
         },

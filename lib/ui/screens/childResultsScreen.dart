@@ -11,10 +11,10 @@ class ChildResultsScreen extends StatelessWidget {
   final int childId;
   final List<Subject>? subjects;
   const ChildResultsScreen({
-    Key? key,
+    super.key,
     required this.childId,
     required this.subjects,
-  }) : super(key: key);
+  });
 
   static Widget routeInstance() {
     final arguments = Get.arguments as Map<String, dynamic>;

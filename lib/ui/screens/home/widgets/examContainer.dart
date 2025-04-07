@@ -16,8 +16,7 @@ import '../../../widgets/customBackButton.dart';
 class ExamContainer extends StatelessWidget {
   final int? childId;
   final List<Subject>? subjects;
-  const ExamContainer({Key? key, this.childId, this.subjects})
-      : super(key: key);
+  const ExamContainer({super.key, this.childId, this.subjects});
 
   Widget _buildAppBar(
     BuildContext context,

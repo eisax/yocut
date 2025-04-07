@@ -6,8 +6,7 @@ import 'package:timeago/timeago.dart' as timeago;
 
 class AnnouncementDetailsContainer extends StatelessWidget {
   final Announcement announcement;
-  const AnnouncementDetailsContainer({Key? key, required this.announcement})
-      : super(key: key);
+  const AnnouncementDetailsContainer({super.key, required this.announcement});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class AnnouncementDetailsContainer extends StatelessWidget {
                       studyMaterial: studyMaterial,
                     ),
                   )
-                  .toList(),
+                  ,
               SizedBox(
                 height: announcement.files.isNotEmpty ? 0 : 5,
               ),

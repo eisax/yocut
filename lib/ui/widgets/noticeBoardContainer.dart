@@ -20,8 +20,7 @@ class NoticeBoardContainer extends StatefulWidget {
   final bool showBackButton;
   final int? childId;
   const NoticeBoardContainer(
-      {Key? key, required this.showBackButton, this.childId})
-      : super(key: key);
+      {super.key, required this.showBackButton, this.childId});
 
   @override
   State<NoticeBoardContainer> createState() => _NoticeBoardContainerState();

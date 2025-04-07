@@ -19,7 +19,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 class HolidaysContainer extends StatefulWidget {
   final int? childId;
-  const HolidaysContainer({Key? key, this.childId}) : super(key: key);
+  const HolidaysContainer({super.key, this.childId});
 
   @override
   State<HolidaysContainer> createState() => _HolidaysContainerState();

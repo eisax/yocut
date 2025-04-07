@@ -19,7 +19,7 @@ import 'package:flutter_svg/svg.dart';
 
 class TimeTableContainer extends StatefulWidget {
   final int? childId;
-  const TimeTableContainer({Key? key, this.childId}) : super(key: key);
+  const TimeTableContainer({super.key, this.childId});
 
   @override
   State<TimeTableContainer> createState() => _TimeTableContainerState();

@@ -14,7 +14,6 @@ import 'package:yocut/data/repositories/assignmentRepository.dart';
 import 'package:yocut/data/repositories/feeRepository.dart';
 import 'package:yocut/data/repositories/resultRepository.dart';
 import 'package:yocut/data/repositories/schoolRepository.dart';
-import 'package:yocut/firebase_options.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +107,7 @@ class GlobalScrollBehavior extends ScrollBehavior {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();

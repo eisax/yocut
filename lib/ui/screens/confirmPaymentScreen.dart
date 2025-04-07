@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class ConfirmPaymentScreen extends StatefulWidget {
-  ConfirmPaymentScreen({Key? key}) : super(key: key);
+  const ConfirmPaymentScreen({super.key});
 
   static Widget routeInstance() {
     return ConfirmPaymentScreen();

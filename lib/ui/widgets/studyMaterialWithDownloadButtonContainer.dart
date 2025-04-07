@@ -8,10 +8,10 @@ class StudyMaterialWithDownloadButtonContainer extends StatelessWidget {
   final BoxConstraints boxConstraints;
   final StudyMaterial studyMaterial;
   const StudyMaterialWithDownloadButtonContainer({
-    Key? key,
+    super.key,
     required this.boxConstraints,
     required this.studyMaterial,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

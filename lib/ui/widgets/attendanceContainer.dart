@@ -16,7 +16,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 class AttendanceContainer extends StatefulWidget {
   final int? childId;
-  const AttendanceContainer({Key? key, this.childId}) : super(key: key);
+  const AttendanceContainer({super.key, this.childId});
 
   @override
   State<AttendanceContainer> createState() => _AttendanceContainerState();

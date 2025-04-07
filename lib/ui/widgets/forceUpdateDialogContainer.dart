@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ForceUpdateDialogContainer extends StatelessWidget {
-  const ForceUpdateDialogContainer({Key? key}) : super(key: key);
+  const ForceUpdateDialogContainer({super.key});
 
   Widget _buildUpdateButton(BuildContext context) {
     return CupertinoButton(

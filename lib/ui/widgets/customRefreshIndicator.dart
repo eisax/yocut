@@ -5,11 +5,11 @@ class CustomRefreshIndicator extends StatelessWidget {
   final Function onRefreshCallback;
   final double displacment;
   const CustomRefreshIndicator({
-    Key? key,
+    super.key,
     required this.child,
     required this.displacment,
     required this.onRefreshCallback,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

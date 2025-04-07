@@ -28,8 +28,7 @@ class ExamOnlineListContainer extends StatefulWidget {
   final int? childId;
   final List<Subject>? subjects;
 
-  const ExamOnlineListContainer({Key? key, this.childId, this.subjects})
-      : super(key: key);
+  const ExamOnlineListContainer({super.key, this.childId, this.subjects});
 
   @override
   State<ExamOnlineListContainer> createState() =>

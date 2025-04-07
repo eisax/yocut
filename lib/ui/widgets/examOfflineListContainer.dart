@@ -19,7 +19,7 @@ import 'package:get/get.dart';
 class ExamOfflineListContainer extends StatefulWidget {
   final int? childId;
 
-  const ExamOfflineListContainer({Key? key, this.childId}) : super(key: key);
+  const ExamOfflineListContainer({super.key, this.childId});
 
   @override
   State<ExamOfflineListContainer> createState() =>
