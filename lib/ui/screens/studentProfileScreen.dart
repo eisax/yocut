@@ -164,7 +164,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
               height: 5.0,
             ),
             Text(
-              "${Utils.getTranslatedLabel(grNumberKey)} - ${studentDetails.admissionNo}",
+              "${Utils.getTranslatedLabel(regNumberKey)} - ${studentDetails.admissionNo}",
               style: TextStyle(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontSize: 12.0,
