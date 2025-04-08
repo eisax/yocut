@@ -1,6 +1,6 @@
 import 'package:yocut/utils/labelKeys.dart';
 
-const String baseUrl = "";
+const String baseUrl = "https://elearning.cut.ac.zw";
 
 const String databaseUrl = "$baseUrl/api/";
 

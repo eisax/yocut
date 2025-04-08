@@ -12,7 +12,7 @@ class AppConfigurationInitial extends AppConfigurationState {}
 class AppConfigurationFetchInProgress extends AppConfigurationState {}
 
 class AppConfigurationFetchSuccess extends AppConfigurationState {
-  final AppConfiguration appConfiguration;
+  final bool appConfiguration;
 
   AppConfigurationFetchSuccess({required this.appConfiguration});
 }
@@ -27,22 +27,28 @@ class AppConfigurationCubit extends Cubit<AppConfigurationState> {
   final SystemRepository _systemRepository;
 
   AppConfigurationCubit(this._systemRepository)
-      : super(AppConfigurationInitial());
+    : super(AppConfigurationInitial());
 
   Future<void> fetchAppConfiguration() async {
     emit(AppConfigurationFetchInProgress());
     try {
-      final appConfiguration = AppConfiguration.fromJson(
-        await _systemRepository.fetchSettings(type: "app_settings") ?? {},
-      );
+      bool appConfiguration = await _systemRepository.isBaseUrlReachable();
 
-      emit(AppConfigurationFetchSuccess(appConfiguration: appConfiguration));
+      appConfiguration
+          ? emit(
+            AppConfigurationFetchSuccess(appConfiguration: appConfiguration),
+          )
+          : emit(
+            AppConfigurationFetchFailure(
+              "Failed to load network, server might be down",
+            ),
+          );
     } catch (e) {
       emit(AppConfigurationFetchFailure(e.toString()));
     }
   }
 
-  AppConfiguration getAppConfiguration() {
+  Object getAppConfiguration() {
     if (state is AppConfigurationFetchSuccess) {
       return (state as AppConfigurationFetchSuccess).appConfiguration;
     }
@@ -51,39 +57,39 @@ class AppConfigurationCubit extends Cubit<AppConfigurationState> {
 
   String getAppLink() {
     if (state is AppConfigurationFetchSuccess) {
-      return Platform.isIOS
-          ? getAppConfiguration().iosAppLink
-          : getAppConfiguration().appLink;
+      // return Platform.isIOS
+      //     ? getAppConfiguration().iosAppLink
+      //     : getAppConfiguration().appLink;
     }
     return "";
   }
 
   String getAppVersion() {
     if (state is AppConfigurationFetchSuccess) {
-      return Platform.isIOS
-          ? getAppConfiguration().iosAppVersion
-          : getAppConfiguration().appVersion;
+      // return Platform.isIOS
+      //     ? getAppConfiguration().iosAppVersion
+      //     : getAppConfiguration().appVersion;
     }
     return "";
   }
 
   bool appUnderMaintenance() {
     if (state is AppConfigurationFetchSuccess) {
-      return getAppConfiguration().appMaintenance == "1";
+      // return getAppConfiguration().appMaintenance == "1";
     }
     return false;
   }
 
   bool forceUpdate() {
     if (state is AppConfigurationFetchSuccess) {
-      return getAppConfiguration().forceAppUpdate == "1";
+      // return getAppConfiguration().forceAppUpdate == "1";
     }
     return false;
   }
 
   String getFileSizeLimit() {
     if (state is AppConfigurationFetchSuccess) {
-      return getAppConfiguration().fileUploadSizeLimit;
+      // return getAppConfiguration().fileUploadSizeLimit;
     }
     return "";
   }
