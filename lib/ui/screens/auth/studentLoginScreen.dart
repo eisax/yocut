@@ -26,9 +26,7 @@ class StudentLoginScreen extends StatefulWidget {
   static Widget routeInstance() {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SignInCubit>(
-          create: (_) => SignInCubit(AuthRepository()),
-        ),
+        BlocProvider<SignInCubit>(create: (_) => SignInCubit(AuthRepository())),
       ],
       child: const StudentLoginScreen(),
     );
@@ -42,16 +40,20 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
     duration: const Duration(milliseconds: 1000),
   );
 
-  late final Animation<double> _patterntAnimation =
-      Tween<double>(begin: 0.0, end: 1.0).animate(
+  late final Animation<double> _patterntAnimation = Tween<double>(
+    begin: 0.0,
+    end: 1.0,
+  ).animate(
     CurvedAnimation(
       parent: _animationController,
       curve: const Interval(0.0, 0.5, curve: Curves.easeInOut),
     ),
   );
 
-  late final Animation<double> _formAnimation =
-      Tween<double>(begin: 0.0, end: 1.0).animate(
+  late final Animation<double> _formAnimation = Tween<double>(
+    begin: 0.0,
+    end: 1.0,
+  ).animate(
     CurvedAnimation(
       parent: _animationController,
       curve: const Interval(0.5, 1.0, curve: Curves.easeInOut),
@@ -60,15 +62,13 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
 
   final TextEditingController _regNumberTextEditingController =
       TextEditingController(
-          text: showDefaultCredentials
-              ? defaultStudentregNumber
-              : null); //default regNumber
+        text: showDefaultCredentials ? defaultStudentregNumber : null,
+      ); //default regNumber
 
   final TextEditingController _passwordTextEditingController =
       TextEditingController(
-          text: showDefaultCredentials
-              ? defaultStudentPassword
-              : null); //default password
+        text: showDefaultCredentials ? defaultStudentPassword : null,
+      ); //default password
 
   final _schoolCodeController = TextEditingController(
     text: showDefaultCredentials ? defaultSchoolCode : null,
@@ -121,11 +121,11 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
     }
 
     context.read<SignInCubit>().signInUser(
-          userId: _regNumberTextEditingController.text.trim(),
-          password: _passwordTextEditingController.text.trim(),
-          schoolCode: _schoolCodeController.text.trim(),
-          isStudentLogin: true,
-        );
+      userId: _regNumberTextEditingController.text.trim(),
+      password: _passwordTextEditingController.text.trim(),
+      schoolCode: _schoolCodeController.text.trim(),
+      isStudentLogin: true,
+    );
   }
 
   Widget _buildRequestResetPasswordContainer() {
@@ -138,7 +138,7 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
             Utils.showBottomSheet(
               child: BlocProvider(
                 create: (_) => RequestResetPasswordCubit(AuthRepository()),
-              child: const RequestResetPasswordBottomsheet(),
+                child: const RequestResetPasswordBottomsheet(),
               ),
               context: context,
             ).then((value) {
@@ -171,7 +171,10 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
           position: _patterntAnimation.drive(
             Tween<Offset>(begin: const Offset(0.0, -1.0), end: Offset.zero),
           ),
-          child: Image.asset(Utils.getImagePath("upper_pattern.png")),
+          child: Image.asset(
+            Utils.getImagePath("upper_pattern.png"),
+            color: Utils.getColorScheme(context).primary,
+          ),
         ),
       ),
     );
@@ -186,7 +189,10 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
           position: _patterntAnimation.drive(
             Tween<Offset>(begin: const Offset(0.0, 1.0), end: Offset.zero),
           ),
-          child: Image.asset(Utils.getImagePath("lower_pattern.png")),
+          child: Image.asset(
+            Utils.getImagePath("lower_pattern.png"),
+            color: Utils.getColorScheme(context).primary,
+          ),
         ),
       ),
     );
@@ -223,9 +229,7 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                       color: Utils.getColorScheme(context).secondary,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
+                  const SizedBox(height: 10.0),
                   Text(
                     "${Utils.getTranslatedLabel(welcomeBackKey)}, \n${Utils.getTranslatedLabel(youHaveBeenMissedKey)}",
                     style: TextStyle(
@@ -262,9 +266,7 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
+                  const SizedBox(height: 30.0),
                   CustomTextFieldContainer(
                     textEditingController: _passwordTextEditingController,
                     suffixWidget: PasswordHideShowButton(
@@ -287,20 +289,23 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                         if (state is SignInSuccess) {
                           //
                           context.read<AuthCubit>().authenticateUser(
-                                schoolCode: state.schoolCode,
-                                jwtToken: state.jwtToken,
-                                isStudent: state.isStudentLogIn,
-                                parent: state.parent,
-                                student: state.student,
-                              );
+                            schoolCode: state.schoolCode,
+                            jwtToken: state.jwtToken,
+                            isStudent: state.isStudentLogIn,
+                            parent: state.parent,
+                            student: state.student,
+                          );
 
-                          Get.offNamedUntil(Routes.studentOnbording,
-                              (Route<dynamic> route) => false);
+                          Get.offNamedUntil(
+                            Routes.studentOnbording,
+                            (Route<dynamic> route) => false,
+                          );
                         } else if (state is SignInFailure) {
                           Utils.showCustomSnackBar(
                             context: context,
-                            errorMessage:
-                                Utils.getTranslatedLabel(state.errorMessage),
+                            errorMessage: Utils.getTranslatedLabel(
+                              state.errorMessage,
+                            ),
                             backgroundColor:
                                 Theme.of(context).colorScheme.error,
                           );
@@ -322,19 +327,18 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                           buttonTitle: Utils.getTranslatedLabel(signInKey),
                           titleColor: Theme.of(context).scaffoldBackgroundColor,
                           showBorder: false,
-                          child: state is SignInInProgress
-                              ? const CustomCircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  widthAndHeight: 20,
-                                )
-                              : null,
+                          child:
+                              state is SignInInProgress
+                                  ? const CustomCircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    widthAndHeight: 20,
+                                  )
+                                  : null,
                         );
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: 20.0,
-                  ),
+                  const SizedBox(height: 20.0),
                   // BlocBuilder<SignInCubit, SignInState>(
                   //   builder: (context, state) {
                   //     return Center(
