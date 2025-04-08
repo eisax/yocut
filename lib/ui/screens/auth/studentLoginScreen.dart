@@ -236,13 +236,13 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                   ),
 
                   /// School code field
-                  const SizedBox(height: 30.0),
-                  CustomTextFieldContainer(
-                    hideText: false,
-                    hintTextKey: Utils.getTranslatedLabel("schoolCode"),
-                    bottomPadding: 0,
-                    textEditingController: _schoolCodeController,
-                  ),
+                  // const SizedBox(height: 30.0),
+                  // CustomTextFieldContainer(
+                  //   hideText: false,
+                  //   hintTextKey: Utils.getTranslatedLabel("schoolCode"),
+                  //   bottomPadding: 0,
+                  //   textEditingController: _schoolCodeController,
+                  // ),
 
                   /// GR number field
                   const SizedBox(height: 30.0),
