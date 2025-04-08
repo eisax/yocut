@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
+    
       context.read<AppConfigurationCubit>().fetchAppConfiguration();
     });
   }
