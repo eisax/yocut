@@ -202,12 +202,15 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
       },
       child: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        body: Stack(
-          children: [
-            _buildLottieAnimation(),
-            _buildBottomMenu(),
-          ],
-        ),
+        body:Center(
+          child:Text("Hey")
+        )
+        // body: Stack(
+        //   children: [
+        //     _buildLottieAnimation(),
+        //     _buildBottomMenu(),
+        //   ],
+        // ),
       ),
     );
   }

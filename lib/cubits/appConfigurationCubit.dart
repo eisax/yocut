@@ -30,7 +30,7 @@ class AppConfigurationCubit extends Cubit<AppConfigurationState> {
       : super(AppConfigurationInitial());
 
   Future<void> fetchAppConfiguration() async {
-    emit(AppConfigurationFetchInProgress());
+    // emit(AppConfigurationFetchInProgress());
     try {
       // final appConfiguration = AppConfiguration.fromJson(
       //   await _systemRepository.fetchSettings(type: "app_settings") ?? {},
