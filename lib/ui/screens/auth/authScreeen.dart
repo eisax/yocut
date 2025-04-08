@@ -116,10 +116,7 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
                                     MediaQuery.of(context).size.width * (0.1),
                               ),
                               child: Text(
-                                context
-                                    .read<AppConfigurationCubit>()
-                                    .getAppConfiguration()
-                                    .tagline,
+                                "Welcome To YoCut Digital, One Stop App for Your Needs",
                                 textAlign: TextAlign.center,
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
@@ -147,23 +144,23 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
                                   "${Utils.getTranslatedLabel(loginAsKey)} ${Utils.getTranslatedLabel(studentKey)}",
                               showBorder: false,
                             ),
-                            SizedBox(
-                              height: boxConstraints.maxHeight * (0.04),
-                            ),
-                            CustomRoundedButton(
-                              onTap: () {
-                                Get.toNamed(Routes.parentLogin);
-                              },
-                              widthPercentage: 0.8,
-                              backgroundColor:
-                                  Theme.of(context).scaffoldBackgroundColor,
-                              buttonTitle:
-                                  "${Utils.getTranslatedLabel(loginAsKey)} ${Utils.getTranslatedLabel(parentKey)}",
-                              titleColor: Utils.getColorScheme(context).primary,
-                              showBorder: true,
-                              borderColor:
-                                  Utils.getColorScheme(context).primary,
-                            ),
+                            // SizedBox(
+                            //   height: boxConstraints.maxHeight * (0.04),
+                            // ),
+                            // CustomRoundedButton(
+                            //   onTap: () {
+                            //     Get.toNamed(Routes.parentLogin);
+                            //   },
+                            //   widthPercentage: 0.8,
+                            //   backgroundColor:
+                            //       Theme.of(context).scaffoldBackgroundColor,
+                            //   buttonTitle:
+                            //       "Login as Lecturer",
+                            //   titleColor: Utils.getColorScheme(context).primary,
+                            //   showBorder: true,
+                            //   borderColor:
+                            //       Utils.getColorScheme(context).primary,
+                            // ),
                           ],
                         );
                       },
@@ -202,6 +199,7 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
       },
       child: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,
+        
         body: Stack(
           children: [
             _buildLottieAnimation(),

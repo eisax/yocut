@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
+    
       context.read<AppConfigurationCubit>().fetchAppConfiguration();
     });
   }
@@ -75,8 +76,8 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: SvgPicture.asset(
-                  Utils.getImagePath("appLogo.svg"),
+                child: Image.asset(
+                  Utils.getImagePath("appLogo.png"),
                 ),
               ),
             ),
