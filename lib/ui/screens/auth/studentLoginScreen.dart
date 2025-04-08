@@ -70,9 +70,9 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
         text: showDefaultCredentials ? defaultStudentPassword : null,
       ); //default password
 
-  final _schoolCodeController = TextEditingController(
-    text: showDefaultCredentials ? defaultSchoolCode : null,
-  );
+  // final _schoolCodeController = TextEditingController(
+  //   text: showDefaultCredentials ? defaultSchoolCode : null,
+  // );
 
   bool _hidePassword = true;
 
@@ -91,16 +91,16 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
   }
 
   void _signInStudent() {
-    if (_schoolCodeController.text.trim().isEmpty) {
-      Utils.showCustomSnackBar(
-        context: context,
-        errorMessage: Utils.getTranslatedLabel(
-          Utils.getTranslatedLabel("pleaseEnterSchoolCode"),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.error,
-      );
-      return;
-    }
+    // if (_schoolCodeController.text.trim().isEmpty) {
+    //   Utils.showCustomSnackBar(
+    //     context: context,
+    //     errorMessage: Utils.getTranslatedLabel(
+    //       Utils.getTranslatedLabel("pleaseEnterSchoolCode"),
+    //     ),
+    //     backgroundColor: Theme.of(context).colorScheme.error,
+    //   );
+    //   return;
+    // }
 
     if (_regNumberTextEditingController.text.trim().isEmpty) {
       Utils.showCustomSnackBar(
@@ -123,7 +123,7 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
     context.read<SignInCubit>().signInUser(
       userId: _regNumberTextEditingController.text.trim(),
       password: _passwordTextEditingController.text.trim(),
-      schoolCode: _schoolCodeController.text.trim(),
+      schoolCode: "",
       isStudentLogin: true,
     );
   }

@@ -55,7 +55,7 @@ class Api {
   //
   ///[Student app apis]
   //
-  static String studentLogin = "${databaseUrl}student/login";
+  static String studentLogin = "$baseUrl/portal/index.php/portal/login/authenticate";
   static String studentProfile = "${databaseUrl}student/get-profile-data";
   static String studentSubjects = "${databaseUrl}student/subjects";
   //get subjects of given class
@@ -181,8 +181,10 @@ class Api {
   }) async {
     try {
       final Dio dio = Dio();
-      final FormData formData =
-          FormData.fromMap(body, ListFormat.multiCompatible);
+      final FormData formData = FormData.fromMap(
+        body,
+        ListFormat.multiCompatible,
+      );
       if (kDebugMode) {
         print("API Called POST: $url with $body");
         print("Body Params: $body");

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:yocut/data/models/credentials.dart';
 import 'package:yocut/data/models/guardian.dart';
 import 'package:yocut/data/models/student.dart';
 import 'package:yocut/data/repositories/authRepository.dart';
@@ -60,35 +61,38 @@ class SignInCubit extends Cubit<SignInState> {
 
     try {
       late Map<String, dynamic> result;
+      late Credentials? loginResponse;
 
-      
       if (isStudentLogin) {
-        result = await _authRepository.signInStudent(
+        // result = await _authRepository.signInStudent(
+        //   regNumber: userId,
+        //   schoolCode: schoolCode,
+        //   password: password,
+        // );loginUser
+
+        loginResponse = await _authRepository.loginUser(
           regNumber: userId,
-          schoolCode: schoolCode,
           password: password,
         );
-
-        print(result);
+       
       } else {
         result = await _authRepository.signInParent(
           email: userId,
-          schoolCode: schoolCode,
+          schoolCode: "",
           password: password,
         );
       }
 
       emit(
         SignInSuccess(
-          schoolCode: schoolCode,
-          jwtToken: result['jwtToken'],
+          schoolCode: "",
+          jwtToken: loginResponse?.token ?? "",
           isStudentLogIn: isStudentLogin,
           student: isStudentLogin ? result['student'] : Student.fromJson({}),
           parent: isStudentLogin ? Guardian.fromJson({}) : result['parent'],
         ),
       );
     } catch (e) {
-      
       emit(SignInFailure(e.toString()));
     }
   }

@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
+import 'package:yocut/data/models/credentials.dart';
 import 'package:yocut/data/models/guardian.dart';
 import 'package:yocut/data/models/student.dart';
 import 'package:yocut/utils/api.dart';
+import 'package:yocut/utils/constants.dart';
 import 'package:yocut/utils/hiveBoxKeys.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
@@ -83,7 +86,7 @@ class AuthRepository {
         "password": password,
         "school_code": schoolCode,
         "gr_number": regNumber,
-        "fcm_id": "testnull"
+        "fcm_id": "testnull",
       };
 
       final result = await Api.post(
@@ -98,7 +101,7 @@ class AuthRepository {
       return {
         "jwtToken": result['token'],
         "schoolCode": school['code'],
-        "student": Student.fromJson(Map.from(result['data']))
+        "student": Student.fromJson(Map.from(result['data'])),
       };
     } catch (e) {
       if (kDebugMode) {
@@ -107,6 +110,54 @@ class AuthRepository {
 
       throw ApiException(e.toString());
     }
+  }
+
+  Future<Credentials?> loginUser({
+    required String regNumber,
+    required String password,
+    String login = 'Login',
+  }) async {
+    final Dio dio = Dio(
+      BaseOptions(
+        connectTimeout: Duration(seconds: 30),
+        receiveTimeout: Duration(seconds: 30),
+        followRedirects: false, // Important to catch the 302 redirect
+        validateStatus: (status) => status != null && status < 400,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'text/html,application/xhtml+xml,application/xml',
+          'User-Agent': 'Mozilla/5.0 (compatible; DartApp/1.0)',
+        },
+      ),
+    );
+
+    try {
+      final response = await dio.post(
+        Api.studentLogin,
+        data: FormData.fromMap({
+          'username': regNumber,
+          'password': password,
+          'login': login,
+        }),
+      );
+
+      if (response.statusCode == 302 &&
+          response.headers.value('location') != null) {
+        final redirectUrl = response.headers.value('location')!;
+
+        if (redirectUrl.contains('login?e=1')) {
+          return null;
+        }
+
+        final parts = redirectUrl.split('/');
+        final extractedUsername = parts[parts.length - 2];
+        final token = parts.last;
+
+        return Credentials(regNumber: extractedUsername, token: token);
+      } else {
+        return null;
+      }
+    } catch (e) {}
   }
 
   Future<Map<String, dynamic>> signInParent({
@@ -124,27 +175,31 @@ class AuthRepository {
         "fcm_id": "testnull",
       };
 
-      final result =
-          await Api.post(body: body, url: Api.parentLogin, useAuthToken: false);
+      final result = await Api.post(
+        body: body,
+        url: Api.parentLogin,
+        useAuthToken: false,
+      );
 
       return {
         "jwtToken": result['token'],
-        "parent": Guardian.fromJson(Map.from(result['data'] ?? {}))
+        "parent": Guardian.fromJson(Map.from(result['data'] ?? {})),
       };
     } catch (e) {
       throw ApiException(e.toString());
     }
   }
 
-  Future<void> resetPasswordRequest(
-      {required String regNumber,
-      required DateTime dob,
-      required String schoolCode}) async {
+  Future<void> resetPasswordRequest({
+    required String regNumber,
+    required DateTime dob,
+    required String schoolCode,
+  }) async {
     try {
       final body = {
         "school_code": schoolCode,
         "gr_no": regNumber,
-        "dob": DateFormat('yyyy-MM-dd').format(dob)
+        "dob": DateFormat('yyyy-MM-dd').format(dob),
       };
       await Api.post(
         body: body,
@@ -165,7 +220,7 @@ class AuthRepository {
       final body = {
         "current_password": currentPassword,
         "new_password": newPassword,
-        "new_confirm_password": newConfirmedPassword
+        "new_confirm_password": newConfirmedPassword,
       };
       await Api.post(body: body, url: Api.changePassword, useAuthToken: true);
     } catch (e) {
@@ -173,13 +228,12 @@ class AuthRepository {
     }
   }
 
-  Future<void> forgotPassword(
-      {required String email, required String schoolCode}) async {
+  Future<void> forgotPassword({
+    required String email,
+    required String schoolCode,
+  }) async {
     try {
-      final body = {
-        "email": email,
-        "school_code": schoolCode,
-      };
+      final body = {"email": email, "school_code": schoolCode};
       await Api.post(body: body, url: Api.forgotPassword, useAuthToken: false);
     } catch (e) {
       throw ApiException(e.toString());
