@@ -111,14 +111,14 @@ const String letsSignInKey = "letsSignIn";
 const String welcomeBackKey = "welcomeBack";
 const String youHaveBeenMissedKey = "youHaveBeenMissed";
 const String signInKey = "signIn";
-const String grNumberKey = "grNumber";
+const String regNumberKey = "regNumber";
 const String loginAsKey = "loginAs";
 const String parentKey = "parent";
 const String studentKey = "student";
 
 const String pleaseEnterEmailKey = "pleaseEnterEmail";
 const String pleaseEnterPasswordKey = "pleaseEnterPassword";
-const String pleaseEnterGRNumberKey = "pleaseEnterGRNumber";
+const String pleaseEnterregNumberKey = "pleaseEnterregNumber";
 const String pleaseEnterSchoolCodeKey = "pleaseEnterSchoolCode";
 
 const String mySubjectsKey = "mySubjects";
@@ -197,7 +197,7 @@ const String yesKey = "yes";
 const String noKey = "no";
 const String resetPasswordKey = "resetPassword";
 
-const String enterGrNumberKey = "enterGrNumber";
+const String enterregNumberKey = "enterregNumber";
 const String selectDateOfBirthKey = "selectDateOfBirth";
 const String passwordResetRequestKey = "passwordResetRequest";
 

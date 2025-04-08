@@ -58,11 +58,11 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
     ),
   );
 
-  final TextEditingController _grNumberTextEditingController =
+  final TextEditingController _regNumberTextEditingController =
       TextEditingController(
           text: showDefaultCredentials
-              ? defaultStudentGRNumber
-              : null); //default grNumber
+              ? defaultStudentregNumber
+              : null); //default regNumber
 
   final TextEditingController _passwordTextEditingController =
       TextEditingController(
@@ -85,7 +85,7 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
   @override
   void dispose() {
     _animationController.dispose();
-    _grNumberTextEditingController.dispose();
+    _regNumberTextEditingController.dispose();
     _passwordTextEditingController.dispose();
     super.dispose();
   }
@@ -102,10 +102,10 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
       return;
     }
 
-    if (_grNumberTextEditingController.text.trim().isEmpty) {
+    if (_regNumberTextEditingController.text.trim().isEmpty) {
       Utils.showCustomSnackBar(
         context: context,
-        errorMessage: Utils.getTranslatedLabel(pleaseEnterGRNumberKey),
+        errorMessage: Utils.getTranslatedLabel(pleaseEnterregNumberKey),
         backgroundColor: Theme.of(context).colorScheme.error,
       );
       return;
@@ -121,7 +121,7 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
     }
 
     context.read<SignInCubit>().signInUser(
-          userId: _grNumberTextEditingController.text.trim(),
+          userId: _regNumberTextEditingController.text.trim(),
           password: _passwordTextEditingController.text.trim(),
           schoolCode: _schoolCodeController.text.trim(),
           isStudentLogin: true,
@@ -248,9 +248,9 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                   const SizedBox(height: 30.0),
                   CustomTextFieldContainer(
                     hideText: false,
-                    hintTextKey: grNumberKey,
+                    hintTextKey: regNumberKey,
                     bottomPadding: 0,
-                    textEditingController: _grNumberTextEditingController,
+                    textEditingController: _regNumberTextEditingController,
                     suffixWidget: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: SvgPicture.asset(
@@ -333,52 +333,52 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                     ),
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 10.0,
                   ),
-                  // BlocBuilder<SignInCubit, SignInState>(
-                  //   builder: (context, state) {
-                  //     return Center(
-                  //       child: InkWell(
-                  //         onTap: () {
-                  //           if (state is SignInInProgress) {
-                  //             return;
-                  //           }
-                  //           Get.offNamed(Routes.parentLogin);
-                  //         },
-                  //         child: RichText(
-                  //           text: TextSpan(
-                  //             children: [
-                  //               TextSpan(
-                  //                 style: TextStyle(
-                  //                   fontSize: 16.0,
-                  //                   color:
-                  //                       Utils.getColorScheme(context).primary,
-                  //                 ),
-                  //                 text: Utils.getTranslatedLabel(
-                  //                   loginAsKey,
-                  //                 ),
-                  //               ),
-                  //               const TextSpan(text: " "),
-                  //               TextSpan(
-                  //                 style: TextStyle(
-                  //                   fontWeight: FontWeight.w500,
-                  //                   fontSize: 16.0,
-                  //                   color:
-                  //                       Utils.getColorScheme(context).secondary,
-                  //                 ),
-                  //                 text:
-                  //                     "${Utils.getTranslatedLabel(parentKey)}?",
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
+                  BlocBuilder<SignInCubit, SignInState>(
+                    builder: (context, state) {
+                      return Center(
+                        child: InkWell(
+                          onTap: () {
+                            if (state is SignInInProgress) {
+                              return;
+                            }
+                            Get.offNamed(Routes.parentLogin);
+                          },
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    color:
+                                        Utils.getColorScheme(context).primary,
+                                  ),
+                                  text: Utils.getTranslatedLabel(
+                                    loginAsKey,
+                                  ),
+                                ),
+                                const TextSpan(text: " "),
+                                TextSpan(
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16.0,
+                                    color:
+                                        Utils.getColorScheme(context).secondary,
+                                  ),
+                                  text:
+                                      "${Utils.getTranslatedLabel(parentKey)}?",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const TermsAndConditionAndPrivacyPolicyContainer(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.025),

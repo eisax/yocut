@@ -64,7 +64,7 @@ class SignInCubit extends Cubit<SignInState> {
       
       if (isStudentLogin) {
         result = await _authRepository.signInStudent(
-          grNumber: userId,
+          regNumber: userId,
           schoolCode: schoolCode,
           password: password,
         );

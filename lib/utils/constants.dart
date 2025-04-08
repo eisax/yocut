@@ -31,7 +31,7 @@ const bool isDemoVersion = false;
 //to enable and disable default credentials in login page
 const bool showDefaultCredentials = true;
 //default credentials of student
-const String defaultStudentGRNumber = "";
+const String defaultStudentregNumber = "";
 const String defaultStudentPassword = "";
 //default credentials of parent
 const String defaultParentEmail = "";
