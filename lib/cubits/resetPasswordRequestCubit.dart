@@ -35,13 +35,13 @@ class RequestResetPasswordCubit extends Cubit<RequestResetPasswordState> {
       : super(RequestResetPasswordInitial());
 
   Future<void> requestResetPassword({
-    required String grNumber,
+    required String regNumber,
     required DateTime dob,
      required String schoolCode
   }) async {
     emit(RequestResetPasswordInProgress());
     try {
-      await _authRepository.resetPasswordRequest(grNumber: grNumber, dob: dob,schoolCode: schoolCode);
+      await _authRepository.resetPasswordRequest(regNumber: regNumber, dob: dob,schoolCode: schoolCode);
       emit(RequestResetPasswordSuccess());
     } catch (e) {
       emit(RequestResetPasswordFailure(e.toString()));

@@ -73,7 +73,7 @@ class AuthRepository {
 
   //RemoteDataSource
   Future<Map<String, dynamic>> signInStudent({
-    required String grNumber,
+    required String regNumber,
     required String schoolCode,
     required String password,
   }) async {
@@ -82,7 +82,7 @@ class AuthRepository {
       final body = {
         "password": password,
         "school_code": schoolCode,
-        "gr_number": grNumber,
+        "gr_number": regNumber,
         "fcm_id": "testnull"
       };
 
@@ -137,13 +137,13 @@ class AuthRepository {
   }
 
   Future<void> resetPasswordRequest(
-      {required String grNumber,
+      {required String regNumber,
       required DateTime dob,
       required String schoolCode}) async {
     try {
       final body = {
         "school_code": schoolCode,
-        "gr_no": grNumber,
+        "gr_no": regNumber,
         "dob": DateFormat('yyyy-MM-dd').format(dob)
       };
       await Api.post(

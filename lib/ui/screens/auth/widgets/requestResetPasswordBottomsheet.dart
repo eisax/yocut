@@ -19,7 +19,7 @@ class RequestResetPasswordBottomsheet extends StatefulWidget {
 
 class _RequestResetPasswordBottomsheetState
     extends State<RequestResetPasswordBottomsheet> {
-  final TextEditingController _grNumberTextEditingController =
+  final TextEditingController _regNumberTextEditingController =
       TextEditingController();
   final TextEditingController _schoolCodeController = TextEditingController();
 
@@ -27,7 +27,7 @@ class _RequestResetPasswordBottomsheetState
 
   @override
   void dispose() {
-    _grNumberTextEditingController.dispose();
+    _regNumberTextEditingController.dispose();
     _schoolCodeController.dispose();
 
     super.dispose();
@@ -73,8 +73,8 @@ class _RequestResetPasswordBottomsheetState
             ),
             CustomTextFieldContainer(
               hideText: false,
-              hintTextKey: grNumberKey,
-              textEditingController: _grNumberTextEditingController,
+              hintTextKey: regNumberKey,
+              textEditingController: _regNumberTextEditingController,
             ),
             GestureDetector(
               onTap: () {
@@ -153,11 +153,11 @@ class _RequestResetPasswordBottomsheetState
                         return;
                       }
                       FocusScope.of(context).unfocus();
-                      if (_grNumberTextEditingController.text.trim().isEmpty) {
+                      if (_regNumberTextEditingController.text.trim().isEmpty) {
                         Utils.showCustomSnackBar(
                           context: context,
                           errorMessage: Utils.getTranslatedLabel(
-                            enterGrNumberKey,
+                            enterregNumberKey,
                           ),
                           backgroundColor: Theme.of(context).colorScheme.error,
                         );
@@ -188,8 +188,8 @@ class _RequestResetPasswordBottomsheetState
                           .read<RequestResetPasswordCubit>()
                           .requestResetPassword(
                             schoolCode: _schoolCodeController.text.trim(),
-                            grNumber:
-                                _grNumberTextEditingController.text.trim(),
+                            regNumber:
+                                _regNumberTextEditingController.text.trim(),
                             dob: dateOfBirth!,
                           );
                     },
