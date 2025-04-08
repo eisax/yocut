@@ -333,52 +333,52 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
                     ),
                   ),
                   const SizedBox(
-                    height: 10.0,
+                    height: 20.0,
                   ),
-                  BlocBuilder<SignInCubit, SignInState>(
-                    builder: (context, state) {
-                      return Center(
-                        child: InkWell(
-                          onTap: () {
-                            if (state is SignInInProgress) {
-                              return;
-                            }
-                            Get.offNamed(Routes.parentLogin);
-                          },
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    color:
-                                        Utils.getColorScheme(context).primary,
-                                  ),
-                                  text: Utils.getTranslatedLabel(
-                                    loginAsKey,
-                                  ),
-                                ),
-                                const TextSpan(text: " "),
-                                TextSpan(
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16.0,
-                                    color:
-                                        Utils.getColorScheme(context).secondary,
-                                  ),
-                                  text:
-                                      "${Utils.getTranslatedLabel(parentKey)}?",
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // BlocBuilder<SignInCubit, SignInState>(
+                  //   builder: (context, state) {
+                  //     return Center(
+                  //       child: InkWell(
+                  //         onTap: () {
+                  //           if (state is SignInInProgress) {
+                  //             return;
+                  //           }
+                  //           Get.offNamed(Routes.parentLogin);
+                  //         },
+                  //         child: RichText(
+                  //           text: TextSpan(
+                  //             children: [
+                  //               TextSpan(
+                  //                 style: TextStyle(
+                  //                   fontSize: 16.0,
+                  //                   color:
+                  //                       Utils.getColorScheme(context).primary,
+                  //                 ),
+                  //                 text: Utils.getTranslatedLabel(
+                  //                   loginAsKey,
+                  //                 ),
+                  //               ),
+                  //               const TextSpan(text: " "),
+                  //               TextSpan(
+                  //                 style: TextStyle(
+                  //                   fontWeight: FontWeight.w500,
+                  //                   fontSize: 16.0,
+                  //                   color:
+                  //                       Utils.getColorScheme(context).secondary,
+                  //                 ),
+                  //                 text:
+                  //                     "${Utils.getTranslatedLabel(parentKey)}?",
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
                   const TermsAndConditionAndPrivacyPolicyContainer(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.025),
