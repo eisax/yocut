@@ -3,24 +3,16 @@ class Student {
   final String message;
   final StudentBody body;
 
-  Student({
-    required this.valid,
-    required this.message,
-    required this.body,
-  });
+  Student({required this.valid, required this.message, required this.body});
 
   factory Student.fromJson(Map<String, dynamic> json) => Student(
     valid: json['valid'] ?? false,
     message: json['message'] ?? '',
-    body: StudentBody.fromJson(json['body'] ?? {}),
+    body: StudentBody.fromJson(Map<String, dynamic>.from(json['body'] ?? {})),
   );
 
   Map<String, dynamic> toJson() {
-    return {
-      'valid': valid,
-      'message': message,
-      'body': body.toJson(),
-    };
+    return {'valid': valid, 'message': message, 'body': body.toJson()};
   }
 }
 
@@ -44,13 +36,18 @@ class StudentBody {
   });
 
   factory StudentBody.fromJson(Map<String, dynamic> json) => StudentBody(
-    registration: Registration.fromJson(json['registration'] ?? {}),
-    vle: VLE.fromJson(json['vle'] ?? {}),
-    accounts: Accounts.fromJson(json['accounts'] ?? {}),
-    bursary: Bursary.fromJson(json['bursary'] ?? {}),
-    bankRate: BankRate.fromJson(json['bankRate'] ?? {}),
-    notice: (json['notice'] as List?)?.map((e) => Notice.fromJson(e ?? {})).toList() ?? [],
-    profile: Profile.fromJson(json['profile'] ?? {}),
+    registration: Registration.fromJson(
+      Map<String, dynamic>.from(json['registration'] ?? {}),
+    ),
+    vle: VLE.fromJson(Map<String, dynamic>.from(json['vle'] ?? {})),
+    accounts: Accounts.fromJson(Map<String, dynamic>.from(json['accounts'] ?? {})),
+    bursary: Bursary.fromJson(Map<String, dynamic>.from(json['bursary'] ?? {})),
+    bankRate: BankRate.fromJson(Map<String, dynamic>.from(json['bankRate'] ?? {})),
+    notice: (json['notice'] as List<dynamic>?)
+            ?.map((e) => e is Map<String, dynamic> ? Notice.fromJson(e) : Notice.fromJson({}))
+            .toList() ?? [],
+
+    profile: Profile.fromJson(Map<String, dynamic>.from(json['profile'] ?? {})),
   );
 
   Map<String, dynamic> toJson() {
@@ -82,9 +79,13 @@ class Registration {
   });
 
   factory Registration.fromJson(Map<String, dynamic> json) => Registration(
-    period: Period.fromJson(json['period'] ?? {}),
-    program: Program.fromJson(json['program'] ?? {}),
-    modules: (json['modules'] as List?)?.map((e) => Module.fromJson(e ?? {})).toList() ?? [],
+    period: Period.fromJson(Map<String, dynamic>.from(json['period'] ?? {})),
+    program: Program.fromJson(Map<String, dynamic>.from(json['program'] ?? {})),
+  modules: (json['modules'] as List<dynamic>?)
+            ?.map((e) => e is Map<String, dynamic> ? Module.fromJson(e) : Module.fromJson({}))
+            .toList() ?? [],
+
+
     isRegistered: json['is_registered'] ?? false,
     exemption: json['exemption'] ?? [],
   );
@@ -220,7 +221,11 @@ class Module {
     moduleUnitCode: json['module_unit_code'] ?? '',
     periodId: json['period_id'] ?? '',
     isEvaluable: json['is_evaluable'] ?? '',
-    pastExamPapers: (json['past_exam_papers'] as List?)?.map((e) => PastExamPaper.fromJson(e ?? {})).toList() ?? [],
+    pastExamPapers:
+        (json['past_exam_papers'] as List?)
+            ?.map((e) => PastExamPaper.fromJson(e ?? {}))
+            .toList() ??
+        [],
     vleStatus: json['vle_status'] ?? false,
   );
 
@@ -280,10 +285,7 @@ class VLE {
   final bool status;
   final int classesReady;
 
-  VLE({
-    required this.status,
-    required this.classesReady,
-  });
+  VLE({required this.status, required this.classesReady});
 
   factory VLE.fromJson(Map<String, dynamic> json) => VLE(
     status: json['status'] ?? false,
@@ -291,10 +293,7 @@ class VLE {
   );
 
   Map<String, dynamic> toJson() {
-    return {
-      'status': status,
-      'classes_ready': classesReady,
-    };
+    return {'status': status, 'classes_ready': classesReady};
   }
 }
 
@@ -332,14 +331,14 @@ class Bursary {
   final String pastelAccount;
   final List<Statement> statements;
 
-  Bursary({
-    required this.pastelAccount,
-    required this.statements,
-  });
+  Bursary({required this.pastelAccount, required this.statements});
 
   factory Bursary.fromJson(Map<String, dynamic> json) => Bursary(
     pastelAccount: json['pastel_account'] ?? '',
-    statements: (json['statements'] as List?)?.map((e) => Statement.fromJson(e ?? {})).toList() ?? [],
+  statements: (json['statements'] as List<dynamic>?)
+            ?.map((e) => e is Map<String, dynamic> ? Statement.fromJson(e) : Statement.fromJson({}))
+            .toList() ?? [],
+
   );
 
   Map<String, dynamic> toJson() {
@@ -389,14 +388,11 @@ class BankRate {
 
   BankRate({required this.rate});
 
-  factory BankRate.fromJson(Map<String, dynamic> json) => BankRate(
-    rate: json['rate'] ?? '',
-  );
+  factory BankRate.fromJson(Map<String, dynamic> json) =>
+      BankRate(rate: json['rate'] ?? '');
 
   Map<String, dynamic> toJson() {
-    return {
-      'rate': rate,
-    };
+    return {'rate': rate};
   }
 }
 
@@ -405,11 +401,7 @@ class Notice {
   final String date;
   final String description;
 
-  Notice({
-    required this.title,
-    required this.date,
-    required this.description,
-  });
+  Notice({required this.title, required this.date, required this.description});
 
   factory Notice.fromJson(Map<String, dynamic> json) => Notice(
     title: json['title'] ?? '',
@@ -418,11 +410,7 @@ class Notice {
   );
 
   Map<String, dynamic> toJson() {
-    return {
-      'title': title,
-      'date': date,
-      'description': description,
-    };
+    return {'title': title, 'date': date, 'description': description};
   }
 }
 
