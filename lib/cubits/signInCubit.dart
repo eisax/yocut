@@ -76,10 +76,8 @@ class SignInCubit extends Cubit<SignInState> {
           result = await _authRepository.getStudent(
             credentials: loginResponse,
           );
-
-          print(jsonEncode(result));
         }
-      } else {}
+      } 
 
       emit(
         SignInSuccess(
@@ -91,7 +89,6 @@ class SignInCubit extends Cubit<SignInState> {
         ),
       );
     } catch (e) {
-      print(e.toString());
       emit(SignInFailure(e.toString()));
     }
   }

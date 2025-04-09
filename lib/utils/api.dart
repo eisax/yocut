@@ -54,8 +54,9 @@ class Api {
 
   //
   ///[Student app apis]
-  //
+  //`${this._serverDetails.studentServerDetails}/api/validateToken/${reg}/${token}`
   static String studentLogin = "$baseUrl/portal/index.php/portal/login/authenticate";
+  static String validateToken = "$baseUrl/portal/index.php/cut_elearning/api/validateToken";
   static String studentData = "$baseUrl/portal/index.php/cut_elearning/api/getHomeData";
   static String studentProfile = "${databaseUrl}student/get-profile-data";
   static String studentSubjects = "${databaseUrl}student/subjects";

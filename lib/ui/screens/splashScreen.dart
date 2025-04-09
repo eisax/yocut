@@ -31,15 +31,19 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  void navigateToNextScreen() {
+  void navigateToNextScreen()async {
     if (context.read<AuthCubit>().state is Unauthenticated) {
       Get.offNamed(Routes.auth);
     } else {
-      Get.offNamed(
+      if(await context.read<AuthCubit>().isTokenValidt()){
+        Get.offNamed(
         (context.read<AuthCubit>().state as Authenticated).isStudent
             ? Routes.home
             : Routes.parentHome,
       );
+      }else{
+        Get.offNamed(Routes.auth);
+      }
     }
   }
 
