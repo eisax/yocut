@@ -138,22 +138,22 @@ class HomeScreenState extends State<HomeScreen>
 
   late List<BottomNavItem> _bottomNavItems = [];
 
-  @override
-  void initState() {
-    super.initState();
+  // @override
+  // void initState() {
+  //   super.initState();
 
-    WidgetsBinding.instance.addObserver(this);
-    _animationController.forward();
+  //   WidgetsBinding.instance.addObserver(this);
+  //   _animationController.forward();
 
-    Future.delayed(Duration.zero, () {
-      loadTemporarilyStoredNotifications();
-      context
-          .read<SchoolConfigurationCubit>()
-          .fetchSchoolConfiguration(useParentApi: false);
-      //setup notification callback here
-      // NotificationUtility.setUpNotificationService();
-    });
-  }
+  //   Future.delayed(Duration.zero, () {
+  //     loadTemporarilyStoredNotifications();
+  //     context
+  //         .read<SchoolConfigurationCubit>()
+  //         .fetchSchoolConfiguration(useParentApi: false);
+  //     //setup notification callback here
+  //     // NotificationUtility.setUpNotificationService();
+  //   });
+  // }
 
   void loadTemporarilyStoredNotifications() {
     NotificationRepository.getTemporarilyStoredNotifications()
