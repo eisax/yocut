@@ -49,9 +49,7 @@ class ExamTimeTableScreen extends StatefulWidget {
 
 class _ExamTimeTableState extends State<ExamTimeTableScreen> {
   //
-  Widget _buildExamTimeTableContainer({
-    required ExamTimeTable examTimeTable,
-  }) {
+  Widget _buildExamTimeTableContainer({required ExamTimeTable examTimeTable}) {
     final subjectDetails = examTimeTable.subject;
     return Container(
       margin: EdgeInsetsDirectional.only(
@@ -71,7 +69,8 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
             clipBehavior: Clip.none,
             children: [
               PositionedDirectional(
-                top: boxConstraints.maxHeight * (0.5) -
+                top:
+                    boxConstraints.maxHeight * (0.5) -
                     boxConstraints.maxWidth * (0.118),
                 start: boxConstraints.maxWidth * (-0.125),
                 child: SubjectImageContainer(
@@ -132,43 +131,44 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                       subjectDetails.type == ' '
                           ? const SizedBox()
                           : Text(
-                              Utils.getTranslatedLabel(
-                                  subjectDetails.isPractial()
-                                      ? practicalKey
-                                      : theoryKey),
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onSurface,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 10.5,
-                              ),
+                            Utils.getTranslatedLabel(
+                              subjectDetails.isPractial()
+                                  ? practicalKey
+                                  : theoryKey,
                             ),
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onSurface,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 10.5,
+                            ),
+                          ),
                       const Spacer(),
                       examTimeTable.date == ''
                           ? const SizedBox()
                           : Text(
-                              Utils.formatDate(
-                                DateTime.parse(examTimeTable.date!),
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                height: 1.0,
-                                color: Theme.of(context).colorScheme.secondary,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.0,
-                              ),
+                            Utils.formatDate(
+                              DateTime.parse(examTimeTable.date!),
                             ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              height: 1.0,
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12.0,
+                            ),
+                          ),
                       examTimeTable.startingTime == '' &&
                               examTimeTable.endingTime == ''
                           ? const SizedBox()
                           : Text(
-                              '${Utils.formatTime(examTimeTable.startingTime!)} - ${Utils.formatTime(examTimeTable.endingTime!)}',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onSurface,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 10.5,
-                              ),
-                            )
+                            '${Utils.formatTime(examTimeTable.startingTime!)} - ${Utils.formatTime(examTimeTable.endingTime!)}',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onSurface,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 10.5,
+                            ),
+                          ),
                     ],
                   ),
                 ),
@@ -204,19 +204,19 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
             return state.examTimeTableList.isEmpty
                 ? const NoDataContainer(titleKey: noExamTimeTableFoundKey)
                 : Column(
-                    children: List.generate(
-                      state.examTimeTableList.length,
-                      (index) => Animate(
-                        effects: listItemAppearanceEffects(
-                          itemIndex: index,
-                          totalLoadedItems: state.examTimeTableList.length,
-                        ),
-                        child: _buildExamTimeTableContainer(
-                          examTimeTable: state.examTimeTableList[index],
-                        ),
+                  children: List.generate(
+                    state.examTimeTableList.length,
+                    (index) => Animate(
+                      effects: listItemAppearanceEffects(
+                        itemIndex: index,
+                        totalLoadedItems: state.examTimeTableList.length,
+                      ),
+                      child: _buildExamTimeTableContainer(
+                        examTimeTable: state.examTimeTableList[index],
                       ),
                     ),
-                  );
+                  ),
+                );
           } else if (state is ExamTimeTableFetchFailure) {
             return ErrorContainer(
               errorMessageCode: state.errorMessage,
@@ -232,10 +232,10 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
 
   void fetchExamTimeTableList() {
     context.read<ExamTimeTableCubit>().fetchStudentExamsList(
-          useParentApi: context.read<AuthCubit>().isParent(),
-          examID: widget.examID,
-          childId: widget.childID,
-        );
+      useParentApi: context.read<AuthCubit>().isParent(),
+      examID: widget.examID,
+      childId: widget.childID,
+    );
   }
 
   @override
@@ -254,7 +254,9 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
               .where((element) => 0 == widget.childID)
               .first;
 
-      studentName = "${student.body.profile.name} ${student.body.profile.name}";
+      studentName =
+          ""; 
+          //"${student.body.profile.name} ${student.body.profile.name}";
     }
     return ScreenTopBackgroundContainer(
       heightPercentage: Utils.appBarMediumtHeightPercentage,
@@ -291,7 +293,8 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                 alignment: Alignment.topCenter,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: boxConstraints.maxHeight * (0.075) +
+                    top:
+                        boxConstraints.maxHeight * (0.075) +
                         Utils.screenTitleFontSize,
                   ),
                   child: Text(
@@ -318,13 +321,12 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withValues(alpha: 0.075),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.secondary.withValues(alpha: 0.075),
                         offset: const Offset(2.5, 2.5),
                         blurRadius: 5,
-                      )
+                      ),
                     ],
                     color: Theme.of(context).scaffoldBackgroundColor,
                   ),
@@ -387,22 +389,16 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                   height: boxConstraints.maxHeight,
                   width: boxConstraints.maxWidth * (0.26),
                 ),
-                SizedBox(
-                  width: boxConstraints.maxWidth * (0.05),
-                ),
+                SizedBox(width: boxConstraints.maxWidth * (0.05)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: boxConstraints.maxHeight * (0.075),
-                    ),
+                    SizedBox(height: boxConstraints.maxHeight * (0.075)),
                     CustomShimmerContainer(
                       borderRadius: 10,
                       width: boxConstraints.maxWidth * (0.6),
                     ),
-                    SizedBox(
-                      height: boxConstraints.maxHeight * (0.075),
-                    ),
+                    SizedBox(height: boxConstraints.maxHeight * (0.075)),
                     CustomShimmerContainer(
                       height: 8,
                       borderRadius: 10,
@@ -414,17 +410,13 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                       borderRadius: 10,
                       width: boxConstraints.maxWidth * (0.3),
                     ),
-                    SizedBox(
-                      height: boxConstraints.maxHeight * (0.075),
-                    ),
+                    SizedBox(height: boxConstraints.maxHeight * (0.075)),
                     CustomShimmerContainer(
                       height: 8,
                       borderRadius: 10,
                       width: boxConstraints.maxWidth * (0.3),
                     ),
-                    SizedBox(
-                      height: boxConstraints.maxHeight * (0.075),
-                    ),
+                    SizedBox(height: boxConstraints.maxHeight * (0.075)),
                   ],
                 ),
               ],

@@ -49,12 +49,14 @@ class AuthCubit extends Cubit<AuthState> {
           schoolCode: authRepository.schoolCode,
           jwtToken: authRepository.getJwtToken(),
           isStudent: AuthRepository.getIsStudentLogIn(),
-          parent: AuthRepository.getIsStudentLogIn()
-              ? Guardian.fromJson({})
-              : AuthRepository.getParentDetails(),
-          student: AuthRepository.getIsStudentLogIn()
-              ? AuthRepository.getStudentDetails()
-              : Student.fromJson({}),
+          parent:
+              AuthRepository.getIsStudentLogIn()
+                  ? Guardian.fromJson({})
+                  : AuthRepository.getParentDetails(),
+          student:
+              AuthRepository.getIsStudentLogIn()
+                  ? AuthRepository.getStudentDetails()
+                  : Student.fromJson({}),
         ),
       );
     } else {
@@ -106,6 +108,13 @@ class AuthCubit extends Cubit<AuthState> {
   bool isParent() {
     if (state is Authenticated) {
       return !(state as Authenticated).isStudent;
+    }
+    return false;
+  }
+
+  Future<bool>  isTokenValidt()async {
+    if (state is Authenticated) {
+      return await authRepository.isTokenValid();
     }
     return false;
   }

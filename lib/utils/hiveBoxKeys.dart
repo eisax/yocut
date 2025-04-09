@@ -5,6 +5,7 @@ const String showHomeScreenGuideKey = "showHomeScreenGuide";
 //Authbox keys
 const String authBoxKey = "authBox";
 const String jwtTokenKey = "jwtToken";
+const String studentRegNumberKey = "studentRegNumberKey";
 const String isLogInKey = "isLogIn";
 const String schoolCodeKey = "schoolCode";
 const String isStudentLogInKey = "isStudentLogIn";

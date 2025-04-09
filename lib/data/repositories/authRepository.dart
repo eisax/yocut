@@ -54,8 +54,16 @@ class AuthRepository {
     return Hive.box(authBoxKey).get(jwtTokenKey) ?? "";
   }
 
+  String getRegNumber() {
+    return Hive.box(authBoxKey).get(studentRegNumberKey) ?? "";
+  }
+
   Future<void> setJwtToken(String value) async {
     return Hive.box(authBoxKey).put(jwtTokenKey, value);
+  }
+
+  Future<void> setRegNumber(String value) async {
+    return Hive.box(authBoxKey).put(studentRegNumberKey, value);
   }
 
   String get schoolCode =>
@@ -155,11 +163,54 @@ class AuthRepository {
         final extractedUsername = parts[parts.length - 2];
         final token = parts.last;
 
+        setJwtToken(token);
+        setRegNumber(extractedUsername);
+
         return Credentials(regNumber: extractedUsername, token: token);
       } else {
+        setIsLogIn(false);
+        setJwtToken("");
+        setStudentDetails(Student.fromJson({}));
+        setParentDetails(Guardian.fromJson({}));
         return null;
       }
-    } catch (e) {}
+    } catch (e) {
+      throw ApiException(e.toString());
+    }
+  }
+
+  Future<bool> isTokenValid() async {
+    final Dio dio = Dio(
+      BaseOptions(
+        connectTimeout: Duration(seconds: 30),
+        receiveTimeout: Duration(seconds: 30),
+        followRedirects: false,
+        validateStatus: (status) => status != null && status < 400,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'text/html,application/xhtml+xml,application/xml',
+          'User-Agent': 'Mozilla/5.0 (compatible; DartApp/1.0)',
+        },
+      ),
+    );
+
+    try {
+      final response = await dio.post(
+        '${Api.validateToken}/${getRegNumber()}/${getJwtToken()}',
+      );
+
+      if (jsonDecode(response.data)['valid']) {
+        return true;
+      } else {
+        setIsLogIn(false);
+        setJwtToken("");
+        setStudentDetails(Student.fromJson({}));
+        setParentDetails(Guardian.fromJson({}));
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
   }
 
   Future<Map<String, dynamic>> getStudent({
