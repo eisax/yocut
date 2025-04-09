@@ -56,6 +56,7 @@ class Api {
   ///[Student app apis]
   //
   static String studentLogin = "$baseUrl/portal/index.php/portal/login/authenticate";
+  static String studentData = "$baseUrl/portal/index.php/cut_elearning/api/getHomeData";
   static String studentProfile = "${databaseUrl}student/get-profile-data";
   static String studentSubjects = "${databaseUrl}student/subjects";
   //get subjects of given class

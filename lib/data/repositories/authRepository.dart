@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import 'package:yocut/data/models/StudentInfo.dart';
 import 'package:yocut/data/models/credentials.dart';
 import 'package:yocut/data/models/guardian.dart';
 import 'package:yocut/data/models/student.dart';
@@ -158,6 +161,48 @@ class AuthRepository {
         return null;
       }
     } catch (e) {}
+  }
+
+  Future<Map<String, dynamic>> getStudentData({
+    required Credentials credentials,
+  }) async {
+    final Dio dio = Dio(
+      BaseOptions(
+        connectTimeout: Duration(seconds: 30),
+        receiveTimeout: Duration(seconds: 30),
+        followRedirects: false,
+        validateStatus: (status) => status != null && status < 400,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (compatible; DartApp/1.0)',
+        },
+      ),
+    );
+
+    try {
+      final response = await dio.get(
+        '${Api.studentData}/${credentials.regNumber}/${credentials.token}',
+      );
+
+      if (response.data == null) {
+        throw ApiException('API returned null response');
+      }
+
+      // Check if response data is a Map<String, dynamic>
+      if (response.data is Map<String, dynamic>) {
+        return {"student": StudentData.fromJson(response.data)};
+      }
+      // If it's a String, decode it into a Map
+      else if (response.data is String) {
+        final Map<String, dynamic> json = jsonDecode(response.data);
+        return {"student": StudentData.fromJson(json)};
+      } else {
+        throw ApiException('Unexpected response format');
+      }
+    } catch (e) {
+      throw ApiException('Failed to fetch student data: ${e.toString()}');
+    }
   }
 
   Future<Map<String, dynamic>> signInParent({

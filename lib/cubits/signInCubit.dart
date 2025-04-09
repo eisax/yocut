@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
+import 'package:yocut/data/models/StudentInfo.dart';
 import 'package:yocut/data/models/credentials.dart';
 import 'package:yocut/data/models/guardian.dart';
 import 'package:yocut/data/models/student.dart';
@@ -64,24 +67,20 @@ class SignInCubit extends Cubit<SignInState> {
       late Credentials? loginResponse;
 
       if (isStudentLogin) {
-        // result = await _authRepository.signInStudent(
-        //   regNumber: userId,
-        //   schoolCode: schoolCode,
-        //   password: password,
-        // );loginUser
-
         loginResponse = await _authRepository.loginUser(
           regNumber: userId,
           password: password,
         );
-       
-      } else {
-        result = await _authRepository.signInParent(
-          email: userId,
-          schoolCode: "",
-          password: password,
-        );
-      }
+
+
+        if (loginResponse != null) {
+          result = await _authRepository.getStudentData(
+            credentials: loginResponse,
+          );
+
+          print(jsonEncode(result));
+        }
+      } else {}
 
       emit(
         SignInSuccess(
@@ -93,6 +92,7 @@ class SignInCubit extends Cubit<SignInState> {
         ),
       );
     } catch (e) {
+      print(e.toString());
       emit(SignInFailure(e.toString()));
     }
   }
