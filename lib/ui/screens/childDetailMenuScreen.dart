@@ -51,75 +51,75 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
   void setMenuItems() {
     //Menu will have module Id attache to it same as student home bottm sheet
     _menuItems = [
-      MenuContainerDetails(
-        moduleId: assignmentManagementModuleId.toString(),
-        route: Routes.childAssignments,
-        arguments: {
-          "childId": widget.student.id,
-          "subjects": widget.subjectsForFilter
-        },
-        iconPath: Utils.getImagePath("assignment_icon_parent.svg"),
-        title: Utils.getTranslatedLabel(assignmentsKey),
-      ),
-      MenuContainerDetails(
-        moduleId: defaultModuleId.toString(),
-        route: Routes.childTeachers,
-        arguments: widget.student.id,
-        iconPath: Utils.getImagePath("teachers_icon.svg"),
-        title: Utils.getTranslatedLabel(teachersKey),
-      ),
-      MenuContainerDetails(
-        moduleId: attendanceManagementModuleId.toString(),
-        route: Routes.childAttendance,
-        arguments: widget.student.id,
-        iconPath: Utils.getImagePath("attendance_icon.svg"),
-        title: Utils.getTranslatedLabel(attendanceKey),
-      ),
-      MenuContainerDetails(
-        moduleId: timetableManagementModuleId.toString(),
-        route: Routes.childTimeTable,
-        arguments: widget.student.id,
-        iconPath: Utils.getImagePath("timetable_icon.svg"),
-        title: Utils.getTranslatedLabel(timeTableKey),
-      ),
-      MenuContainerDetails(
-        moduleId: holidayManagementModuleId.toString(),
-        route: Routes.holidays,
-        arguments: widget.student.id,
-        iconPath: Utils.getImagePath("holiday_icon.svg"),
-        title: Utils.getTranslatedLabel(holidaysKey),
-      ),
-      MenuContainerDetails(
-        moduleId: examManagementModuleId.toString(),
-        route: Routes.exam,
-        arguments: {
-          "childId": widget.student.id,
-          "subjects": widget.subjectsForFilter
-        },
-        iconPath: Utils.getImagePath("exam_icon.svg"),
-        title: Utils.getTranslatedLabel(examsKey),
-      ),
-      MenuContainerDetails(
-        moduleId: examManagementModuleId.toString(),
-        route: Routes.childResults,
-        arguments: {
-          "childId": widget.student.id,
-          "subjects": widget.subjectsForFilter
-        },
-        iconPath: Utils.getImagePath("result_icon.svg"),
-        title: Utils.getTranslatedLabel(resultKey),
-      ),
-      MenuContainerDetails(
-        moduleId:
-            "$assignmentManagementModuleId$moduleIdJoiner$examManagementModuleId",
-        route: Routes.subjectWiseReport,
-        arguments: {
-          "childId": widget.student.id,
-          "subjects": widget.subjectsForFilter
-        },
-        iconPath: Utils.getImagePath("reports_icon.svg"),
-        title: Utils.getTranslatedLabel(reportsKey),
-      ),
+      // MenuContainerDetails(
+      //   moduleId: assignmentManagementModuleId.toString(),
+      //   route: Routes.childAssignments,
+      //   arguments: {
+      //     "childId": widget.student.id,
+      //     "subjects": widget.subjectsForFilter
+      //   },
+      //   iconPath: Utils.getImagePath("assignment_icon_parent.svg"),
+      //   title: Utils.getTranslatedLabel(assignmentsKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId: defaultModuleId.toString(),
+      //   route: Routes.childTeachers,
+      //   arguments: widget.student.id,
+      //   iconPath: Utils.getImagePath("teachers_icon.svg"),
+      //   title: Utils.getTranslatedLabel(teachersKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId: attendanceManagementModuleId.toString(),
+      //   route: Routes.childAttendance,
+      //   arguments: widget.student.id,
+      //   iconPath: Utils.getImagePath("attendance_icon.svg"),
+      //   title: Utils.getTranslatedLabel(attendanceKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId: timetableManagementModuleId.toString(),
+      //   route: Routes.childTimeTable,
+      //   arguments: widget.student.id,
+      //   iconPath: Utils.getImagePath("timetable_icon.svg"),
+      //   title: Utils.getTranslatedLabel(timeTableKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId: holidayManagementModuleId.toString(),
+      //   route: Routes.holidays,
+      //   arguments: widget.student.id,
+      //   iconPath: Utils.getImagePath("holiday_icon.svg"),
+      //   title: Utils.getTranslatedLabel(holidaysKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId: examManagementModuleId.toString(),
+      //   route: Routes.exam,
+      //   arguments: {
+      //     "childId": widget.student.id,
+      //     "subjects": widget.subjectsForFilter
+      //   },
+      //   iconPath: Utils.getImagePath("exam_icon.svg"),
+      //   title: Utils.getTranslatedLabel(examsKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId: examManagementModuleId.toString(),
+      //   route: Routes.childResults,
+      //   arguments: {
+      //     "childId": widget.student.id,
+      //     "subjects": widget.subjectsForFilter
+      //   },
+      //   iconPath: Utils.getImagePath("result_icon.svg"),
+      //   title: Utils.getTranslatedLabel(resultKey),
+      // ),
+      // MenuContainerDetails(
+      //   moduleId:
+      //       "$assignmentManagementModuleId$moduleIdJoiner$examManagementModuleId",
+      //   route: Routes.subjectWiseReport,
+      //   arguments: {
+      //     "childId": widget.student.id,
+      //     "subjects": widget.subjectsForFilter
+      //   },
+      //   iconPath: Utils.getImagePath("reports_icon.svg"),
+      //   title: Utils.getTranslatedLabel(reportsKey),
+      // ),
       MenuContainerDetails(
         moduleId: feesManagementModuleId.toString(),
         route: Routes.childFees,

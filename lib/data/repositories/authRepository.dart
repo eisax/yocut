@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:yocut/data/models/StudentInfo.dart';
 import 'package:yocut/data/models/credentials.dart';
 import 'package:yocut/data/models/guardian.dart';
 import 'package:yocut/data/models/student.dart';
@@ -163,7 +162,7 @@ class AuthRepository {
     } catch (e) {}
   }
 
-  Future<Map<String, dynamic>> getStudentData({
+  Future<Map<String, dynamic>> getStudent({
     required Credentials credentials,
   }) async {
     final Dio dio = Dio(
@@ -191,12 +190,12 @@ class AuthRepository {
 
       // Check if response data is a Map<String, dynamic>
       if (response.data is Map<String, dynamic>) {
-        return {"student": StudentData.fromJson(response.data)};
+        return {"student": Student.fromJson(response.data)};
       }
       // If it's a String, decode it into a Map
       else if (response.data is String) {
         final Map<String, dynamic> json = jsonDecode(response.data);
-        return {"student": StudentData.fromJson(json)};
+        return {"student": Student.fromJson(json)};
       } else {
         throw ApiException('Unexpected response format');
       }

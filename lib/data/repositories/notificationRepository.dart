@@ -30,13 +30,13 @@ class NotificationRepository {
         ));
       }
 
-      final currentUserId = AuthRepository.getIsStudentLogIn()
-          ? (AuthRepository.getStudentDetails().id ?? 0)
-          : (AuthRepository.getParentDetails().id ?? 0);
+      // final currentUserId = AuthRepository.getIsStudentLogIn()
+      //     ? (AuthRepository.getStudentDetails().id ?? 0)
+      //     : (AuthRepository.getParentDetails().id ?? 0);
 
-      notifications = notifications
-          .where((element) => element.userId == currentUserId)
-          .toList();
+      // notifications = notifications
+      //     .where((element) => element.userId == currentUserId)
+      //     .toList();
 
       notifications
           .sort((first, second) => second.createdAt.compareTo(first.createdAt));

@@ -32,12 +32,12 @@ class ResultScreen extends StatelessWidget {
   Widget _buildAppBar(BuildContext context) {
     String studentName = "";
     if (context.read<AuthCubit>().isParent()) {
-      final Student student =
-          (context.read<AuthCubit>().getParentDetails().children ?? [])
-              .where((element) => element.id == childId)
-              .first;
+      // final Student student =
+      //     (context.read<AuthCubit>().getParentDetails().children ?? [])
+      //         .where((element) => element.id == childId)
+      //         .first;
 
-      studentName = "${student.firstName} ${student.lastName}";
+      // studentName = "${student.firstName} ${student.lastName}";
     }
     return ScreenTopBackgroundContainer(
       heightPercentage: Utils.appBarMediumtHeightPercentage,
@@ -57,28 +57,28 @@ class ResultScreen extends StatelessWidget {
                       int studentUserId = 0;
 
                       if (context.read<AuthCubit>().isParent()) {
-                        final student = context
-                            .read<AuthCubit>()
-                            .getParentDetails()
-                            .children
-                            ?.where((child) => child.id == childId)
-                            .first;
-                        studentUserId = student?.userId ?? 0;
+                        // final student = context
+                        //     .read<AuthCubit>()
+                        //     .getParentDetails()
+                        //     .children
+                        //     ?.where((child) => child.id == childId)
+                        //     .first;
+                        // studentUserId = student?.userId ?? 0;
                       }
-                      Get.dialog(BlocProvider(
-                        create: (context) =>
-                            DownloadStudentResultCubit(ResultRepository()),
-                        child: DownloadStudentResultDialog(
-                          childId: context.read<AuthCubit>().isParent()
-                              ? studentUserId
-                              : context
-                                      .read<AuthCubit>()
-                                      .getStudentDetails()
-                                      .id ??
-                                  0,
-                          examId: result.examId,
-                        ),
-                      ));
+                      // Get.dialog(BlocProvider(
+                      //   create: (context) =>
+                      //       DownloadStudentResultCubit(ResultRepository()),
+                      //   child: DownloadStudentResultDialog(
+                      //     childId: context.read<AuthCubit>().isParent()
+                      //         ? studentUserId
+                      //         : context
+                      //                 .read<AuthCubit>()
+                      //                 .getStudentDetails()
+                      //                 .id ??
+                      //             0,
+                      //     examId: result.examId,
+                      //   ),
+                      // ));
                     },
                     svgIconUrl: Utils.getImagePath("download_icon.svg"),
                   ),

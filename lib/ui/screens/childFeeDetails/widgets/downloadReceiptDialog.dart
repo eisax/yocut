@@ -25,7 +25,7 @@ class _DownloadReceiptDialogState extends State<DownloadReceiptDialog> {
     super.initState();
     Future.delayed(Duration.zero, () {
       context.read<DownloadFeeReceiptCubit>().downloadFeeReceipt(
-          childId: widget.child.id ?? 0, feeId: widget.childFeeDetails.id ?? 0);
+          childId: 0, feeId: widget.childFeeDetails.id ?? 0);
     });
   }
 

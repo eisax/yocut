@@ -1,181 +1,461 @@
-import 'package:yocut/data/models/childUserDetails.dart';
-import 'package:yocut/data/models/classSection.dart';
-import 'package:yocut/data/models/guardian.dart';
-import 'package:yocut/data/models/school.dart';
-import 'package:yocut/data/models/studentProfileExtraDetails.dart';
-
 class Student {
-  final int? id;
-  final int? userId;
-  final String? firstName;
-  final String? lastName;
-  final String? mobile;
-  final String? gender;
-  final String? image;
-  final String? dob;
-  final String? currentAddress;
-  final String? permanentAddress;
-  final int? status;
-  final String? fcmId;
-  final int? schoolId;
-  final String? createdAt;
-  final String? updatedAt;
-  final ClassSection? classSection;
-  final Guardian? guardian;
-  final School? school;
-  final int? sessionYearId;
-  final int? rollNumber;
-  final String? admissionNo;
-  final String? admissionDate;
-  final List<StudentProfileExtraDetails>? studentProfileExtraDetails;
-  final ChildUserDetails? childUserDetails;
+  final bool valid;
+  final String message;
+  final StudentBody body;
 
-  Student(
-      {this.id,
-      this.firstName,
-      this.userId,
-      this.lastName,
-      this.mobile,
-      this.gender,
-      this.image,
-      this.dob,
-      this.currentAddress,
-      this.permanentAddress,
-      this.status,
-      this.fcmId,
-      this.schoolId,
-      this.createdAt,
-      this.updatedAt,
-      this.classSection,
-      this.guardian,
-      this.school,
-      this.admissionDate,
-      this.admissionNo,
-      this.rollNumber,
-      this.sessionYearId,
-      this.studentProfileExtraDetails,
-      this.childUserDetails});
+  Student({
+    required this.valid,
+    required this.message,
+    required this.body,
+  });
 
-  Student copyWith(
-      {int? id,
-      String? firstName,
-      String? lastName,
-      String? mobile,
-      String? gender,
-      String? image,
-      String? dob,
-      String? currentAddress,
-      String? permanentAddress,
-      int? status,
-      String? fcmId,
-      int? schoolId,
-      String? createdAt,
-      String? updatedAt,
-      ClassSection? classSection,
-      Guardian? guardian,
-      School? school,
-      String? admissionNo,
-      String? admissionDate,
-      int? rollNumber,
-      int? sessionYearId,
-      int? userId,
-      List<StudentProfileExtraDetails>? studentProfileExtraDetails,
-      ChildUserDetails? childUserDetails}) {
-    return Student(
-        userId: userId ?? this.userId,
-        id: id ?? this.id,
-        childUserDetails: childUserDetails ?? this.childUserDetails,
-        firstName: firstName ?? this.firstName,
-        lastName: lastName ?? this.lastName,
-        mobile: mobile ?? this.mobile,
-        gender: gender ?? this.gender,
-        image: image ?? this.image,
-        dob: dob ?? this.dob,
-        currentAddress: currentAddress ?? this.currentAddress,
-        permanentAddress: permanentAddress ?? this.permanentAddress,
-        status: status ?? this.status,
-        fcmId: fcmId ?? this.fcmId,
-        schoolId: schoolId ?? this.schoolId,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-        classSection: classSection ?? this.classSection,
-        guardian: guardian ?? this.guardian,
-        school: school ?? this.school,
-        admissionDate: admissionDate ?? this.admissionDate,
-        admissionNo: admissionNo ?? this.admissionNo,
-        rollNumber: rollNumber ?? this.rollNumber,
-        sessionYearId: sessionYearId ?? this.sessionYearId,
-        studentProfileExtraDetails:
-            studentProfileExtraDetails ?? this.studentProfileExtraDetails);
-  }
+  factory Student.fromJson(Map<String, dynamic> json) => Student(
+    valid: json['valid'] ?? false,
+    message: json['message'] ?? '',
+    body: StudentBody.fromJson(json['body'] ?? {}),
+  );
 
-  Student.fromJson(Map<String, dynamic> json)
-      : id = json['id'] as int?,
-        childUserDetails =
-            ChildUserDetails.fromJson(Map.from(json['user'] ?? {})),
-        userId = json['user_id'] as int?,
-        firstName = json['first_name'] as String?,
-        lastName = json['last_name'] as String?,
-        mobile = json['mobile'] as String?,
-        gender = json['gender'] as String?,
-        image = json['image'] as String?,
-        dob = json['dob'] as String?,
-        currentAddress = json['current_address'] as String?,
-        permanentAddress = json['permanent_address'] as String?,
-        status = int.parse((json['status'] ?? 0).toString()),
-        fcmId = json['fcm_id'] as String?,
-        schoolId = json['school_id'] as int?,
-        createdAt = json['created_at'] as String?,
-        classSection =
-            ClassSection.fromJson(Map.from(json['class_section'] ?? {})),
-        guardian = Guardian.fromJson(Map.from(json['guardian'] ?? {})),
-        school = School.fromJson(Map.from(json['school'] ?? {})),
-        sessionYearId = json['session_year_id'] as int?,
-        rollNumber = json['roll_number'] as int?,
-        admissionDate = json['admission_date'] as String?,
-        admissionNo = json['admission_no'] as String?,
-        studentProfileExtraDetails = ((json['extra_details'] ?? []) as List)
-            .map((details) =>
-                StudentProfileExtraDetails.fromJson(Map.from(details ?? {})))
-            .toList(),
-        updatedAt = json['updated_at'] as String?;
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'first_name': firstName,
-        'last_name': lastName,
-        'mobile': mobile,
-        'gender': gender,
-        'image': image,
-        'dob': dob,
-        'current_address': currentAddress,
-        'permanent_address': permanentAddress,
-        'status': status,
-        'fcm_id': fcmId,
-        'school_id': schoolId,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        'class_section': classSection?.toJson(),
-        'guardian': guardian?.toJson(),
-        'school': school?.toJson(),
-        'session_year_id': sessionYearId,
-        'roll_number': rollNumber,
-        'admission_date': admissionDate,
-        'admission_no': admissionNo,
-        'user_id': userId,
-        'extra_details':
-            studentProfileExtraDetails?.map((e) => e.toJson()).toList(),
-        'user': childUserDetails?.toJson(),
-      };
-
-  String getFullName() {
-    return "$firstName $lastName";
-  }
-
-  @override
-  String toString() {
-    return '$firstName $lastName - ${classSection?.classDetails?.name}${classSection?.section?.name}';
+  Map<String, dynamic> toJson() {
+    return {
+      'valid': valid,
+      'message': message,
+      'body': body.toJson(),
+    };
   }
 }
 
+class StudentBody {
+  final Registration registration;
+  final VLE vle;
+  final Accounts accounts;
+  final Bursary bursary;
+  final BankRate bankRate;
+  final List<Notice> notice;
+  final Profile profile;
 
+  StudentBody({
+    required this.registration,
+    required this.vle,
+    required this.accounts,
+    required this.bursary,
+    required this.bankRate,
+    required this.notice,
+    required this.profile,
+  });
+
+  factory StudentBody.fromJson(Map<String, dynamic> json) => StudentBody(
+    registration: Registration.fromJson(json['registration'] ?? {}),
+    vle: VLE.fromJson(json['vle'] ?? {}),
+    accounts: Accounts.fromJson(json['accounts'] ?? {}),
+    bursary: Bursary.fromJson(json['bursary'] ?? {}),
+    bankRate: BankRate.fromJson(json['bankRate'] ?? {}),
+    notice: (json['notice'] as List?)?.map((e) => Notice.fromJson(e ?? {})).toList() ?? [],
+    profile: Profile.fromJson(json['profile'] ?? {}),
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'registration': registration.toJson(),
+      'vle': vle.toJson(),
+      'accounts': accounts.toJson(),
+      'bursary': bursary.toJson(),
+      'bankRate': bankRate.toJson(),
+      'notice': notice.map((e) => e.toJson()).toList(),
+      'profile': profile.toJson(),
+    };
+  }
+}
+
+class Registration {
+  final Period period;
+  final Program program;
+  final List<Module> modules;
+  final bool isRegistered;
+  final List<dynamic> exemption;
+
+  Registration({
+    required this.period,
+    required this.program,
+    required this.modules,
+    required this.isRegistered,
+    required this.exemption,
+  });
+
+  factory Registration.fromJson(Map<String, dynamic> json) => Registration(
+    period: Period.fromJson(json['period'] ?? {}),
+    program: Program.fromJson(json['program'] ?? {}),
+    modules: (json['modules'] as List?)?.map((e) => Module.fromJson(e ?? {})).toList() ?? [],
+    isRegistered: json['is_registered'] ?? false,
+    exemption: json['exemption'] ?? [],
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'period': period.toJson(),
+      'program': program.toJson(),
+      'modules': modules.map((e) => e.toJson()).toList(),
+      'is_registered': isRegistered,
+      'exemption': exemption,
+    };
+  }
+}
+
+class Period {
+  final String periodId;
+  final String currentSession;
+  final String startDate;
+  final String endDate;
+  final String periodName;
+  final String period;
+  final String active;
+
+  Period({
+    required this.periodId,
+    required this.currentSession,
+    required this.startDate,
+    required this.endDate,
+    required this.periodName,
+    required this.period,
+    required this.active,
+  });
+
+  factory Period.fromJson(Map<String, dynamic> json) => Period(
+    periodId: json['period_id'] ?? '',
+    currentSession: json['current_session'] ?? '',
+    startDate: json['start_date'] ?? '',
+    endDate: json['end_date'] ?? '',
+    periodName: json['period_name'] ?? '',
+    period: json['period'] ?? '',
+    active: json['active'] ?? '',
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'period_id': periodId,
+      'current_session': currentSession,
+      'start_date': startDate,
+      'end_date': endDate,
+      'period_name': periodName,
+      'period': period,
+      'active': active,
+    };
+  }
+}
+
+class Program {
+  final String attendanceTypeName;
+  final String programmeName;
+  final String programmeCode;
+  final String facultyId;
+  final String programmeId;
+  final String facultyName;
+  final String facultyCode;
+  final String level;
+  final bool completed;
+
+  Program({
+    required this.attendanceTypeName,
+    required this.programmeName,
+    required this.programmeCode,
+    required this.facultyId,
+    required this.programmeId,
+    required this.facultyName,
+    required this.facultyCode,
+    required this.level,
+    required this.completed,
+  });
+
+  factory Program.fromJson(Map<String, dynamic> json) => Program(
+    attendanceTypeName: json['attendance_type_name'] ?? '',
+    programmeName: json['programme_name'] ?? '',
+    programmeCode: json['programme_code'] ?? '',
+    facultyId: json['faculty_id'] ?? '',
+    programmeId: json['programme_id'] ?? '',
+    facultyName: json['faculty_name'] ?? '',
+    facultyCode: json['faculty_code'] ?? '',
+    level: json['level'] ?? '',
+    completed: json['completed'] ?? false,
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'attendance_type_name': attendanceTypeName,
+      'programme_name': programmeName,
+      'programme_code': programmeCode,
+      'faculty_id': facultyId,
+      'programme_id': programmeId,
+      'faculty_name': facultyName,
+      'faculty_code': facultyCode,
+      'level': level,
+      'completed': completed,
+    };
+  }
+}
+
+class Module {
+  final String moduleName;
+  final String moduleId;
+  final String moduleCode;
+  final String moduleUnitCode;
+  final String periodId;
+  final String isEvaluable;
+  final List<PastExamPaper> pastExamPapers;
+  final bool vleStatus;
+
+  Module({
+    required this.moduleName,
+    required this.moduleId,
+    required this.moduleCode,
+    required this.moduleUnitCode,
+    required this.periodId,
+    required this.isEvaluable,
+    required this.pastExamPapers,
+    required this.vleStatus,
+  });
+
+  factory Module.fromJson(Map<String, dynamic> json) => Module(
+    moduleName: json['module_name'] ?? '',
+    moduleId: json['module_id'] ?? '',
+    moduleCode: json['module_code'] ?? '',
+    moduleUnitCode: json['module_unit_code'] ?? '',
+    periodId: json['period_id'] ?? '',
+    isEvaluable: json['is_evaluable'] ?? '',
+    pastExamPapers: (json['past_exam_papers'] as List?)?.map((e) => PastExamPaper.fromJson(e ?? {})).toList() ?? [],
+    vleStatus: json['vle_status'] ?? false,
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'module_name': moduleName,
+      'module_id': moduleId,
+      'module_code': moduleCode,
+      'module_unit_code': moduleUnitCode,
+      'period_id': periodId,
+      'is_evaluable': isEvaluable,
+      'past_exam_papers': pastExamPapers.map((e) => e.toJson()).toList(),
+      'vle_status': vleStatus,
+    };
+  }
+}
+
+class PastExamPaper {
+  final String pastExamPaperId;
+  final String year;
+  final String description;
+  final String documentSize;
+  final String periodId;
+  final String documentPath;
+
+  PastExamPaper({
+    required this.pastExamPaperId,
+    required this.year,
+    required this.description,
+    required this.documentSize,
+    required this.periodId,
+    required this.documentPath,
+  });
+
+  factory PastExamPaper.fromJson(Map<String, dynamic> json) => PastExamPaper(
+    pastExamPaperId: json['past_exam_paper_id'] ?? '',
+    year: json['year'] ?? '',
+    description: json['description'] ?? '',
+    documentSize: json['document_size'] ?? '',
+    periodId: json['period_id'] ?? '',
+    documentPath: json['document_path'] ?? '',
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'past_exam_paper_id': pastExamPaperId,
+      'year': year,
+      'description': description,
+      'document_size': documentSize,
+      'period_id': periodId,
+      'document_path': documentPath,
+    };
+  }
+}
+
+class VLE {
+  final bool status;
+  final int classesReady;
+
+  VLE({
+    required this.status,
+    required this.classesReady,
+  });
+
+  factory VLE.fromJson(Map<String, dynamic> json) => VLE(
+    status: json['status'] ?? false,
+    classesReady: json['classes_ready'] ?? 0,
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'status': status,
+      'classes_ready': classesReady,
+    };
+  }
+}
+
+class Accounts {
+  final bool wifi;
+  final bool studentIdCard;
+  final bool canteen;
+  final dynamic accomodation;
+
+  Accounts({
+    required this.wifi,
+    required this.studentIdCard,
+    required this.canteen,
+    this.accomodation,
+  });
+
+  factory Accounts.fromJson(Map<String, dynamic> json) => Accounts(
+    wifi: json['wifi'] ?? false,
+    studentIdCard: json['student_id_card'] ?? false,
+    canteen: json['canteen'] ?? false,
+    accomodation: json['accomodation'], // Assuming accomodation can be nullable
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'wifi': wifi,
+      'student_id_card': studentIdCard,
+      'canteen': canteen,
+      'accomodation': accomodation,
+    };
+  }
+}
+
+class Bursary {
+  final String pastelAccount;
+  final List<Statement> statements;
+
+  Bursary({
+    required this.pastelAccount,
+    required this.statements,
+  });
+
+  factory Bursary.fromJson(Map<String, dynamic> json) => Bursary(
+    pastelAccount: json['pastel_account'] ?? '',
+    statements: (json['statements'] as List?)?.map((e) => Statement.fromJson(e ?? {})).toList() ?? [],
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'pastel_account': pastelAccount,
+      'statements': statements.map((e) => e.toJson()).toList(),
+    };
+  }
+}
+
+class Statement {
+  final String debit;
+  final String credit;
+  final String transactionDate;
+  final String transactionDescription;
+  final String referenceNumber;
+
+  Statement({
+    required this.debit,
+    required this.credit,
+    required this.transactionDate,
+    required this.transactionDescription,
+    required this.referenceNumber,
+  });
+
+  factory Statement.fromJson(Map<String, dynamic> json) => Statement(
+    debit: json['debit'] ?? '',
+    credit: json['credit'] ?? '',
+    transactionDate: json['transaction_date'] ?? '',
+    transactionDescription: json['transaction_description'] ?? '',
+    referenceNumber: json['reference_number'] ?? '',
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'debit': debit,
+      'credit': credit,
+      'transaction_date': transactionDate,
+      'transaction_description': transactionDescription,
+      'reference_number': referenceNumber,
+    };
+  }
+}
+
+class BankRate {
+  final String rate;
+
+  BankRate({required this.rate});
+
+  factory BankRate.fromJson(Map<String, dynamic> json) => BankRate(
+    rate: json['rate'] ?? '',
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'rate': rate,
+    };
+  }
+}
+
+class Notice {
+  final String title;
+  final String date;
+  final String description;
+
+  Notice({
+    required this.title,
+    required this.date,
+    required this.description,
+  });
+
+  factory Notice.fromJson(Map<String, dynamic> json) => Notice(
+    title: json['title'] ?? '',
+    date: json['date'] ?? '',
+    description: json['description'] ?? '',
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'date': date,
+      'description': description,
+    };
+  }
+}
+
+class Profile {
+  final String name;
+  final String idNumber;
+  final String gender;
+  final String courseOfStudy;
+  final String yearOfStudy;
+
+  Profile({
+    required this.name,
+    required this.idNumber,
+    required this.gender,
+    required this.courseOfStudy,
+    required this.yearOfStudy,
+  });
+
+  factory Profile.fromJson(Map<String, dynamic> json) => Profile(
+    name: json['name'] ?? '',
+    idNumber: json['id_number'] ?? '',
+    gender: json['gender'] ?? '',
+    courseOfStudy: json['course_of_study'] ?? '',
+    yearOfStudy: json['year_of_study'] ?? '',
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'id_number': idNumber,
+      'gender': gender,
+      'course_of_study': courseOfStudy,
+      'year_of_study': yearOfStudy,
+    };
+  }
+}

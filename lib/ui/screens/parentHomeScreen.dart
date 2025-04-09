@@ -50,16 +50,16 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
   }
 
   void _fetchSchoolConfiguration() {
-    var firstChildId = context
-            .read<AuthCubit>()
-            .getParentDetails()
-            .children
-            ?.firstOrNull
-            ?.id ??
-        0;
-    context
-        .read<SchoolConfigurationCubit>()
-        .fetchSchoolConfiguration(useParentApi: true, childId: firstChildId);
+    // var firstChildId = context
+    //         .read<AuthCubit>()
+    //         .getParentDetails()
+    //         .children
+    //         ?.firstOrNull
+    //         ?.id ??
+    //     0;
+    // context
+    //     .read<SchoolConfigurationCubit>()
+    //     .fetchSchoolConfiguration(useParentApi: true, childId: firstChildId);
   }
 
   Widget _buildAppBar() {
@@ -253,52 +253,52 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
                           SizedBox(
                             height: boxConstraints.maxHeight * (0.125),
                           ),
-                          BorderedProfilePictureContainer(
-                            onTap: () {
-                              Get.toNamed(
-                                Routes.parentChildDetails,
-                                arguments: student,
-                              );
-                            },
-                            heightAndWidth: 50,
-                            imageUrl: student.childUserDetails?.image ?? "",
-                          ),
+                          // BorderedProfilePictureContainer(
+                          //   onTap: () {
+                          //     Get.toNamed(
+                          //       Routes.parentChildDetails,
+                          //       arguments: student,
+                          //     );
+                          //   },
+                          //   heightAndWidth: 50,
+                          //   imageUrl: student.childUserDetails?.image ?? "",
+                          // ),
                           SizedBox(
                             height: boxConstraints.maxHeight * (0.075),
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 7.5),
-                            child: Text(
-                              student.getFullName(),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14.0,
-                              ),
-                            ),
-                          ),
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsets.symmetric(horizontal: 7.5),
+                          //   child: Text(
+                          //     student.getFullName(),
+                          //     maxLines: 1,
+                          //     overflow: TextOverflow.ellipsis,
+                          //     style: TextStyle(
+                          //       color:
+                          //           Theme.of(context).scaffoldBackgroundColor,
+                          //       fontWeight: FontWeight.w500,
+                          //       fontSize: 14.0,
+                          //     ),
+                          //   ),
+                          // ),
                           SizedBox(
                             height: boxConstraints.maxHeight * (0.025),
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 7.5),
-                            child: Text(
-                              "${Utils.getTranslatedLabel(classKey)} - ${student.classSection?.fullName}",
-                              style: TextStyle(
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 10,
-                              ),
-                              maxLines: 2,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsets.symmetric(horizontal: 7.5),
+                          //   child: Text(
+                          //     "${Utils.getTranslatedLabel(classKey)} - ${student.classSection?.fullName}",
+                          //     style: TextStyle(
+                          //       color:
+                          //           Theme.of(context).scaffoldBackgroundColor,
+                          //       fontWeight: FontWeight.w500,
+                          //       fontSize: 10,
+                          //     ),
+                          //     maxLines: 2,
+                          //     textAlign: TextAlign.center,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

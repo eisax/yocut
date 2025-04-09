@@ -71,14 +71,14 @@ class _NewChatContactsScreenState extends State<NewChatContactsScreen> {
         _scrollController.offset) {
       if (context.read<ChatUsersCubit>().hasMore) {
         context.read<ChatUsersCubit>().fetchMoreChatUsers(
-            role: ChatUserRole.teacher, studentId: '${currentStudent?.id}');
+            role: ChatUserRole.teacher, studentId: '${currentStudent?.body.profile.idNumber}');
       }
     }
   }
 
   Widget _fetchChatUsers() {
     context.read<ChatUsersCubit>().fetchChatUsers(
-        role: ChatUserRole.teacher, childId: '${currentStudent?.id}');
+        role: ChatUserRole.teacher, childId: '${currentStudent?.body.profile.idNumber}');
     return SizedBox.shrink();
   }
 

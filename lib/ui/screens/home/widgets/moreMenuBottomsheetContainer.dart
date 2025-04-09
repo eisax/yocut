@@ -106,12 +106,12 @@ class MoreMenuBottomsheetContainer extends StatelessWidget {
                         boxConstraints.maxWidth * (0.11),
                       ),
                     ),
-                    child: CustomUserProfileImageWidget(
-                      profileUrl:
-                          context.read<AuthCubit>().getStudentDetails().image ??
-                              "",
-                      color: Colors.black,
-                    ),
+                    // child: CustomUserProfileImageWidget(
+                    //   profileUrl:
+                    //       context.read<AuthCubit>().getStudentDetails().image ??
+                    //           "",
+                    //   color: Colors.black,
+                    // ),
                   ),
                   SizedBox(
                     width: boxConstraints.maxWidth * (0.075),
@@ -120,53 +120,53 @@ class MoreMenuBottomsheetContainer extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          context
-                              .read<AuthCubit>()
-                              .getStudentDetails()
-                              .getFullName(),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.secondary,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "${Utils.getTranslatedLabel(classKey)} : ${context.read<AuthCubit>().getStudentDetails().classSection?.fullName}",
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(context).colorScheme.onSurface,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "${Utils.getTranslatedLabel(rollNoKey)} : ${context.read<AuthCubit>().getStudentDetails().rollNumber}",
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(context).colorScheme.onSurface,
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
+                        // Text(
+                        //   context
+                        //       .read<AuthCubit>()
+                        //       .getStudentDetails()
+                        //       .getFullName(),
+                        //   maxLines: 1,
+                        //   overflow: TextOverflow.ellipsis,
+                        //   style: TextStyle(
+                        //     color: Theme.of(context).colorScheme.secondary,
+                        //     fontWeight: FontWeight.w500,
+                        //     fontSize: 18.0,
+                        //   ),
+                        // ),
+                        // Row(
+                        //   children: [
+                        //     Flexible(
+                        //       child: Text(
+                        //         "${Utils.getTranslatedLabel(classKey)} : ${context.read<AuthCubit>().getStudentDetails().classSection?.fullName}",
+                        //         maxLines: 2,
+                        //         overflow: TextOverflow.ellipsis,
+                        //         style: TextStyle(
+                        //           fontSize: 12.0,
+                        //           fontWeight: FontWeight.w400,
+                        //           color:
+                        //               Theme.of(context).colorScheme.onSurface,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
+                        // Row(
+                        //   children: [
+                        //     Flexible(
+                        //       child: Text(
+                        //         "${Utils.getTranslatedLabel(rollNoKey)} : ${context.read<AuthCubit>().getStudentDetails().rollNumber}",
+                        //         maxLines: 1,
+                        //         overflow: TextOverflow.ellipsis,
+                        //         style: TextStyle(
+                        //           fontSize: 12.0,
+                        //           fontWeight: FontWeight.w400,
+                        //           color:
+                        //               Theme.of(context).colorScheme.onSurface,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // )
                       ],
                     ),
                   ),

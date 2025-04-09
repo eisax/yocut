@@ -78,14 +78,14 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      BorderedProfilePictureContainer(
-                        heightAndWidth: 60,
-                        imageUrl: context
-                                .read<AuthCubit>()
-                                .getStudentDetails()
-                                .image ??
-                            "",
-                      ),
+                      // BorderedProfilePictureContainer(
+                      //   heightAndWidth: 60,
+                      //   imageUrl: context
+                      //           .read<AuthCubit>()
+                      //           .getStudentDetails()
+                      //           .image ??
+                      //       "",
+                      // ),
                       SizedBox(
                         width: boxConstraints.maxWidth * (0.03),
                       ),
@@ -94,35 +94,35 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              context
-                                  .read<AuthCubit>()
-                                  .getStudentDetails()
-                                  .getFullName(),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w500,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                              ),
-                            ),
+                            // Text(
+                            //   context
+                            //       .read<AuthCubit>()
+                            //       .getStudentDetails()
+                            //       .getFullName(),
+                            //   maxLines: 1,
+                            //   overflow: TextOverflow.ellipsis,
+                            //   style: TextStyle(
+                            //     fontSize: 18.0,
+                            //     fontWeight: FontWeight.w500,
+                            //     color:
+                            //         Theme.of(context).scaffoldBackgroundColor,
+                            //   ),
+                            // ),
                             Row(
                               children: [
-                                Flexible(
-                                  child: Text(
-                                    "${Utils.getTranslatedLabel(classKey)} : ${context.read<AuthCubit>().getStudentDetails().classSection?.fullName}",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                    ),
-                                  ),
-                                ),
+                                // Flexible(
+                                //   child: Text(
+                                //     "${Utils.getTranslatedLabel(classKey)} : ${context.read<AuthCubit>().getStudentDetails().classSection?.fullName}",
+                                //     maxLines: 1,
+                                //     overflow: TextOverflow.ellipsis,
+                                //     style: TextStyle(
+                                //       fontSize: 12.0,
+                                //       fontWeight: FontWeight.w400,
+                                //       color: Theme.of(context)
+                                //           .scaffoldBackgroundColor,
+                                //     ),
+                                //   ),
+                                // ),
                                 const SizedBox(
                                   width: 10.0,
                                 ),
@@ -135,19 +135,19 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                                 const SizedBox(
                                   width: 10.0,
                                 ),
-                                Flexible(
-                                  child: Text(
-                                    "${Utils.getTranslatedLabel(rollNoKey)} : ${context.read<AuthCubit>().getStudentDetails().rollNumber}",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                    ),
-                                  ),
-                                ),
+                                // Flexible(
+                                //   child: Text(
+                                //     "${Utils.getTranslatedLabel(rollNoKey)} : ${context.read<AuthCubit>().getStudentDetails().rollNumber}",
+                                //     maxLines: 1,
+                                //     overflow: TextOverflow.ellipsis,
+                                //     style: TextStyle(
+                                //       fontSize: 12.0,
+                                //       fontWeight: FontWeight.w400,
+                                //       color: Theme.of(context)
+                                //           .scaffoldBackgroundColor,
+                                //     ),
+                                //   ),
+                                // ),
                               ],
                             )
                           ],

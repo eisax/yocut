@@ -257,7 +257,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
           optionalFeeIds: _toPayOptionalFeeIds,
           compulsoryFee: _currentlySelectedTabKey == compulsoryTitleKey,
           paymentMethod: enabledPaymentGateways.first,
-          childId: widget.child.id ?? 0,
+          childId: 0,
           feeId: widget.childFeeDetails.id ?? 0);
     } else {
       ///[If multiple payment gateway enabled by school then user need to select the payment gateway]
@@ -274,7 +274,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
               optionalFeeIds: _toPayOptionalFeeIds,
               compulsoryFee: _currentlySelectedTabKey == compulsoryTitleKey,
               paymentMethod: selectedPaymentMethod as PaymentGeteway,
-              childId: widget.child.id ?? 0,
+              childId:  0,
               feeId: widget.childFeeDetails.id ?? 0);
         }
       });

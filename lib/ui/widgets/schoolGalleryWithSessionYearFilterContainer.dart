@@ -40,16 +40,16 @@ class _SchoolGalleryWithSessionYearFilterContainerState
   }
 
   void fetchSessionYears() {
-    context.read<SchoolSessionYearsCubit>().fetchSessionYears(
-        useParentApi: context.read<AuthCubit>().isParent(),
-        childId: widget.student.id ?? 0);
+    // context.read<SchoolSessionYearsCubit>().fetchSessionYears(
+    //     useParentApi: context.read<AuthCubit>().isParent(),
+    //     childId: widget.student.id ?? 0);
   }
 
   void fetchSchoolGallerySessionYearWise() {
-    context.read<SchoolGalleryCubit>().fetchSchoolGallery(
-        useParentApi: context.read<AuthCubit>().isParent(),
-        childId: widget.student.id ?? 0,
-        sessionYearId: selectedSessionYear.id ?? 0);
+    // context.read<SchoolGalleryCubit>().fetchSchoolGallery(
+    //     useParentApi: context.read<AuthCubit>().isParent(),
+    //     childId: widget.student.id ?? 0,
+    //     sessionYearId: selectedSessionYear.id ?? 0);
   }
 
   Widget _buildSessionYearDropDown() {

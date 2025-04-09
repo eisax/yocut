@@ -251,10 +251,10 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
     if (context.read<AuthCubit>().isParent()) {
       final Student student =
           (context.read<AuthCubit>().getParentDetails().children ?? [])
-              .where((element) => element.id == widget.childID)
+              .where((element) => 0 == widget.childID)
               .first;
 
-      studentName = "${student.firstName} ${student.lastName}";
+      studentName = "${student.body.profile.name} ${student.body.profile.name}";
     }
     return ScreenTopBackgroundContainer(
       heightPercentage: Utils.appBarMediumtHeightPercentage,
