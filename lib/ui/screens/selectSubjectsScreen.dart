@@ -135,16 +135,16 @@ class _SelectSubjectsScreenState extends State<SelectSubjectsScreen> {
   }
 
   Widget _buildAppBar() {
-    final currentClass =
-        context.read<AuthCubit>().getStudentDetails().classSection?.fullName ??
-            "";
+    // final currentClass =
+    //     context.read<AuthCubit>().getStudentDetails().classSection?.fullName ??
+    //         "";
     return Align(
       alignment: Alignment.topCenter,
-      child: CustomAppBar(
-        showBackButton: false,
-        subTitle: "${Utils.getTranslatedLabel(classKey)} $currentClass",
-        title: Utils.getTranslatedLabel(selectSubjectsKey),
-      ),
+      // child: CustomAppBar(
+      //   showBackButton: false,
+      //   subTitle: "${Utils.getTranslatedLabel(classKey)} $currentClass",
+      //   title: Utils.getTranslatedLabel(selectSubjectsKey),
+      // ),
     );
   }
 

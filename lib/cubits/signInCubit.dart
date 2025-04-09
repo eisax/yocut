@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:yocut/data/models/StudentInfo.dart';
 import 'package:yocut/data/models/credentials.dart';
 import 'package:yocut/data/models/guardian.dart';
 import 'package:yocut/data/models/student.dart';
@@ -74,7 +73,7 @@ class SignInCubit extends Cubit<SignInState> {
 
 
         if (loginResponse != null) {
-          result = await _authRepository.getStudentData(
+          result = await _authRepository.getStudent(
             credentials: loginResponse,
           );
 

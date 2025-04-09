@@ -549,16 +549,16 @@ class HomeScreenState extends State<HomeScreen>
 
                       ///[Setting up the socket connection]
 
-                      if (Utils.isModuleEnabled(
-                          context: context,
-                          moduleId: chatModuleId.toString())) {
-                        context.read<SocketSettingCubit>().init(
-                            userId: context
-                                    .read<AuthCubit>()
-                                    .getStudentDetails()
-                                    .id ??
-                                0);
-                      }
+                      // if (Utils.isModuleEnabled(
+                      //     context: context,
+                      //     moduleId: chatModuleId.toString())) {
+                      //   context.read<SocketSettingCubit>().init(
+                      //       userId: context
+                      //               .read<AuthCubit>()
+                      //               .getStudentDetails()
+                      //               .id ??
+                      //           0);
+                      // }
                     }
                   }
                 },

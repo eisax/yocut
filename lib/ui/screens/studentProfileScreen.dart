@@ -138,38 +138,38 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
         ),
         child: Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * (0.25),
-              height: MediaQuery.of(context).size.width * (0.25),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              child: CustomUserProfileImageWidget(
-                profileUrl: studentDetails.image ?? "",
-              ),
-            ),
+            // Container(
+            //   width: MediaQuery.of(context).size.width * (0.25),
+            //   height: MediaQuery.of(context).size.width * (0.25),
+            //   decoration: BoxDecoration(
+            //     shape: BoxShape.circle,
+            //     color: Theme.of(context).colorScheme.primary,
+            //   ),
+            //   child: CustomUserProfileImageWidget(
+            //     profileUrl: studentDetails.image ?? "",
+            //   ),
+            // ),
             const SizedBox(
               height: 10,
             ),
-            Text(
-              studentDetails.getFullName(),
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: Theme.of(context).colorScheme.secondary,
-                fontSize: 18.0,
-              ),
-            ),
+            // Text(
+            //   studentDetails.getFullName(),
+            //   style: TextStyle(
+            //     fontWeight: FontWeight.w500,
+            //     color: Theme.of(context).colorScheme.secondary,
+            //     fontSize: 18.0,
+            //   ),
+            // ),
             const SizedBox(
               height: 5.0,
             ),
-            Text(
-              "${Utils.getTranslatedLabel(regNumberKey)} - ${studentDetails.admissionNo}",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 12.0,
-              ),
-            ),
+            // Text(
+            //   "${Utils.getTranslatedLabel(regNumberKey)} - ${studentDetails.admissionNo}",
+            //   style: TextStyle(
+            //     color: Theme.of(context).colorScheme.onSurface,
+            //     fontSize: 12.0,
+            //   ),
+            // ),
             const SizedBox(
               height: 10.0,
             ),
@@ -185,141 +185,143 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
             const SizedBox(
               height: 10.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * (0.075),
-              ),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      Utils.getTranslatedLabel(personalDetailsKey),
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurface,
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(schoolKey),
-                    value: Utils.formatEmptyValue(
-                        ("${studentDetails.school?.name} (${studentDetails.school?.code})")),
-                    iconUrl: Utils.getImagePath("school.svg"),
-                  ),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(classKey),
-                    value: Utils.formatEmptyValue(
-                      studentDetails.classSection?.fullName ?? "",
-                    ),
-                    iconUrl: Utils.getImagePath("user_pro_class_icon.svg"),
-                  ),
-                  (studentDetails.classSection?.classDetails
-                                  ?.includeSemesters ??
-                              0) ==
-                          1
-                      ? _buildProfileDetailsTile(
-                          label: Utils.getTranslatedLabel(semesterKey),
-                          value: Utils.formatEmptyValue(
-                            context
-                                    .read<SchoolConfigurationCubit>()
-                                    .getSchoolConfiguration()
-                                    .semesterDetails
-                                    .name ??
-                                "",
-                          ),
-                          iconColor: Theme.of(context).scaffoldBackgroundColor,
-                          iconUrl: Utils.getImagePath("sem_pro_icon.svg"),
-                        )
-                      : const SizedBox(),
-                  (studentDetails.classSection?.classDetails?.streamDetails
-                                  ?.name ??
-                              "")
-                          .isNotEmpty
-                      ? _buildProfileDetailsTile(
-                          label: Utils.getTranslatedLabel(streamKey),
-                          value: Utils.formatEmptyValue(
-                            studentDetails.classSection?.classDetails
-                                    ?.streamDetails?.name ??
-                                "",
-                          ),
-                          iconColor: Theme.of(context).scaffoldBackgroundColor,
-                          iconUrl: Utils.getImagePath("stream_pro_icon.svg"),
-                        )
-                      : const SizedBox(),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(mediumKey),
-                    value: Utils.formatEmptyValue(
-                      studentDetails.classSection?.medium?.name ?? "",
-                    ),
-                    iconUrl: Utils.getImagePath("medium_icon.svg"),
-                  ),
-                  if (studentDetails.classSection?.classDetails?.shift?.name !=
-                          null &&
-                      (studentDetails.classSection?.classDetails?.shift?.name ??
-                              "")
-                          .trim()
-                          .isNotEmpty)
-                    _buildProfileDetailsTile(
-                      label: Utils.getTranslatedLabel(shiftKey),
-                      value: Utils.formatEmptyValue(
-                        "${studentDetails.classSection!.classDetails!.shift!.name} (${studentDetails.classSection!.classDetails!.shift!.startToEndTime ?? ''})",
-                      ),
-                      iconUrl: Utils.getImagePath("user_pro_shift_icon.svg"),
-                    ),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(rollNumberKey),
-                    value: studentDetails.rollNumber.toString(),
-                    iconUrl: Utils.getImagePath("Hello.svg"),
-                  ),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(dateOfBirthKey),
-                    value: Utils.formatEmptyValue(
-                        DateTime.tryParse(studentDetails.dob ?? "") == null
-                            ? "-"
-                            : Utils.formatDate(
-                                DateTime.tryParse(studentDetails.dob!)!)),
-                    iconUrl: Utils.getImagePath("user_pro_dob_icon.svg"),
-                  ),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(
-                      currentAddressKey,
-                    ),
-                    value: Utils.formatEmptyValue(
-                      studentDetails.currentAddress ?? "",
-                    ),
-                    iconUrl: Utils.getImagePath("user_pro_address_icon.svg"),
-                  ),
-                  _buildProfileDetailsTile(
-                    label: Utils.getTranslatedLabel(
-                      permanentAddressKey,
-                    ),
-                    value: Utils.formatEmptyValue(
-                      studentDetails.permanentAddress ?? "",
-                    ),
-                    iconUrl: Utils.getImagePath("user_pro_address_icon.svg"),
-                  ),
-                  ...(studentDetails.studentProfileExtraDetails ?? [])
-                      .map(
-                        (details) => _buildProfileDetailsTile(
-                          label: Utils.getTranslatedLabel(
-                            details.formField?.name ?? "",
-                          ),
-                          value: Utils.formatEmptyValue(
-                            details.data ?? "",
-                          ),
-                          iconColor: Theme.of(context).scaffoldBackgroundColor,
-                          iconUrl: Utils.getImagePath("info_pro_icon.svg"),
-                        ),
-                      )
-                      ,
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * (0.1),
-                  ),
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(
+            //     horizontal: MediaQuery.of(context).size.width * (0.075),
+            //   ),
+            //   child: Column(
+            //     children: [
+            //       Align(
+            //         alignment: AlignmentDirectional.centerStart,
+            //         child: Text(
+            //           Utils.getTranslatedLabel(personalDetailsKey),
+            //           style: TextStyle(
+            //             color: Theme.of(context).colorScheme.onSurface,
+            //             fontSize: 15.0,
+            //             fontWeight: FontWeight.w500,
+            //           ),
+            //         ),
+            //       ),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(schoolKey),
+            //         value: Utils.formatEmptyValue(
+            //             ("${studentDetails.school?.name} (${studentDetails.school?.code})")),
+            //         iconUrl: Utils.getImagePath("school.svg"),
+            //       ),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(classKey),
+            //         value: Utils.formatEmptyValue(
+            //           studentDetails.classSection?.fullName ?? "",
+            //         ),
+            //         iconUrl: Utils.getImagePath("user_pro_class_icon.svg"),
+            //       ),
+            //       (studentDetails.classSection?.classDetails
+            //                       ?.includeSemesters ??
+            //                   0) ==
+            //               1
+            //           ? _buildProfileDetailsTile(
+            //               label: Utils.getTranslatedLabel(semesterKey),
+            //               value: Utils.formatEmptyValue(
+            //                 context
+            //                         .read<SchoolConfigurationCubit>()
+            //                         .getSchoolConfiguration()
+            //                         .semesterDetails
+            //                         .name ??
+            //                     "",
+            //               ),
+            //               iconColor: Theme.of(context).scaffoldBackgroundColor,
+            //               iconUrl: Utils.getImagePath("sem_pro_icon.svg"),
+            //             )
+            //           : const SizedBox(),
+            //       (studentDetails.classSection?.classDetails?.streamDetails
+            //                       ?.name ??
+            //                   "")
+            //               .isNotEmpty
+            //           ? _buildProfileDetailsTile(
+            //               label: Utils.getTranslatedLabel(streamKey),
+            //               value: Utils.formatEmptyValue(
+            //                 studentDetails.classSection?.classDetails
+            //                         ?.streamDetails?.name ??
+            //                     "",
+            //               ),
+            //               iconColor: Theme.of(context).scaffoldBackgroundColor,
+            //               iconUrl: Utils.getImagePath("stream_pro_icon.svg"),
+            //             )
+            //           : const SizedBox(),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(mediumKey),
+            //         value: Utils.formatEmptyValue(
+            //           studentDetails.classSection?.medium?.name ?? "",
+            //         ),
+            //         iconUrl: Utils.getImagePath("medium_icon.svg"),
+            //       ),
+            //       if (studentDetails.classSection?.classDetails?.shift?.name !=
+            //               null &&
+            //           (studentDetails.classSection?.classDetails?.shift?.name ??
+            //                   "")
+            //               .trim()
+            //               .isNotEmpty)
+            //         _buildProfileDetailsTile(
+            //           label: Utils.getTranslatedLabel(shiftKey),
+            //           value: Utils.formatEmptyValue(
+            //             "${studentDetails.classSection!.classDetails!.shift!.name} (${studentDetails.classSection!.classDetails!.shift!.startToEndTime ?? ''})",
+            //           ),
+            //           iconUrl: Utils.getImagePath("user_pro_shift_icon.svg"),
+            //         ),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(rollNumberKey),
+            //         value: studentDetails.rollNumber.toString(),
+            //         iconUrl: Utils.getImagePath("Hello.svg"),
+            //       ),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(dateOfBirthKey),
+            //         value: Utils.formatEmptyValue(
+            //             DateTime.tryParse(studentDetails.dob ?? "") == null
+            //                 ? "-"
+            //                 : Utils.formatDate(
+            //                     DateTime.tryParse(studentDetails.dob!)!)),
+            //         iconUrl: Utils.getImagePath("user_pro_dob_icon.svg"),
+            //       ),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(
+            //           currentAddressKey,
+            //         ),
+            //         value: Utils.formatEmptyValue(
+            //           studentDetails.currentAddress ?? "",
+            //         ),
+            //         iconUrl: Utils.getImagePath("user_pro_address_icon.svg"),
+            //       ),
+            //       _buildProfileDetailsTile(
+            //         label: Utils.getTranslatedLabel(
+            //           permanentAddressKey,
+            //         ),
+            //         value: Utils.formatEmptyValue(
+            //           studentDetails.permanentAddress ?? "",
+            //         ),
+            //         iconUrl: Utils.getImagePath("user_pro_address_icon.svg"),
+            //       ),
+            //       ...(studentDetails.studentProfileExtraDetails ?? [])
+            //           .map(
+            //             (details) => _buildProfileDetailsTile(
+            //               label: Utils.getTranslatedLabel(
+            //                 details.formField?.name ?? "",
+            //               ),
+            //               value: Utils.formatEmptyValue(
+            //                 details.data ?? "",
+            //               ),
+            //               iconColor: Theme.of(context).scaffoldBackgroundColor,
+            //               iconUrl: Utils.getImagePath("info_pro_icon.svg"),
+            //             ),
+            //           )
+            //           ,
+            //       SizedBox(
+            //         height: MediaQuery.of(context).size.height * (0.1),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+         
+         
           ],
         ),
       ),

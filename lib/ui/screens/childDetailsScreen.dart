@@ -52,40 +52,40 @@ class _ChildDetailsScreenState extends State<ChildDetailsScreen> {
   }
 
   void fetchChildSchoolDetails() {
-    context.read<SchoolConfigurationCubit>().fetchSchoolConfiguration(
-        useParentApi: true, childId: widget.student.id ?? 0);
+    // context.read<SchoolConfigurationCubit>().fetchSchoolConfiguration(
+    //     useParentApi: true, childId: widget.student.id ?? 0);
   }
 
   void fetchChildSubjectAndSliders() {
-    context.read<StudentSubjectsAndSlidersCubit>().fetchSubjectsAndSliders(
-        isSliderModuleEnable: Utils.isModuleEnabled(
-            context: context, moduleId: sliderManagementModuleId.toString()),
-        useParentApi: true,
-        childId: widget.student.id ?? 0);
+    // context.read<StudentSubjectsAndSlidersCubit>().fetchSubjectsAndSliders(
+    //     isSliderModuleEnable: Utils.isModuleEnabled(
+    //         context: context, moduleId: sliderManagementModuleId.toString()),
+    //     useParentApi: true,
+    //     childId: widget.student.id ?? 0);
   }
 
   void fetchNoticeBoardDetails() {
-    if (Utils.isModuleEnabled(
-        context: context,
-        moduleId: announcementManagementModuleId.toString())) {
-      context.read<NoticeBoardCubit>().fetchNoticeBoardDetails(
-          useParentApi: true, childId: widget.student.id);
-    }
+    // if (Utils.isModuleEnabled(
+    //     context: context,
+    //     moduleId: announcementManagementModuleId.toString())) {
+    //   context.read<NoticeBoardCubit>().fetchNoticeBoardDetails(
+    //       useParentApi: true, childId: widget.student.id);
+    // }
   }
 
   void fetchGalleryDetails() {
-    if (Utils.isModuleEnabled(
-        context: context, moduleId: galleryManagementModuleId.toString())) {
-      context.read<SchoolGalleryCubit>().fetchSchoolGallery(
-          useParentApi: true,
-          childId: widget.student.id,
-          sessionYearId: context
-                  .read<SchoolConfigurationCubit>()
-                  .getSchoolConfiguration()
-                  .sessionYear
-                  .id ??
-              0);
-    }
+    // if (Utils.isModuleEnabled(
+    //     context: context, moduleId: galleryManagementModuleId.toString())) {
+    //   context.read<SchoolGalleryCubit>().fetchSchoolGallery(
+    //       useParentApi: true,
+    //       childId: widget.student.id,
+    //       sessionYearId: context
+    //               .read<SchoolConfigurationCubit>()
+    //               .getSchoolConfiguration()
+    //               .sessionYear
+    //               .id ??
+    //           0);
+    // }
   }
 
   void schoolConfigurationCubitListener(
@@ -170,45 +170,45 @@ class _ChildDetailsScreenState extends State<ChildDetailsScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        BorderedProfilePictureContainer(
-                          onTap: () {
-                            Get.toNamed(
-                              Routes.studentProfile,
-                              arguments: widget.student.id,
-                            );
-                          },
-                          heightAndWidth: boxConstraints.maxWidth * (0.16),
-                          imageUrl:
-                              widget.student.childUserDetails?.image ?? "",
-                        ),
+                        // BorderedProfilePictureContainer(
+                        //   onTap: () {
+                        //     Get.toNamed(
+                        //       Routes.studentProfile,
+                        //       arguments: widget.student.id,
+                        //     );
+                        //   },
+                        //   heightAndWidth: boxConstraints.maxWidth * (0.16),
+                        //   imageUrl:
+                        //       widget.student.childUserDetails?.image ?? "",
+                        // ),
                         SizedBox(
                           height: boxConstraints.maxHeight * (0.045),
                         ),
-                        Text(
-                          widget.student.getFullName(),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15.0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
+                        // Text(
+                        //   widget.student.getFullName(),
+                        //   maxLines: 1,
+                        //   overflow: TextOverflow.ellipsis,
+                        //   style: TextStyle(
+                        //     color: Theme.of(context).scaffoldBackgroundColor,
+                        //     fontWeight: FontWeight.w500,
+                        //     fontSize: 15.0,
+                        //   ),
+                        //   textAlign: TextAlign.center,
+                        // ),
                         SizedBox(
                           height: boxConstraints.maxHeight * (0.0125),
                         ),
-                        Text(
-                          "${Utils.getTranslatedLabel(classKey)} - ${widget.student.classSection?.fullName}",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
+                        // Text(
+                        //   "${Utils.getTranslatedLabel(classKey)} - ${widget.student.classSection?.fullName}",
+                        //   maxLines: 1,
+                        //   overflow: TextOverflow.ellipsis,
+                        //   style: TextStyle(
+                        //     color: Theme.of(context).scaffoldBackgroundColor,
+                        //     fontWeight: FontWeight.w500,
+                        //     fontSize: 11.0,
+                        //   ),
+                        //   textAlign: TextAlign.center,
+                        // ),
                       ],
                     ),
                   ),
@@ -322,27 +322,27 @@ class _ChildDetailsScreenState extends State<ChildDetailsScreen> {
 
             // Render the data if available
             return Column(
-              children: [
-                if (hasSliderData) SlidersContainer(sliders: state.sliders),
-                if (hasSubjectData)
-                  StudentSubjectsContainer(
-                    subjects: subjects,
-                    subjectsTitleKey: subjectsKey,
-                    childId: widget.student.id,
-                  ),
-                if (hasNoticesData)
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.025,
-                  ),
-                if (hasNoticesData)
-                  LatestNoticiesContainer(
-                    childId: widget.student.id,
-                  ),
-                if (hasGalleryData)
-                  SchoolGalleryContainer(
-                    student: widget.student,
-                  ),
-              ],
+              // children: [
+              //   if (hasSliderData) SlidersContainer(sliders: state.sliders),
+              //   if (hasSubjectData)
+              //     StudentSubjectsContainer(
+              //       subjects: subjects,
+              //       subjectsTitleKey: subjectsKey,
+              //       childId: widget.student.id,
+              //     ),
+              //   if (hasNoticesData)
+              //     SizedBox(
+              //       height: MediaQuery.of(context).size.height * 0.025,
+              //     ),
+              //   if (hasNoticesData)
+              //     LatestNoticiesContainer(
+              //       childId: widget.student.id,
+              //     ),
+              //   if (hasGalleryData)
+              //     SchoolGalleryContainer(
+              //       student: widget.student,
+              //     ),
+              // ],
             );
           }
 

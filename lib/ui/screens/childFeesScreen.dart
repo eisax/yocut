@@ -37,9 +37,9 @@ class _ChildFeesScreenState extends State<ChildFeesScreen> {
   }
 
   void fetchChildFeeDetails() {
-    context
-        .read<ChildFeeDetailsCubit>()
-        .fetchChildFeeDetails(childId: widget.child.id ?? 0);
+    // context
+    //     .read<ChildFeeDetailsCubit>()
+    //     .fetchChildFeeDetails(childId: widget.child.id ?? 0);
   }
 
   Widget _buildFeesContainer({required List<ChildFeeDetails> fees}) {

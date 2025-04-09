@@ -106,19 +106,19 @@ class _TimeTableContainerState extends State<TimeTableContainer>
   Widget _buildAppBar() {
     String getStudentClassDetails = "";
     if (context.read<AuthCubit>().isParent()) {
-      final studentDetails =
-          (context.read<AuthCubit>().getParentDetails().children ?? [])
-              .where((element) => element.id == widget.childId)
-              .first;
+      // final studentDetails =
+      //     (context.read<AuthCubit>().getParentDetails().children ?? [])
+      //         .where((element) => element.id == widget.childId)
+      //         .first;
 
-      getStudentClassDetails = studentDetails.classSection?.fullName ?? "";
+      // getStudentClassDetails = studentDetails.classSection?.fullName ?? "";
     } else {
-      getStudentClassDetails = context
-              .read<AuthCubit>()
-              .getStudentDetails()
-              .classSection
-              ?.fullName ??
-          "";
+      // getStudentClassDetails = context
+      //         .read<AuthCubit>()
+      //         .getStudentDetails()
+      //         .classSection
+      //         ?.fullName ??
+      //     "";
     }
     return ScreenTopBackgroundContainer(
       heightPercentage: Utils.appBarMediumtHeightPercentage,

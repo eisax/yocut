@@ -25,7 +25,7 @@ class FeeInformationContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            child.getFullName(),
+            "Kudah Ndhlovu",
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: Theme.of(context).colorScheme.primary, fontSize: 16.0),
