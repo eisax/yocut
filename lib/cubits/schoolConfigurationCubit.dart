@@ -49,7 +49,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
   Student getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
-      return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
+      return (state as SchoolConfigurationFetchSuccess).schoolConfiguration.;
     }
 
     return Student.fromJson({});
