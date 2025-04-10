@@ -1156,7 +1156,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
             child: context
                     .read<SchoolConfigurationCubit>()
                     .getSchoolConfiguration()
-                    .isOnlineFeePaymentEnable()
+                    .body.registration.isRegistered
                 ? (_currentlySelectedTabKey == compulsoryTitleKey)
                     ? _buildCompulsoryBottomPaymentInfoContainer()
                     : _buildOptionalBottmsheetPaymentInfoContainer()
