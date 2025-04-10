@@ -49,6 +49,13 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     }
   }
 
+  Student getStudentRegNumber() {
+    if (state is Authenticated) {
+      return (state as Authenticated).student;
+    }
+    return Student.fromJson({});
+  }
+
   Student getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
       return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
