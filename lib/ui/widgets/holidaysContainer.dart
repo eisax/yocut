@@ -226,13 +226,13 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
                     .sessionYear
                     .getEndDateInDateTime(),
               )) {
-                firstDay =
+                firstDay =DateTime(0)
                 
-                 context
-                    .read<SchoolConfigurationCubit>()
-                    .getSchoolConfiguration()
-                    .sessionYear
-                    .getStartDateInDateTime()
+                //  context
+                //     .read<SchoolConfigurationCubit>()
+                //     .getSchoolConfiguration()
+                //     .sessionYear
+                //     .getStartDateInDateTime()
                     
                     ;
                 lastDay = DateTime(0)
