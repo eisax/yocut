@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolDetails.dart';
 import 'package:yocut/data/repositories/schoolDetailsRepository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class SchooldetailsFetchInProgress extends SchooldetailsState {
 }
 
 class SchooldetailsFetchSuccess extends SchooldetailsState {
-  final SchoolDetails schoolDetails;
+  final Student schoolDetails;
 
   SchooldetailsFetchSuccess({required this.schoolDetails});
   @override
