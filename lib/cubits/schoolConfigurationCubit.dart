@@ -40,7 +40,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
       emit(
         SchoolConfigurationFetchSuccess(
           schoolConfiguration: await _schoolRepository
-              .getSchoolSchoolSettingDetails(
+              .fetchSchoolDetails(
                 useParentApi: useParentApi,
                 childId: childId,
               ),
