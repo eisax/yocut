@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
@@ -47,6 +48,10 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     } catch (e) {
       emit(SchoolConfigurationFetchFailure(e.toString()));
     }
+  }
+
+  String getRegNumber() {
+    return Hive.box(authBoxKey).get(studentRegNumberKey) ?? "";
   }
 
   Student getStudentRegNumber() {
