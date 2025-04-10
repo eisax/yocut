@@ -70,7 +70,7 @@ class SignInCubit extends Cubit<SignInState> {
           regNumber: userId,
           password: password,
         );
-      } 
+      }
 
       emit(
         SignInSuccess(
@@ -78,7 +78,7 @@ class SignInCubit extends Cubit<SignInState> {
           jwtToken: loginResponse?.token ?? "",
           isStudentLogIn: isStudentLogin,
           student: Student.fromJson({}),
-          parent: isStudentLogin ? Guardian.fromJson({}) : result['parent'],
+          parent: Guardian.fromJson({}),
         ),
       );
     } catch (e) {
