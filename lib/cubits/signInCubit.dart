@@ -65,20 +65,27 @@ class SignInCubit extends Cubit<SignInState> {
       late Map<String, dynamic> result;
       late Credentials? loginResponse;
 
-     if (isStudentLogin) {
+      if (isStudentLogin) {
         loginResponse = await _authRepository.loginUser(
           regNumber: userId,
           password: password,
         );
-      }
+
+
+        if (loginResponse != null) {
+          result = await _authRepository.getStudent(
+            credentials: loginResponse,
+          );
+        }
+      } 
 
       emit(
         SignInSuccess(
           schoolCode: "",
           jwtToken: loginResponse?.token ?? "",
           isStudentLogIn: isStudentLogin,
-          student: Student.fromJson({}),
-          parent: Guardian.fromJson({}),
+          student: isStudentLogin ? result['student'] : Student.fromJson({}),
+          parent: isStudentLogin ? Guardian.fromJson({}) : result['parent'],
         ),
       );
     } catch (e) {
