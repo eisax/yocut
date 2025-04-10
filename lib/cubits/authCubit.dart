@@ -93,7 +93,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   Student getStudentDetails() {
     if (state is Authenticated) {
-      print((state as Authenticated).student.);
+      print((state as Authenticated).student.body.profile.name);
       return (state as Authenticated).student;
     }
     return Student.fromJson({});
