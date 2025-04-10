@@ -478,7 +478,7 @@ class Profile {
       maritalStatus: json['marital_status']??"",
       religion: json['religion']??"",
       title: json['title']??"",
-      sex: json['sex'],
+      sex: json['sex']??"",
       studentId: json['student_id']??"",
       radioFrequencyId: json['radio_frequency_id']??"",
     );
