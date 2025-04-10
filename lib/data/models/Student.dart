@@ -479,8 +479,8 @@ class Profile {
       religion: json['religion']??"",
       title: json['title']??"",
       sex: json['sex'],
-      studentId: json['student_id'],
-      radioFrequencyId: json['radio_frequency_id'],
+      studentId: json['student_id']??"",
+      radioFrequencyId: json['radio_frequency_id']??"",
     );
   }
 
