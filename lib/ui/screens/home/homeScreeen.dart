@@ -644,7 +644,7 @@ class HomeScreenState extends State<HomeScreen>
                           ErrorContainer(
                             errorMessageCode: state.errorMessage,
                             onTapRetry: () {
-                              print("");
+                              print("-------cliked btn");
                               context
                                   .read<SchoolConfigurationCubit>()
                                   .fetchSchoolConfiguration(
