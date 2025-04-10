@@ -100,6 +100,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   Guardian getParentDetails() {
     if (state is Authenticated) {
+      print("test------")
       return (state as Authenticated).parent;
     }
     return Guardian.fromJson({});
