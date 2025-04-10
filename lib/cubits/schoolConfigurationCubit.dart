@@ -28,7 +28,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
   final SchoolRepository _schoolRepository;
 
   SchoolConfigurationCubit(this._schoolRepository)
-      : super(SchoolConfigurationInitial());
+    : super(SchoolConfigurationInitial());
 
   Future<void> fetchSchoolConfiguration({
     required bool useParentApi,
@@ -37,10 +37,10 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     emit(SchoolConfigurationFetchInProgress());
 
     try {
-      final config = await _schoolRepository.fetchSchoolDetails(
-       
+      final config = await _schoolRepository.fetchSchoolDetails();
+      emit(
+        SchoolConfigurationFetchSuccess(schoolConfiguration: config['student']),
       );
-      emit(SchoolConfigurationFetchSuccess(schoolConfiguration: config));
     } catch (e) {
       emit(SchoolConfigurationFetchFailure(e.toString()));
     }
@@ -55,8 +55,10 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
   String fetchExamRules() {
     if (state is SchoolConfigurationFetchSuccess) {
-      final config = (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
-      return config.examRules ?? ''; // Assuming SchoolConfiguration has an examRules property
+      final config =
+          (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
+      return config.examRules ??
+          ''; // Assuming SchoolConfiguration has an examRules property
     }
     return '';
   }
