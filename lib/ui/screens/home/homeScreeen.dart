@@ -559,34 +559,8 @@ class HomeScreenState extends State<HomeScreen>
                   if (state is SchoolConfigurationFetchSuccess) {
                     return Stack(
                       children: [
-                        IndexedStack(
-                          index: _currentSelectedBottomNavIndex,
-                          children: state.schoolConfiguration
-                                  .body.registration.isRegistered
-                              ? [
-                                  const HomeContainer(
-                                    isForBottomMenuBackground: false,
-                                  ),
-                                  const AssignmentsContainer(
-                                    isForBottomMenuBackground: false,
-                                  ),
-                                  _buildBottomSheetBackgroundContent(),
-                                ]
-                              : [
-                                  const HomeContainer(
-                                    isForBottomMenuBackground: false,
-                                  ),
-                                  _buildBottomSheetBackgroundContent(),
-                                ],
-                        ),
-                        IgnorePointer(
-                          ignoring: !_isMoreMenuOpen,
-                          child: FadeTransition(
-                            opacity: _moreMenuBackgroundContainerColorAnimation,
-                            child: _buildMoreMenuBackgroundContainer(),
-                          ),
-                        ),
-
+                       
+                      
                         //More menu bottom sheet
                         Align(
                           alignment: Alignment.bottomCenter,
