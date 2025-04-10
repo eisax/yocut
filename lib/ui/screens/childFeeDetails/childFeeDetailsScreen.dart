@@ -256,7 +256,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
           installmentIds: installmentIds,
           optionalFeeIds: _toPayOptionalFeeIds,
           compulsoryFee: _currentlySelectedTabKey == compulsoryTitleKey,
-          paymentMethod: Enab,
+          paymentMethod: PaymentGeteway(),
           childId: 0,
           feeId: widget.childFeeDetails.id ?? 0);
     } else {
