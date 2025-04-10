@@ -47,13 +47,14 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
         SchoolConfigurationFetchSuccess(schoolConfiguration: result['student']),
       );
     } catch (e) {
-      print("---------------fail");
       emit(SchoolConfigurationFetchFailure(e.toString()));
     }
   }
 
   Student getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
+      print(jsonEncode(result['student']));
+      print("---------------test");
       return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
     }
     return Student.fromJson({});
