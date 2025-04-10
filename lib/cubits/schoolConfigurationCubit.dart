@@ -36,13 +36,11 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     required bool useParentApi,
     int? childId,
   }) async {
-    print("---------------testm 1");
     emit(SchoolConfigurationFetchInProgress());
-
     try {
       late Map<String, dynamic> result;
-       result = await _schoolRepository.fetchSchoolDetails();
-      
+      result = await _schoolRepository.fetchSchoolDetails();
+
       emit(
         SchoolConfigurationFetchSuccess(schoolConfiguration: result['student']),
       );
@@ -62,7 +60,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     if (state is SchoolConfigurationFetchSuccess) {
       final config =
           (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
-      return ''; 
+      return '';
     }
     return '';
   }
