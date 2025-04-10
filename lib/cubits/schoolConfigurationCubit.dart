@@ -57,7 +57,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     if (state is SchoolConfigurationFetchSuccess) {
       final config =
           (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
-      return ''; // Assuming SchoolConfiguration has an examRules property
+      return ''; 
     }
     return '';
   }
