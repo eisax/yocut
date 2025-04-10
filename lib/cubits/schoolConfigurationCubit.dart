@@ -1,4 +1,6 @@
 import 'package:yocut/data/models/schoolConfiguration.dart';
+import 'package:yocut/data/models/schoolSettings.dart';
+import 'package:yocut/data/models/semesterDetails.dart';
 import 'package:yocut/data/models/sessionYear.dart';
 import 'package:yocut/data/repositories/schoolRepository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +49,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
             schoolSettings: SchoolSettings(),
             enabledPaymentGateways: [],
             enabledModules: {},
-          )
+          ),
         ),
       );
     } catch (e) {
