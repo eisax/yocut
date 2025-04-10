@@ -90,7 +90,7 @@ class StudentRepository {
           json: {},
           electiveSubjectGroupId: {},
         ),
-        "doesClassHaveElectiveSubjects": {},
+        "doesClassHaveElectiveSubjects": {[]},
       };
     } catch (e) {
       throw ApiException(e.toString());
