@@ -32,6 +32,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     : super(SchoolConfigurationInitial());
 
   Future<void> fetchSchoolConfiguration({
+    
     required bool useParentApi,
     int? childId,
   }) async {
