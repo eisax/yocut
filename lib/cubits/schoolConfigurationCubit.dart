@@ -1,5 +1,4 @@
-// import 'package:yocut/data/models/schoolConfiguration.dart';
-import 'package:yocut/data/models/Student.dart';
+import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
 import 'package:yocut/data/models/semesterDetails.dart';
 import 'package:yocut/data/models/sessionYear.dart';
@@ -13,7 +12,7 @@ class SchoolConfigurationInitial extends SchoolConfigurationState {}
 class SchoolConfigurationFetchInProgress extends SchoolConfigurationState {}
 
 class SchoolConfigurationFetchSuccess extends SchoolConfigurationState {
-  final Student schoolConfiguration;
+  final SchoolConfiguration schoolConfiguration;
 
   SchoolConfigurationFetchSuccess({required this.schoolConfiguration});
 }
@@ -28,7 +27,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
   final SchoolRepository _schoolRepository;
 
   SchoolConfigurationCubit(this._schoolRepository)
-    : super(SchoolConfigurationInitial());
+      : super(SchoolConfigurationInitial());
 
   Future<void> fetchSchoolConfiguration({
     required bool useParentApi,
@@ -37,29 +36,27 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     emit(SchoolConfigurationFetchInProgress());
 
     try {
-      emit(
-        SchoolConfigurationFetchSuccess(
-          schoolConfiguration: await _schoolRepository.fetchSchoolDetails(),
-        ),
+      final config = await _schoolRepository.fetchSchoolDetails(
+        useParentApi: useParentApi,
+        childId: childId,
       );
+      emit(SchoolConfigurationFetchSuccess(schoolConfiguration: config));
     } catch (e) {
       emit(SchoolConfigurationFetchFailure(e.toString()));
     }
   }
 
-  Student getSchoolConfiguration() {
+  SchoolConfiguration getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
-      final config =
-          (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
-      return Student.fromJson(config);
+      return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
     }
-
-    return Student.fromJson({});
+    return SchoolConfiguration.fromJson({});
   }
 
   String fetchExamRules() {
     if (state is SchoolConfigurationFetchSuccess) {
-      return "";
+      final config = (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
+      return config.examRules ?? ''; // Assuming SchoolConfiguration has an examRules property
     }
     return '';
   }
