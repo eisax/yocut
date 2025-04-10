@@ -61,7 +61,7 @@ class StudentRepository {
         .toList();
   }
 
-  Future<Map<String, dynamic>> fetchSubjects() async {         
+  Future<Map<String, dynamic>> fetchSubjects() async {
     try {
       // final result =
       //     await Api.get(url: Api.studentSubjects, useAuthToken: true);
@@ -69,7 +69,6 @@ class StudentRepository {
       // final coreSubjects = (result['data']['core_subject'] as List).map((e) {
       //   return CoreSubject.fromJson(json: Map.from(e ?? {}));
       // }).toList();
-
 
       // final electiveSubjects =
       //     ((result['data']['elective_subject'] ?? []) as List).map(
@@ -87,9 +86,11 @@ class StudentRepository {
 
       return {
         "coreSubjects": CoreSubject.fromJson(json: {}),
-        "electiveSubjects": ElectiveSubject.fromJson(json: {}, electiveSubjectGroupId: {}),
-        "doesClassHaveElectiveSubjects":
-            {}
+        "electiveSubjects": ElectiveSubject.fromJson(
+          json: {},
+          electiveSubjectGroupId: {},
+        ),
+        "doesClassHaveElectiveSubjects": {},
       };
     } catch (e) {
       throw ApiException(e.toString());
@@ -100,10 +101,15 @@ class StudentRepository {
     required Map<int, List<int>> electedSubjectGroups,
   }) async {
     try {
-      final electedSubjectGroupIds = electedSubjectGroups.keys
-          .map((key) =>
-              {"id": key, "class_subject_id": electedSubjectGroups[key]})
-          .toList();
+      final electedSubjectGroupIds =
+          electedSubjectGroups.keys
+              .map(
+                (key) => {
+                  "id": key,
+                  "class_subject_id": electedSubjectGroups[key],
+                },
+              )
+              .toList();
 
       final body = {"subject_group": electedSubjectGroupIds};
 
@@ -169,9 +175,10 @@ class StudentRepository {
       );
 
       return {
-        "results": ((result['data'] ?? []) as List)
-            .map((result) => Result.fromJson(Map.from(result)))
-            .toList()
+        "results":
+            ((result['data'] ?? []) as List)
+                .map((result) => Result.fromJson(Map.from(result)))
+                .toList(),
       };
     } catch (e, stc) {
       if (kDebugMode) {
@@ -188,29 +195,31 @@ class StudentRepository {
     required int childId,
   }) async {
     try {
-      Map<String, dynamic> queryParameters = {
-        "month": month,
-        "year": year,
-      };
+      Map<String, dynamic> queryParameters = {"month": month, "year": year};
 
       if (useParentApi) {
         queryParameters.addAll({"child_id": childId});
       }
 
       final result = await Api.get(
-        url: useParentApi
-            ? Api.getStudentAttendanceParent
-            : Api.getStudentAttendance,
+        url:
+            useParentApi
+                ? Api.getStudentAttendanceParent
+                : Api.getStudentAttendance,
         queryParameters: queryParameters,
         useAuthToken: true,
       );
 
       return {
-        "attendanceDays": (result['data']['attendance'] as List)
-            .map((attendance) => AttendanceDay.fromJson(Map.from(attendance)))
-            .toList(),
-        "sessionYear":
-            SessionYear.fromJson(Map.from(result['data']['session_year'] ?? {}))
+        "attendanceDays":
+            (result['data']['attendance'] as List)
+                .map(
+                  (attendance) => AttendanceDay.fromJson(Map.from(attendance)),
+                )
+                .toList(),
+        "sessionYear": SessionYear.fromJson(
+          Map.from(result['data']['session_year'] ?? {}),
+        ),
       };
     } catch (e) {
       throw ApiException(e.toString());
@@ -228,9 +237,10 @@ class StudentRepository {
       final result = await Api.get(
         url: useParentApi ? Api.getStudentExamListParent : Api.studentExamList,
         useAuthToken: true,
-        queryParameters: useParentApi
-            ? {"child_id": childId, 'status': examStatus}
-            : {'status': examStatus},
+        queryParameters:
+            useParentApi
+                ? {"child_id": childId, 'status': examStatus}
+                : {'status': examStatus},
       );
 
       return (result['data'] as List)
@@ -250,13 +260,15 @@ class StudentRepository {
   }) async {
     try {
       final result = await Api.get(
-        url: useParentApi
-            ? Api.getStudentExamDetailsParent
-            : Api.studentExamDetails,
+        url:
+            useParentApi
+                ? Api.getStudentExamDetailsParent
+                : Api.studentExamDetails,
         useAuthToken: true,
-        queryParameters: useParentApi
-            ? {"child_id": childId, "exam_id": examId}
-            : {"exam_id": examId},
+        queryParameters:
+            useParentApi
+                ? {"child_id": childId, "exam_id": examId}
+                : {"exam_id": examId},
       );
 
       return (result['data'] as List)
@@ -289,16 +301,12 @@ class StudentRepository {
   }
   */
 
-  Future<Uint8List> downloadFeesReceipt({
-    required int feesPaidId,
-  }) async {
+  Future<Uint8List> downloadFeesReceipt({required int feesPaidId}) async {
     try {
       final result = await Api.get(
         url: Api.downloadFeesPaidReceiptParent,
         useAuthToken: true,
-        queryParameters: {
-          "fees_paid_id": feesPaidId,
-        },
+        queryParameters: {"fees_paid_id": feesPaidId},
       );
       return base64Decode(result['pdf']);
     } catch (e) {
@@ -306,7 +314,7 @@ class StudentRepository {
     }
   }
 
-/*
+  /*
   Future<Map> addFeesTransaction({
     required double transactionAmount,
     required int childId,
@@ -385,15 +393,11 @@ class StudentRepository {
     }
   }
 
-  Future<void> failPaymentTransaction({
-    required String transactionId,
-  }) async {
+  Future<void> failPaymentTransaction({required String transactionId}) async {
     try {
       await Api.post(
         url: Api.failPaymentTransaction,
-        body: {
-          "payment_transaction_id": transactionId,
-        },
+        body: {"payment_transaction_id": transactionId},
         useAuthToken: true,
       );
     } catch (_) {}
@@ -409,7 +413,7 @@ class StudentRepository {
         options: Options(
           headers: {
             'Authorization': 'Bearer $paymentSecretKey',
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
         ),
       );
@@ -432,8 +436,10 @@ class StudentRepository {
     }
   }
 
-  Future<Student> fetchStudentFullProfileDetails(
-      {required bool useParentApi, int? childId}) async {
+  Future<Student> fetchStudentFullProfileDetails({
+    required bool useParentApi,
+    int? childId,
+  }) async {
     try {
       Map<String, dynamic> body = {};
       if (useParentApi) {
@@ -441,11 +447,10 @@ class StudentRepository {
       }
       return Student.fromJson(
         await Api.get(
-                url:
-                    useParentApi ? Api.childProfileDetails : Api.studentProfile,
-                queryParameters: body,
-                useAuthToken: true)
-            .then((value) => value['data']),
+          url: useParentApi ? Api.childProfileDetails : Api.studentProfile,
+          queryParameters: body,
+          useAuthToken: true,
+        ).then((value) => value['data']),
       );
     } catch (e) {
       throw ApiException(e.toString());
