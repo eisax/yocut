@@ -1,4 +1,5 @@
 // import 'package:yocut/data/models/schoolConfiguration.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
 import 'package:yocut/data/models/semesterDetails.dart';
 import 'package:yocut/data/models/sessionYear.dart';
@@ -43,7 +44,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
           //       useParentApi: useParentApi,
           //       childId: childId,
           //     ),
-          schoolConfiguration: SchoolConfiguration(
+          schoolConfiguration: Student(
             sessionYear: SessionYear(),
             semesterDetails: SemesterDetails(),
             schoolSettings: SchoolSettings(),
@@ -57,12 +58,12 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     }
   }
 
-  SchoolConfiguration getSchoolConfiguration() {
+  Student getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
       return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
     }
 
-    return SchoolConfiguration.fromJson({});
+    return Student.fromJson({});
   }
 
   String fetchExamRules() {
