@@ -89,8 +89,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     return context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .schoolSettings
-            .currencySymbol ??
+            .body. ??
         '';
   }
 
