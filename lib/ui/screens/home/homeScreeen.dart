@@ -472,7 +472,7 @@ class HomeScreenState extends State<HomeScreen>
       if (!(context
           .read<SchoolConfigurationCubit>()
           .getSchoolConfiguration()
-          .isAssignmentModuleEnabled())) {
+          .body.registration.isRegistered)) {
         return const HomeContainer(
           isForBottomMenuBackground: true,
         );
@@ -544,7 +544,7 @@ class HomeScreenState extends State<HomeScreen>
                         context.read<SchoolGalleryCubit>().fetchSchoolGallery(
                             useParentApi: false,
                             sessionYearId:
-                                state.schoolConfiguration.sessionYear.id ?? 0);
+                                state.schoolConfiguration.body.registration. ?? 0);
                       }
 
                       ///[Setting up the socket connection]
