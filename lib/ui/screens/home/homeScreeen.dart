@@ -562,7 +562,89 @@ class HomeScreenState extends State<HomeScreen>
                     }
                   }
                 },
-                
+                builder: (context, state) {
+                  if (state is SchoolConfigurationFetchSuccess) {
+                    return Stack(
+                      children: [
+                        IndexedStack(
+                          index: _currentSelectedBottomNavIndex,
+                          children: state.schoolConfiguration
+                                  .body.registration.isRegistered
+                              ? [
+                                  const HomeContainer(
+                                    isForBottomMenuBackground: false,
+                                  ),
+                                  const AssignmentsContainer(
+                                    isForBottomMenuBackground: false,
+                                  ),
+                                  _buildBottomSheetBackgroundContent(),
+                                ]
+                              : [
+                                  const HomeContainer(
+                                    isForBottomMenuBackground: false,
+                                  ),
+                                  _buildBottomSheetBackgroundContent(),
+                                ],
+                        ),
+                        IgnorePointer(
+                          ignoring: !_isMoreMenuOpen,
+                          child: FadeTransition(
+                            opacity: _moreMenuBackgroundContainerColorAnimation,
+                            child: _buildMoreMenuBackgroundContainer(),
+                          ),
+                        ),
+
+                        //More menu bottom sheet
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SlideTransition(
+                            position: _moreMenuBottomsheetAnimation,
+                            child: MoreMenuBottomsheetContainer(
+                              closeBottomMenu: _closeBottomMenu,
+                              onTapMoreMenuItemContainer:
+                                  _onTapMoreMenuItemContainer,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: _buildBottomNavigationContainer(),
+                        ),
+
+                        //Check forece update here
+                        context.read<AppConfigurationCubit>().forceUpdate()
+                            ? FutureBuilder<bool>(
+                                future: Utils.forceUpdate(
+                                  context
+                                      .read<AppConfigurationCubit>()
+                                      .getAppVersion(),
+                                ),
+                                builder: (context, snaphsot) {
+                                  if (snaphsot.hasData) {
+                                    return (snaphsot.data ?? false)
+                                        ? const ForceUpdateDialogContainer()
+                                        : const SizedBox();
+                                  }
+
+                                  return const SizedBox();
+                                },
+                              )
+                            : const SizedBox(),
+                      ],
+                    );
+                  }
+               
+
+                  return Column(
+                    children: [
+                      HomeContainerTopProfileContainer(),
+                      Expanded(
+                          child: HomeScreenDataLoadingContainer(
+                        addTopPadding: false,
+                      )),
+                    ],
+                  );
+                },
               ),
       ),
     );
