@@ -1,3 +1,4 @@
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/gallery.dart';
 import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/sessionYear.dart';
@@ -5,7 +6,7 @@ import 'package:yocut/data/models/sliderDetails.dart';
 import 'package:yocut/utils/api.dart';
 
 class SchoolRepository {
-  Future<SchoolConfiguration> getSchoolSchoolSettingDetails(
+  Future<Student> getSchoolSchoolSettingDetails(
       {required bool useParentApi, int? childId}) async {
     try {
       final result = await Api.get(
@@ -15,7 +16,7 @@ class SchoolRepository {
           useAuthToken: true,
           queryParameters: useParentApi ? {"child_id": childId ?? 0} : {});
       print(result['data']);
-      return SchoolConfiguration.fromJson(Map.from(result['data'] ?? {}));
+      return Student.fromJson(Map.from(result['data'] ?? {}));
     } catch (e) {
       throw ApiException(e.toString());
     }
