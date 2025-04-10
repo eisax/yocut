@@ -44,7 +44,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
                 useParentApi: useParentApi,
                 childId: childId,
               ),
-          schoolConfiguration: ,
+          
         ),
       );
     } catch (e) {
