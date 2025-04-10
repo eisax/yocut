@@ -13,7 +13,7 @@ class SchoolConfigurationInitial extends SchoolConfigurationState {}
 class SchoolConfigurationFetchInProgress extends SchoolConfigurationState {}
 
 class SchoolConfigurationFetchSuccess extends SchoolConfigurationState {
-  final Student schoolConfiguration;
+  final Map<String, dynamic> schoolConfiguration;
 
   SchoolConfigurationFetchSuccess({required this.schoolConfiguration});
 }
