@@ -71,6 +71,12 @@ class SignInCubit extends Cubit<SignInState> {
           password: password,
         );
 
+
+        if (loginResponse != null) {
+          result = await _authRepository.getStudent(
+            credentials: loginResponse,
+          );
+        }
       } 
 
       emit(
