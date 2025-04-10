@@ -14,22 +14,37 @@ class Schooldetailsfetch {
   }
 
   Future<Student> fetchSchoolDetails() async {
-    try {
+
       final result = await Api.get(
         url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
         useAuthToken: false,
       );
 
-      print("This is school details : ${result['data']}");
 
-      final Student schoolDetails = Student.fromJson(
-        result['data'],
+      try {
+      final response = await dio.get(
+        '${Api.studentData}/${credentials.regNumber}/${credentials.token}',
       );
 
-      return schoolDetails;
-    } catch (e, st) {
-      print("this is School details error : $st");
-      throw ApiException(e.toString());
+      if (response.data == null) {
+        throw ApiException('API returned null response');
+      }
+
+      // Check if response data is a Map<String, dynamic>
+      if (response.data is Map<String, dynamic>) {
+        return {"student": Student.fromJson(response.data)};
+      }
+      // If it's a String, decode it into a Map
+      else if (response.data is String) {
+        final Map<String, dynamic> json = jsonDecode(response.data);
+        return {"student": Student.fromJson(json)};
+      } else {
+        throw ApiException('Unexpected response format');
+      }
+    } catch (e) {
+      throw ApiException('Failed to fetch student data: ${e.toString()}');
     }
+
+    
   }
 }
