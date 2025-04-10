@@ -63,27 +63,27 @@ class StudentRepository {
 
   Future<Map<String, dynamic>> fetchSubjects() async {         
     try {
-      final result =
-          await Api.get(url: Api.studentSubjects, useAuthToken: true);
+      // final result =
+      //     await Api.get(url: Api.studentSubjects, useAuthToken: true);
 
-      final coreSubjects = (result['data']['core_subject'] as List).map((e) {
-        return CoreSubject.fromJson(json: Map.from(e ?? {}));
-      }).toList();
+      // final coreSubjects = (result['data']['core_subject'] as List).map((e) {
+      //   return CoreSubject.fromJson(json: Map.from(e ?? {}));
+      // }).toList();
 
 
-      final electiveSubjects =
-          ((result['data']['elective_subject'] ?? []) as List).map(
-        (e) {
-          Map<String, dynamic> subjectDetails =
-              Map.from(e['class_subject']['subject']);
-          subjectDetails['class_subject_id'] = e['class_subject_id'];
+      // final electiveSubjects =
+      //     ((result['data']['elective_subject'] ?? []) as List).map(
+      //   (e) {
+      //     Map<String, dynamic> subjectDetails =
+      //         Map.from(e['class_subject']['subject']);
+      //     subjectDetails['class_subject_id'] = e['class_subject_id'];
 
-          return ElectiveSubject.fromJson(
-            electiveSubjectGroupId: 0,
-            json: subjectDetails,
-          );
-        },
-      ).toList();
+      //     return ElectiveSubject.fromJson(
+      //       electiveSubjectGroupId: 0,
+      //       json: subjectDetails,
+      //     );
+      //   },
+      // ).toList();
 
       return {
         "coreSubjects": coreSubjects,
