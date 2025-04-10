@@ -544,7 +544,7 @@ class HomeScreenState extends State<HomeScreen>
                         context.read<SchoolGalleryCubit>().fetchSchoolGallery(
                             useParentApi: false,
                             sessionYearId:
-                                state.schoolConfiguration.body.registration.period. ?? 0);
+                                2025 ?? 0);
                       }
 
                       ///[Setting up the socket connection]
