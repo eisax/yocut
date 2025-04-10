@@ -35,17 +35,17 @@ class SchooldetailsFetchFailure extends SchooldetailsState {
 
 class SchooldetailsCubit extends Cubit<SchooldetailsState> {
   final Schooldetailsfetch _schooldetailsfetch;
-  SchooldetailsCubit(this._authRepository) : super(SchooldetailsInitial());
+  SchooldetailsCubit(this._schooldetailsfetch) : super(SchooldetailsInitial());
 
   Future<void> fetchSchooldetails() async {
     late Map<String, dynamic> result;
     emit(SchooldetailsFetchInProgress());
     try {
-      result = await Schooldetailsfetch.fetchSchoolDetails();
+      result = await _schooldetailsfetch.fetchSchoolDetails();
 
       emit(
         SchooldetailsFetchSuccess(
-          schoolDetails: await Schooldetailsfetch.fetchSchoolDetails(),
+          schoolDetails: await _schooldetailsfetch.fetchSchoolDetails(),
         ),
       );
     } catch (e, st) {
