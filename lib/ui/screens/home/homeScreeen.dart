@@ -536,9 +536,16 @@ class HomeScreenState extends State<HomeScreen>
                 listener: (context, state) {
                   if (state is SchoolConfigurationFetchSuccess ||
                       state is SchoolConfigurationFetchFailure) {
-                   
+                    updateBottomNavItems();
                     if (state is SchoolConfigurationFetchSuccess) {
-                      
+                      if (Utils.isModuleEnabled(
+                          context: context,
+                          moduleId: galleryManagementModuleId.toString())) {
+                        context.read<SchoolGalleryCubit>().fetchSchoolGallery(
+                            useParentApi: false,
+                            sessionYearId:
+                                2025 ?? 0);
+                      }
 
                       ///[Setting up the socket connection]
 
@@ -559,8 +566,34 @@ class HomeScreenState extends State<HomeScreen>
                   if (state is SchoolConfigurationFetchSuccess) {
                     return Stack(
                       children: [
-                       
-                      
+                        IndexedStack(
+                          index: _currentSelectedBottomNavIndex,
+                          children: state.schoolConfiguration
+                                  .body.registration.isRegistered
+                              ? [
+                                  const HomeContainer(
+                                    isForBottomMenuBackground: false,
+                                  ),
+                                  const AssignmentsContainer(
+                                    isForBottomMenuBackground: false,
+                                  ),
+                                  _buildBottomSheetBackgroundContent(),
+                                ]
+                              : [
+                                  const HomeContainer(
+                                    isForBottomMenuBackground: false,
+                                  ),
+                                  _buildBottomSheetBackgroundContent(),
+                                ],
+                        ),
+                        IgnorePointer(
+                          ignoring: !_isMoreMenuOpen,
+                          child: FadeTransition(
+                            opacity: _moreMenuBackgroundContainerColorAnimation,
+                            child: _buildMoreMenuBackgroundContainer(),
+                          ),
+                        ),
+
                         //More menu bottom sheet
                         Align(
                           alignment: Alignment.bottomCenter,
@@ -600,7 +633,44 @@ class HomeScreenState extends State<HomeScreen>
                       ],
                     );
                   }
-               
+                  if (state is SchoolConfigurationFetchFailure) {
+                    return Center(
+                      child: Column(
+                        children: [
+                          HomeContainerTopProfileContainer(),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          ErrorContainer(
+                            errorMessageCode: state.errorMessage,
+                            onTapRetry: () {
+                              print("-------cliked");
+                              context
+                                  .read<SchoolConfigurationCubit>()
+                                  .fetchSchoolConfiguration(
+                                      useParentApi: false);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomRoundedButton(
+                            height: 40,
+                            widthPercentage: 0.3,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            onTap: () {
+                              Get.toNamed(Routes.settings);
+                            },
+                            titleColor:
+                                Theme.of(context).scaffoldBackgroundColor,
+                            buttonTitle: Utils.getTranslatedLabel(settingsKey),
+                            showBorder: false,
+                          )
+                        ],
+                      ),
+                    );
+                  }
 
                   return Column(
                     children: [
