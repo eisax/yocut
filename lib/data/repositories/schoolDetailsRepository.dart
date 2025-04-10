@@ -23,7 +23,7 @@ class Schooldetailsfetch {
 
       try {
       final response = await dio.get(
-        '${Api.studentData}/${credentials.regNumber}/${credentials.token}',
+        '${Api.studentData}/${getRegNumber()}/${getJwtToken()}',
       );
 
       if (response.data == null) {
