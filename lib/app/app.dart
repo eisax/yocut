@@ -13,6 +13,7 @@ import 'package:yocut/cubits/socketSettingCubit.dart';
 import 'package:yocut/data/repositories/assignmentRepository.dart';
 import 'package:yocut/data/repositories/feeRepository.dart';
 import 'package:yocut/data/repositories/resultRepository.dart';
+import 'package:yocut/data/repositories/schoolDetailsRepository.dart';
 import 'package:yocut/data/repositories/schoolRepository.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -142,7 +143,7 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SchooldetailsCubit>(
-          create: (_) => SchooldetailsCubit(),
+          create: (_) => SchooldetailsCubit(SchooldetailsfetchRepository()),
         ),
         BlocProvider<AppLocalizationCubit>(
           create: (_) => AppLocalizationCubit(SettingsRepository()),

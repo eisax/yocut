@@ -138,22 +138,22 @@ class HomeScreenState extends State<HomeScreen>
 
   late List<BottomNavItem> _bottomNavItems = [];
 
-  // @override
-  // void initState() {
-  //   super.initState();
+  @override
+  void initState() {
+    super.initState();
 
-  //   WidgetsBinding.instance.addObserver(this);
-  //   _animationController.forward();
+    WidgetsBinding.instance.addObserver(this);
+    _animationController.forward();
 
-  //   Future.delayed(Duration.zero, () {
-  //     loadTemporarilyStoredNotifications();
-  //     context
-  //         .read<SchoolConfigurationCubit>()
-  //         .fetchSchoolConfiguration(useParentApi: false);
-  //     //setup notification callback here
-  //     // NotificationUtility.setUpNotificationService();
-  //   });
-  // }
+    Future.delayed(Duration.zero, () {
+    //  loadTemporarilyStoredNotifications();
+      context
+          .read<SchoolConfigurationCubit>()
+          .fetchSchoolConfiguration(useParentApi: false);
+      //setup notification callback here
+      // NotificationUtility.setUpNotificationService();
+    });
+  }
 
   void loadTemporarilyStoredNotifications() {
     NotificationRepository.getTemporarilyStoredNotifications()
@@ -177,7 +177,7 @@ class HomeScreenState extends State<HomeScreen>
     _bottomNavItems = context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .isAssignmentModuleEnabled()
+            .body.registration.isRegistered
         ? [
             BottomNavItem(
               activeImageUrl: Utils.getImagePath("home_active_icon.svg"),
@@ -472,7 +472,7 @@ class HomeScreenState extends State<HomeScreen>
       if (!(context
           .read<SchoolConfigurationCubit>()
           .getSchoolConfiguration()
-          .isAssignmentModuleEnabled())) {
+          .body.registration.isRegistered)) {
         return const HomeContainer(
           isForBottomMenuBackground: true,
         );
@@ -544,7 +544,7 @@ class HomeScreenState extends State<HomeScreen>
                         context.read<SchoolGalleryCubit>().fetchSchoolGallery(
                             useParentApi: false,
                             sessionYearId:
-                                state.schoolConfiguration.sessionYear.id ?? 0);
+                                2025 ?? 0);
                       }
 
                       ///[Setting up the socket connection]
@@ -569,7 +569,7 @@ class HomeScreenState extends State<HomeScreen>
                         IndexedStack(
                           index: _currentSelectedBottomNavIndex,
                           children: state.schoolConfiguration
-                                  .isAssignmentModuleEnabled()
+                                  .body.registration.isRegistered
                               ? [
                                   const HomeContainer(
                                     isForBottomMenuBackground: false,

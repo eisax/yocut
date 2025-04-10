@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolDetails.dart';
 import 'package:yocut/data/repositories/schoolDetailsRepository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class SchooldetailsFetchInProgress extends SchooldetailsState {
 }
 
 class SchooldetailsFetchSuccess extends SchooldetailsState {
-  final SchoolDetails schoolDetails;
+  final Student schoolDetails;
 
   SchooldetailsFetchSuccess({required this.schoolDetails});
   @override
@@ -33,16 +34,16 @@ class SchooldetailsFetchFailure extends SchooldetailsState {
 }
 
 class SchooldetailsCubit extends Cubit<SchooldetailsState> {
-  SchooldetailsCubit() : super(SchooldetailsInitial());
+  final SchooldetailsfetchRepository _schooldetailsfetch;
+  SchooldetailsCubit(this._schooldetailsfetch) : super(SchooldetailsInitial());
 
   Future<void> fetchSchooldetails() async {
+    late Map<String, dynamic> result;
     emit(SchooldetailsFetchInProgress());
     try {
-      emit(
-        SchooldetailsFetchSuccess(
-          schoolDetails: await Schooldetailsfetch.fetchSchoolDetails(),
-        ),
-      );
+      result = await _schooldetailsfetch.fetchSchoolDetails();
+
+      emit(SchooldetailsFetchSuccess(schoolDetails: result['student']));
     } catch (e, st) {
       print(st);
       emit(SchooldetailsFetchFailure(e.toString()));

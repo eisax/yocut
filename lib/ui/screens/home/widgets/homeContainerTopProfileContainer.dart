@@ -1,6 +1,7 @@
 import 'package:yocut/app/routes.dart';
 import 'package:yocut/cubits/appConfigurationCubit.dart';
 import 'package:yocut/cubits/authCubit.dart';
+import 'package:yocut/cubits/schoolConfigurationCubit.dart';
 import 'package:yocut/ui/widgets/borderedProfilePictureContainer.dart';
 import 'package:yocut/ui/widgets/screenTopBackgroundContainer.dart';
 import 'package:yocut/ui/widgets/svgButton.dart';
@@ -78,14 +79,14 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      // BorderedProfilePictureContainer(
-                      //   heightAndWidth: 60,
-                      //   imageUrl: context
-                      //           .read<AuthCubit>()
-                      //           .getStudentDetails()
-                      //           .image ??
-                      //       "",
-                      // ),
+                      BorderedProfilePictureContainer(
+                        heightAndWidth: 60,
+                        imageUrl: context
+                                .read<SchoolConfigurationCubit>()
+                                .getSchoolConfiguration()
+                                .body.profile.name ??
+                            "",
+                      ),
                       SizedBox(
                         width: boxConstraints.maxWidth * (0.03),
                       ),
@@ -94,20 +95,20 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Text(
-                            //   context
-                            //       .read<AuthCubit>()
-                            //       .getStudentDetails()
-                            //       .getFullName(),
-                            //   maxLines: 1,
-                            //   overflow: TextOverflow.ellipsis,
-                            //   style: TextStyle(
-                            //     fontSize: 18.0,
-                            //     fontWeight: FontWeight.w500,
-                            //     color:
-                            //         Theme.of(context).scaffoldBackgroundColor,
-                            //   ),
-                            // ),
+                            Text(
+                              context
+                                  .read<AuthCubit>()
+                                  .getStudentDetails()
+                                  .body.profile.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                              ),
+                            ),
                             Row(
                               children: [
                                 // Flexible(

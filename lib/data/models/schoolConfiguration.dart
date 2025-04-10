@@ -30,7 +30,8 @@ class SchoolConfiguration {
   }
 
   bool isAssignmentModuleEnabled() {
-    return enabledModules.containsKey(assignmentManagementModuleId.toString());
+  //  return enabledModules.containsKey(assignmentManagementModuleId.toString());
+  return true;
   }
 
   bool isOnlineFeePaymentEnable() {

@@ -35,18 +35,28 @@ class AssignmentRepository {
         queryParameters.addAll({"child_id": childId});
       }
 
-      final result = await Api.get(
-        url: useParentApi ? Api.getAssignmentsParent : Api.getAssignments,
-        useAuthToken: true,
-        queryParameters: queryParameters,
-      );
+      // final result = await Api.get(
+      //   url: useParentApi ? Api.getAssignmentsParent : Api.getAssignments,
+      //   useAuthToken: true,
+      //   queryParameters: queryParameters,
+      // );
+
+    
+
+      // return {
+      //   "assignments": (result['data']['data'] as List).map((e) {
+      //     return Assignment.fromJson(Map.from(e));
+      //   }).toList(),
+      //   "totalPage": result['data']['last_page'] as int,
+      //   "currentPage": result['data']['current_page'] as int,
+      // };
 
       return {
-        "assignments": (result['data']['data'] as List).map((e) {
+        "assignments": ([]).map((e) {
           return Assignment.fromJson(Map.from(e));
         }).toList(),
-        "totalPage": result['data']['last_page'] as int,
-        "currentPage": result['data']['current_page'] as int,
+        "totalPage": [] as int,
+        "currentPage": [] as int,
       };
     } catch (e) {
       throw ApiException(e.toString());

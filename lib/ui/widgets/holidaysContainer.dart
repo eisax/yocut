@@ -63,11 +63,15 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
         (index) => Animate(
           key: isApplicationItemAnimationOn ? UniqueKey() : null,
           effects: listItemAppearanceEffects(
-              itemIndex: index, totalLoadedItems: holidays.length),
+            itemIndex: index,
+            totalLoadedItems: holidays.length,
+          ),
           child: Container(
             margin: const EdgeInsets.only(bottom: 15),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 7.5),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15.0,
+              vertical: 7.5,
+            ),
             width: MediaQuery.of(context).size.width * (0.85),
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.surface,
@@ -107,12 +111,12 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
                     holidays[index].description.isEmpty
                         ? const SizedBox()
                         : Text(
-                            holidays[index].description,
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSurface,
-                              fontSize: 11.5,
-                            ),
-                          )
+                          holidays[index].description,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface,
+                            fontSize: 11.5,
+                          ),
+                        ),
                   ],
                 );
               },
@@ -130,10 +134,12 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
         color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.075),
+            color: Theme.of(
+              context,
+            ).colorScheme.secondary.withValues(alpha: 0.075),
             offset: const Offset(5.0, 5),
             blurRadius: 10,
-          )
+          ),
         ],
         borderRadius: BorderRadius.circular(15.0),
       ),
@@ -165,8 +171,9 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
         availableGestures: AvailableGestures.none,
         calendarStyle: CalendarStyle(
           isTodayHighlighted: false,
-          holidayTextStyle:
-              TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+          holidayTextStyle: TextStyle(
+            color: Theme.of(context).scaffoldBackgroundColor,
+          ),
           holidayDecoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Theme.of(context).colorScheme.primary,
@@ -182,8 +189,10 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        headerStyle:
-            const HeaderStyle(titleCentered: true, formatButtonVisible: false),
+        headerStyle: const HeaderStyle(
+          titleCentered: true,
+          formatButtonVisible: false,
+        ),
         firstDay: firstDay, //start education year
         lastDay: lastDay, //end education year
         focusedDay: focusedDay,
@@ -196,9 +205,11 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
       alignment: Alignment.topCenter,
       child: SingleChildScrollView(
         padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width *
+          left:
+              MediaQuery.of(context).size.width *
               Utils.screenContentHorizontalPaddingInPercentage,
-          right: MediaQuery.of(context).size.width *
+          right:
+              MediaQuery.of(context).size.width *
               Utils.screenContentHorizontalPaddingInPercentage,
           bottom: Utils.getScrollViewBottomPadding(context),
           top: Utils.getScrollViewTopPadding(
@@ -209,33 +220,39 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
         child: BlocConsumer<HolidaysCubit, HolidaysState>(
           listener: (context, state) {
             if (state is HolidaysFetchSuccess) {
-              print(context
-                  .read<SchoolConfigurationCubit>()
-                  .getSchoolConfiguration()
-                  .sessionYear
-                  .toJson());
+              // print(context
+              //     .read<SchoolConfigurationCubit>()
+              //     .getSchoolConfiguration()
+              //     .sessionYear
+              //     .toJson());
               if (Utils.isTodayInSessionYear(
-                context
-                    .read<SchoolConfigurationCubit>()
-                    .getSchoolConfiguration()
-                    .sessionYear
-                    .getStartDateInDateTime(),
-                context
-                    .read<SchoolConfigurationCubit>()
-                    .getSchoolConfiguration()
-                    .sessionYear
-                    .getEndDateInDateTime(),
+                DateTime(0),
+                DateTime(0),
+                // context
+                //     .read<SchoolConfigurationCubit>()
+                //     .getSchoolConfiguration()
+                //     .sessionYear
+                //     .getStartDateInDateTime(),
+                // context
+                //     .read<SchoolConfigurationCubit>()
+                //     .getSchoolConfiguration()
+                //     .sessionYear
+                //     .getEndDateInDateTime(),
               )) {
-                firstDay = context
-                    .read<SchoolConfigurationCubit>()
-                    .getSchoolConfiguration()
-                    .sessionYear
-                    .getStartDateInDateTime();
-                lastDay = context
-                    .read<SchoolConfigurationCubit>()
-                    .getSchoolConfiguration()
-                    .sessionYear
-                    .getEndDateInDateTime();
+                firstDay = DateTime(0)
+                //  context
+                //     .read<SchoolConfigurationCubit>()
+                //     .getSchoolConfiguration()
+                //     .sessionYear
+                //     .getStartDateInDateTime()
+                ;
+                lastDay = DateTime(0)
+                // context
+                //     .read<SchoolConfigurationCubit>()
+                //     .getSchoolConfiguration()
+                //     .sessionYear
+                //     .getEndDateInDateTime()
+                ;
 
                 setState(() {});
                 updateMonthViceHolidays();
@@ -250,7 +267,7 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.025),
                   ),
-                  _buildHolidayDetailsList()
+                  _buildHolidayDetailsList(),
                 ],
               );
             }
@@ -260,18 +277,16 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
                 child: ErrorContainer(
                   errorMessageCode: state.errorMessage,
                   onTapRetry: () {
-                    context
-                        .read<HolidaysCubit>()
-                        .fetchHolidays(childId: widget.childId);
+                    context.read<HolidaysCubit>().fetchHolidays(
+                      childId: widget.childId,
+                    );
                   },
                 ),
               );
             }
             return Column(
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 ShimmerLoadingContainer(
                   child: CustomShimmerContainer(
                     height: MediaQuery.of(context).size.height * (0.425),
@@ -313,13 +328,12 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .secondary
-                        .withValues(alpha: 0.075),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.075),
                     offset: const Offset(2.5, 2.5),
                     blurRadius: 5,
-                  )
+                  ),
                 ],
                 color: Theme.of(context).scaffoldBackgroundColor,
               ),
@@ -382,11 +396,6 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        _buildHolidaysCalendar(),
-        _buildAppBar(),
-      ],
-    );
+    return Stack(children: [_buildHolidaysCalendar(), _buildAppBar()]);
   }
 }

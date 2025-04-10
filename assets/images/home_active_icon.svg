@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="home_active_icon" transform="translate(-1956 1731)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(1956.002 -1730.996)">
+      <g id="Layer_1" data-name="Layer 1">
+        <path id="Path_258" data-name="Path 258" d="M23.12,9,15.53,1.46a5,5,0,0,0-7.07,0L.88,9A3,3,0,0,0,0,11.17V21a3,3,0,0,0,3,3H21a3,3,0,0,0,3-3V11.17A3,3,0,0,0,23.12,9ZM15,22H9V18.05a3,3,0,0,1,6,0Zm7-1a1,1,0,0,1-1,1H17V18.05a5,5,0,0,0-10,0V22H3a1,1,0,0,1-1-1V11.17a1,1,0,0,1,.29-.71L9.88,2.88a3,3,0,0,1,4.24,0l7.59,7.58a1,1,0,0,1,.29.71Z" fill="#212121"/>
+        <path id="Path_259" data-name="Path 259" d="M22,11.17V21a1,1,0,0,1-1,1H17V18.05a5,5,0,0,0-10,0V22H3a1,1,0,0,1-1-1V11.17a1,1,0,0,1,.29-.71L9.88,2.88a3,3,0,0,1,4.24,0l7.59,7.58A1,1,0,0,1,22,11.17Z" fill="#57cc99"/>
+        <path id="Path_260" data-name="Path 260" d="M15,18.05V22H9V18.05a3,3,0,0,1,6,0Z" fill="#57cc99"/>
+      </g>
+    </g>
+    <rect id="Rectangle_33" data-name="Rectangle 33" width="24" height="24" transform="translate(1956 -1731)" fill="none"/>
+  </g>
+</svg>

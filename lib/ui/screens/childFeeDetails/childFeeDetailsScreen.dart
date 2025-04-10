@@ -89,8 +89,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     return context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .schoolSettings
-            .currencySymbol ??
+            .body.profile.name ??
         '';
   }
 
@@ -151,8 +150,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
         'name': context
                 .read<SchoolConfigurationCubit>()
                 .getSchoolConfiguration()
-                .schoolSettings
-                .schoolName ??
+                .body.registration.isRegistered ??
             '',
         'prefill': {
           'contact': context.read<AuthCubit>().getParentDetails().mobile ?? "",
@@ -247,7 +245,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     final enabledPaymentGateways = context
         .read<SchoolConfigurationCubit>()
         .getSchoolConfiguration()
-        .enabledPaymentGateways;
+        .body.registration.modules;
 
     ///[If there is only one enabled payment gateway then start the prepayment process]
     if (enabledPaymentGateways.length == 1) {
@@ -256,14 +254,14 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
           installmentIds: installmentIds,
           optionalFeeIds: _toPayOptionalFeeIds,
           compulsoryFee: _currentlySelectedTabKey == compulsoryTitleKey,
-          paymentMethod: enabledPaymentGateways.first,
+          paymentMethod: PaymentGeteway(),
           childId: 0,
           feeId: widget.childFeeDetails.id ?? 0);
     } else {
       ///[If multiple payment gateway enabled by school then user need to select the payment gateway]
       Utils.showBottomSheet(
               child: SelectPaymentMethodBottomsheet(
-                  paymentGeteways: enabledPaymentGateways),
+                  paymentGeteways:[]),
               context: context)
           .then((selectedPaymentMethod) {
         if (selectedPaymentMethod != null) {
@@ -828,7 +826,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                       (context
                               .read<SchoolConfigurationCubit>()
                               .getSchoolConfiguration()
-                              .isOnlineFeePaymentEnable())
+                              .body.registration.isRegistered)
                           ? (optionalFee.isPaid ?? false)
                               ? Icon(Icons.verified,
                                   color:
@@ -863,7 +861,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                         width: (context
                                 .read<SchoolConfigurationCubit>()
                                 .getSchoolConfiguration()
-                                .isOnlineFeePaymentEnable())
+                                .body.registration.isRegistered)
                             ? 10
                             : 0,
                       ),
@@ -1158,7 +1156,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
             child: context
                     .read<SchoolConfigurationCubit>()
                     .getSchoolConfiguration()
-                    .isOnlineFeePaymentEnable()
+                    .body.registration.isRegistered
                 ? (_currentlySelectedTabKey == compulsoryTitleKey)
                     ? _buildCompulsoryBottomPaymentInfoContainer()
                     : _buildOptionalBottmsheetPaymentInfoContainer()

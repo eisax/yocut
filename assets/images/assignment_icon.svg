@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="assignment_icon" transform="translate(-2042 1770)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(2044 -1770)">
+      <g id="Layer_1" data-name="Layer 1">
+        <path id="Path_253" data-name="Path 253" d="M15,0H5A5,5,0,0,0,0,5V20a4,4,0,0,0,4,4H15a5,5,0,0,0,5-5V5A5,5,0,0,0,15,0Zm3,5V16H6V2h9A3,3,0,0,1,18,5ZM4,2.17V16a3.93,3.93,0,0,0-2,.54V5A3,3,0,0,1,4,2.17ZM15,22H4a2,2,0,0,1,0-4H18v1A3,3,0,0,1,15,22Z" fill="#212121"/>
+      </g>
+    </g>
+    <rect id="Rectangle_32" data-name="Rectangle 32" width="24" height="24" transform="translate(2042 -1770)" fill="none"/>
+  </g>
+</svg>

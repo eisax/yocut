@@ -426,7 +426,7 @@ class Utils {
     final enabledFeatures = context
         .read<SchoolConfigurationCubit>()
         .getSchoolConfiguration()
-        .enabledModules;
+        .body.profile.name;
 
     //Module id will have "1" or "1#2".
     final ids = moduleId.split(moduleIdJoiner).toList();
@@ -436,10 +436,10 @@ class Utils {
 
     bool featureEnabled = false;
     for (var i = 0; i < ids.length; i++) {
-      if (enabledFeatures.containsKey(ids[i].toString())) {
-        featureEnabled = true;
-        break;
-      }
+      // if (enabledFeatures.containsKey(ids[i].toString())) {
+      //   featureEnabled = true;
+      //   break;
+      // }
     }
 
     //
