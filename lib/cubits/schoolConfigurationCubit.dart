@@ -1,4 +1,4 @@
-import 'package:yocut/data/models/schoolConfiguration.dart';
+// import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
 import 'package:yocut/data/models/semesterDetails.dart';
 import 'package:yocut/data/models/sessionYear.dart';
