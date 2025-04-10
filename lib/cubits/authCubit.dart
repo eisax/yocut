@@ -64,36 +64,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void authenticateUser({
-    required String schoolCode,
-    required String jwtToken,
-    required bool isStudent,
-    required Guardian parent,
-    required Student student,
-  }) {
-    //
-    authRepository.schoolCode = schoolCode;
-    authRepository.setJwtToken(jwtToken);
-    authRepository.setIsLogIn(true);
-    authRepository.setIsStudentLogIn(isStudent);
-    authRepository.setStudentDetails(student);
-    authRepository.setParentDetails(parent);
-
-    //emit new state
-    emit(
-      Authenticated(
-        schoolCode: schoolCode,
-        jwtToken: jwtToken,
-        isStudent: isStudent,
-        student: student,
-        parent: parent,
-      ),
-    );
-  }
+  
 
   Student getStudentDetails() {
     if (state is Authenticated) {
-      print((state as Authenticated).student.body.profile.);
+      print((state as Authenticated).student.body.profile.name);
       return (state as Authenticated).student;
     }
     return Student.fromJson({});
