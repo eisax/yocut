@@ -44,13 +44,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
                 useParentApi: useParentApi,
                 childId: childId,
               ),
-          schoolConfiguration: SchoolConfiguration(
-            sessionYear: SessionYear(),
-            semesterDetails: SemesterDetails(),
-            schoolSettings: SchoolSettings(),
-            enabledPaymentGateways: [],
-            enabledModules: {},
-          ),
+          schoolConfiguration: ,
         ),
       );
     } catch (e) {
