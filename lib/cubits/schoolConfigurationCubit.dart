@@ -1,3 +1,4 @@
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
 import 'package:yocut/data/models/semesterDetails.dart';
@@ -12,7 +13,7 @@ class SchoolConfigurationInitial extends SchoolConfigurationState {}
 class SchoolConfigurationFetchInProgress extends SchoolConfigurationState {}
 
 class SchoolConfigurationFetchSuccess extends SchoolConfigurationState {
-  final SchoolConfiguration schoolConfiguration;
+  final Student schoolConfiguration;
 
   SchoolConfigurationFetchSuccess({required this.schoolConfiguration});
 }
