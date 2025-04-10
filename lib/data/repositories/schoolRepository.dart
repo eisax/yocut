@@ -14,7 +14,7 @@ class SchoolRepository {
               : Api.getSchoolSettingDetails,
           useAuthToken: true,
           queryParameters: useParentApi ? {"child_id": childId ?? 0} : {});
-
+      print()
       return SchoolConfiguration.fromJson(Map.from(result['data'] ?? {}));
     } catch (e) {
       throw ApiException(e.toString());
