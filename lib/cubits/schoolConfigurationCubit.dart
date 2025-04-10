@@ -38,7 +38,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     try {
       emit(
         SchoolConfigurationFetchSuccess(
-          schoolConfiguration: SchoolConfiguration(sessionYear: SessionYear(), semesterDetails: SemesterDetails(), schoolSettings: SchoolSettings(), enabledPaymentGateways: Enab, enabledModules: enabledModules)
+          schoolConfiguration: SchoolConfiguration(sessionYear: SessionYear(), semesterDetails: SemesterDetails(), schoolSettings: SchoolSettings(), enabledPaymentGateways: [], enabledModules: {})
         ),
       );
     } catch (e) {
