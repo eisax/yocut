@@ -39,6 +39,11 @@ class SchooldetailsCubit extends Cubit<SchooldetailsState> {
   Future<void> fetchSchooldetails() async {
     emit(SchooldetailsFetchInProgress());
     try {
+
+      result = await _authRepository.getStudent(
+            credentials: loginResponse,
+          );
+          
       emit(
         SchooldetailsFetchSuccess(
           schoolDetails: await Schooldetailsfetch.fetchSchoolDetails(),
