@@ -54,7 +54,7 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CachedNetworkImage(
-                    imageUrl: '${state.schoolDetails.schoolLogo}',
+                    imageUrl: '${state.schoolDetails.body.profile.name}',
                     errorWidget: (context, url, error) => SvgPicture.asset(
                       fit: BoxFit.fill,
                       Utils.getImagePath("appLogo.svg"),
@@ -65,7 +65,7 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                   ),
                   SizedBox(height: context.height * 0.03),
                   Text(
-                    '${state.schoolDetails.schoolName}',
+                    '${state.schoolDetails.body.profile.name}',
                     style: TextStyle(
                       fontSize: Utils.screenOnbordingTitleFontSize,
                       fontWeight: FontWeight.bold,
@@ -84,10 +84,10 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     itemBuilder: (context, index) {
-                      String? imageUrl = (state.schoolDetails.schoolImages !=
+                      String? imageUrl = (state.schoolDetails.body.profile.name !=
                                   null &&
-                              state.schoolDetails.schoolImages!.length > index)
-                          ? state.schoolDetails.schoolImages![index]
+                              state.schoolDetails.body.profile.name!.length > index)
+                          ? state.schoolDetails.body.profile.name![index]
                           : '';
 
                       return ClipRRect(
@@ -114,7 +114,7 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                   ),
                   SizedBox(height: context.height * 0.03),
                   Text(
-                    '${state.schoolDetails.schoolTagline}',
+                    '${state.schoolDetails.body.profile.name}',
                     style: TextStyle(
                       fontSize: Utils.screenOnbordingTitleFontSize,
                       fontWeight: FontWeight.bold,
