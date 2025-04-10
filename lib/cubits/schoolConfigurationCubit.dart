@@ -59,7 +59,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     if (state is SchoolConfigurationFetchSuccess) {
       return getRegNumber();
     }
-    return Student.fromJson({});
+    return "--";
   }
 
   Student getSchoolConfiguration() {
