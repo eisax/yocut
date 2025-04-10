@@ -415,35 +415,97 @@ class Notice {
 }
 
 class Profile {
-  final String name;
-  final String idNumber;
-  final String gender;
-  final String courseOfStudy;
-  final String yearOfStudy;
+  String firstName;
+  String surname;
+  String nationality;
+  String nationalId;
+  String placeOfBirth;
+  String citizenship;
+  String permanantAddress;
+  String passportNumber;
+  String permanantZimbabweResident;
+  String emailAddress;
+  String phoneNumbers;
+  String contactAddress;
+  String permanentHomeAddress;
+  String dateOfBirth;
+  String maritalStatus;
+  String religion;
+  String title;
+  String sex;
+  String studentId;
+  String radioFrequencyId;
 
   Profile({
-    required this.name,
-    required this.idNumber,
-    required this.gender,
-    required this.courseOfStudy,
-    required this.yearOfStudy,
+    required this.firstName,
+    required this.surname,
+    required this.nationality,
+    required this.nationalId,
+    required this.placeOfBirth,
+    required this.citizenship,
+    required this.permanantAddress,
+    required this.passportNumber,
+    required this.permanantZimbabweResident,
+    required this.emailAddress,
+    required this.phoneNumbers,
+    required this.contactAddress,
+    required this.permanentHomeAddress,
+    required this.dateOfBirth,
+    required this.maritalStatus,
+    required this.religion,
+    required this.title,
+    required this.sex,
+    required this.studentId,
+    required this.radioFrequencyId,
   });
 
-  factory Profile.fromJson(Map<String, dynamic> json) => Profile(
-    name: json['name'] ?? '',
-    idNumber: json['id_number'] ?? '',
-    gender: json['gender'] ?? '',
-    courseOfStudy: json['course_of_study'] ?? '',
-    yearOfStudy: json['year_of_study'] ?? '',
-  );
+  factory Profile.fromJson(Map<String, dynamic> json) {
+    return Profile(
+      firstName: json['first_name'],
+      surname: json['surname'],
+      nationality: json['nationality'],
+      nationalId: json['national_id'],
+      placeOfBirth: json['place_of_birth'],
+      citizenship: json['citizenship'],
+      permanantAddress: json['permanant_address'],
+      passportNumber: json['passport_number'],
+      permanantZimbabweResident: json['permanant_zimbabwe_resident'],
+      emailAddress: json['email_address'],
+      phoneNumbers: json['phone_numbers'],
+      contactAddress: json['contact_address'],
+      permanentHomeAddress: json['permanent_home_address'],
+      dateOfBirth: json['date_of_birth'],
+      maritalStatus: json['marital_status'],
+      religion: json['religion'],
+      title: json['title'],
+      sex: json['sex'],
+      studentId: json['student_id'],
+      radioFrequencyId: json['radio_frequency_id'],
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {
-      'name': name,
-      'id_number': idNumber,
-      'gender': gender,
-      'course_of_study': courseOfStudy,
-      'year_of_study': yearOfStudy,
+      'first_name': firstName,
+      'surname': surname,
+      'nationality': nationality,
+      'national_id': nationalId,
+      'place_of_birth': placeOfBirth,
+      'citizenship': citizenship,
+      'permanant_address': permanantAddress,
+      'passport_number': passportNumber,
+      'permanant_zimbabwe_resident': permanantZimbabweResident,
+      'email_address': emailAddress,
+      'phone_numbers': phoneNumbers,
+      'contact_address': contactAddress,
+      'permanent_home_address': permanentHomeAddress,
+      'date_of_birth': dateOfBirth,
+      'marital_status': maritalStatus,
+      'religion': religion,
+      'title': title,
+      'sex': sex,
+      'student_id': studentId,
+      'radio_frequency_id': radioFrequencyId,
     };
   }
 }
