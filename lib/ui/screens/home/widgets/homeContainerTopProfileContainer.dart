@@ -78,14 +78,14 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      // BorderedProfilePictureContainer(
-                      //   heightAndWidth: 60,
-                      //   imageUrl: context
-                      //           .read<AuthCubit>()
-                      //           .getStudentDetails()
-                      //           .image ??
-                      //       "",
-                      // ),
+                      BorderedProfilePictureContainer(
+                        heightAndWidth: 60,
+                        imageUrl: context
+                                .read<AuthCubit>()
+                                .getStudentDetails()
+                                .image ??
+                            "",
+                      ),
                       SizedBox(
                         width: boxConstraints.maxWidth * (0.03),
                       ),
