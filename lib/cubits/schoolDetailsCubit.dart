@@ -43,11 +43,7 @@ class SchooldetailsCubit extends Cubit<SchooldetailsState> {
     try {
       result = await _schooldetailsfetch.fetchSchoolDetails();
 
-      emit(
-        SchooldetailsFetchSuccess(
-          schoolDetails: await _schooldetailsfetch.fetchSchoolDetails(),
-        ),
-      );
+      emit(SchooldetailsFetchSuccess(schoolDetails: result['student']));
     } catch (e, st) {
       print(st);
       emit(SchooldetailsFetchFailure(e.toString()));
