@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolDetails.dart';
 import 'package:yocut/utils/api.dart';
 import 'package:yocut/utils/hiveBoxKeys.dart';
