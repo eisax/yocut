@@ -139,19 +139,22 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                                 const SizedBox(
                                   width: 10.0,
                                 ),
-                                // Flexible(
-                                //   child: Text(
-                                //     "${Utils.getTranslatedLabel(rollNoKey)} : ${context.read<AuthCubit>().getStudentDetails().rollNumber}",
-                                //     maxLines: 1,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     style: TextStyle(
-                                //       fontSize: 12.0,
-                                //       fontWeight: FontWeight.w400,
-                                //       color: Theme.of(context)
-                                //           .scaffoldBackgroundColor,
-                                //     ),
-                                //   ),
-                                // ),
+                                Flexible(
+                                  child: Text(
+                                    context
+                                  .read<SchoolConfigurationCubit>()
+                                  .getSchoolConfiguration()
+                                .body.profile.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                    ),
+                                  ),
+                                ),
                               ],
                             )
                           ],
