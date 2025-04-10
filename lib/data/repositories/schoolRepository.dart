@@ -1,9 +1,11 @@
+import 'package:hive/hive.dart';
 import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/gallery.dart';
 import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/sessionYear.dart';
 import 'package:yocut/data/models/sliderDetails.dart';
 import 'package:yocut/utils/api.dart';
+import 'package:yocut/utils/hiveBoxKeys.dart';
 
 class SchoolRepository {
   String getJwtToken() {
