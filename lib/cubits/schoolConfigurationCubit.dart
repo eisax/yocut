@@ -8,6 +8,7 @@ import 'package:yocut/data/models/semesterDetails.dart';
 import 'package:yocut/data/models/sessionYear.dart';
 import 'package:yocut/data/repositories/schoolRepository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yocut/utils/hiveBoxKeys.dart';
 
 abstract class SchoolConfigurationState {}
 
@@ -54,9 +55,9 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     return Hive.box(authBoxKey).get(studentRegNumberKey) ?? "";
   }
 
-  Student getStudentRegNumber() {
+  String getStudentRegNumber() {
     if (state is SchoolConfigurationFetchSuccess) {
-      return (state as Authenticated).student;
+      return getRegNumber();
     }
     return Student.fromJson({});
   }
