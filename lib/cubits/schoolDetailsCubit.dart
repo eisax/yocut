@@ -37,7 +37,7 @@ class SchooldetailsCubit extends Cubit<SchooldetailsState> {
   SchooldetailsCubit() : super(SchooldetailsInitial());
 
   Future<void> fetchSchooldetails() async {
-     late Map<String, dynamic> result; late Map<String, dynamic> result;
+     late Map<String, dynamic> result; 
     emit(SchooldetailsFetchInProgress());
     try {
 
