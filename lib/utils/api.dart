@@ -59,7 +59,7 @@ class Api {
   static String validateToken = "$baseUrl/portal/index.php/cut_elearning/api/validateToken";
   static String studentData = "$baseUrl/portal/index.php/cut_elearning/api/getHomeData";
   static String studentProfile = "${databaseUrl}student/get-profile-data";
-  static String studentSubjects = "${databaseUrl}student/subjects";
+  // static String studentSubjects = "${databaseUrl}student/subjects";
   //get subjects of given class
   static String classSubjects = "${databaseUrl}student/class-subjects";
   static String studentTimeTable = "${databaseUrl}student/timetable";
