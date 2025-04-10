@@ -36,6 +36,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     required bool useParentApi,
     int? childId,
   }) async {
+    print("---------------testm 1");
     emit(SchoolConfigurationFetchInProgress());
 
     try {
