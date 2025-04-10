@@ -63,21 +63,21 @@ class SchoolRepository {
       throw ApiException('Failed to fetch student data: ${e.toString()}');
     }
   }
-  Future<Student> getSchoolSchoolSettingDetails(
-      {required bool useParentApi, int? childId}) async {
-    try {
-      final result = await Api.get(
-          url: useParentApi
-              ? Api.getParentChildSchoolSettingDetails
-              : Api.getSchoolSettingDetails,
-          useAuthToken: true,
-          queryParameters: useParentApi ? {"child_id": childId ?? 0} : {});
-      print(result['data']);
-      return Student.fromJson(Map.from(result['data'] ?? {}));
-    } catch (e) {
-      throw ApiException(e.toString());
-    }
-  }
+  // Future<Student> getSchoolSchoolSettingDetails(
+  //     {required bool useParentApi, int? childId}) async {
+  //   try {
+  //     final result = await Api.get(
+  //         url: useParentApi
+  //             ? Api.getParentChildSchoolSettingDetails
+  //             : Api.getSchoolSettingDetails,
+  //         useAuthToken: true,
+  //         queryParameters: useParentApi ? {"child_id": childId ?? 0} : {});
+  //     print(result['data']);
+  //     return Student.fromJson(Map.from(result['data'] ?? {}));
+  //   } catch (e) {
+  //     throw ApiException(e.toString());
+  //   }
+  // }
 
   Future<List<SliderDetails>> fetchSliders(
       {required bool useParentApi, int? childId}) async {
