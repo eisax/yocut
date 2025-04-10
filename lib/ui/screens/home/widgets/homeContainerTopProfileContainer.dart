@@ -111,19 +111,22 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                // Flexible(
-                                //   child: Text(
-                                //     "${Utils.getTranslatedLabel(classKey)} : ${context.read<AuthCubit>().getStudentDetails().classSection?.fullName}",
-                                //     maxLines: 1,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     style: TextStyle(
-                                //       fontSize: 12.0,
-                                //       fontWeight: FontWeight.w400,
-                                //       color: Theme.of(context)
-                                //           .scaffoldBackgroundColor,
-                                //     ),
-                                //   ),
-                                // ),
+                                Flexible(
+                                  child: Text(
+                                    context
+                                  .read<SchoolConfigurationCubit>()
+                                  .getSchoolConfiguration()
+                                .body.profile.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                    ),
+                                  ),
+                                ),
                                 const SizedBox(
                                   width: 10.0,
                                 ),
