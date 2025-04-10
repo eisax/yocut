@@ -538,14 +538,7 @@ class HomeScreenState extends State<HomeScreen>
                       state is SchoolConfigurationFetchFailure) {
                     updateBottomNavItems();
                     if (state is SchoolConfigurationFetchSuccess) {
-                      if (Utils.isModuleEnabled(
-                          context: context,
-                          moduleId: galleryManagementModuleId.toString())) {
-                        context.read<SchoolGalleryCubit>().fetchSchoolGallery(
-                            useParentApi: false,
-                            sessionYearId:
-                                2025 ?? 0);
-                      }
+                      
 
                       ///[Setting up the socket connection]
 
