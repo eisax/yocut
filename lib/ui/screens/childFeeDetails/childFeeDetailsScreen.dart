@@ -247,7 +247,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     final enabledPaymentGateways = context
         .read<SchoolConfigurationCubit>()
         .getSchoolConfiguration()
-        .enabledPaymentGateways;
+        .body.registration;
 
     ///[If there is only one enabled payment gateway then start the prepayment process]
     if (enabledPaymentGateways.length == 1) {
