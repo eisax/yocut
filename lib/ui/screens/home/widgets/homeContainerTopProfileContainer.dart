@@ -94,20 +94,20 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Text(
-                            //   context
-                            //       .read<AuthCubit>()
-                            //       .getStudentDetails()
-                            //       .getFullName(),
-                            //   maxLines: 1,
-                            //   overflow: TextOverflow.ellipsis,
-                            //   style: TextStyle(
-                            //     fontSize: 18.0,
-                            //     fontWeight: FontWeight.w500,
-                            //     color:
-                            //         Theme.of(context).scaffoldBackgroundColor,
-                            //   ),
-                            // ),
+                            Text(
+                              context
+                                  .read<AuthCubit>()
+                                  .getStudentDetails()
+                                  .body.profile.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                              ),
+                            ),
                             Row(
                               children: [
                                 // Flexible(
