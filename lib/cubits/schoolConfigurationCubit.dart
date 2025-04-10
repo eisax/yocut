@@ -35,11 +35,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     try {
       emit(
         SchoolConfigurationFetchSuccess(
-          schoolConfiguration: await _schoolRepository
-              .getSchoolSchoolSettingDetails(
-                useParentApi: useParentApi,
-                childId: childId,
-              ),
+          schoolConfiguration: SchoolConfiguration(sessionYear: , semesterDetails: semesterDetails, schoolSettings: schoolSettings, enabledPaymentGateways: enabledPaymentGateways, enabledModules: enabledModules)
         ),
       );
     } catch (e) {
