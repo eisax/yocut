@@ -17,8 +17,7 @@ class AdvanceInstallmentPaidAmountBottomsheet extends StatelessWidget {
     final currencySymbol = context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .schoolSettings
-            .currencySymbol ??
+            .body.registration.isRegistered??
         '';
     double totalAdvancePaidAmount = 0.0;
     for (var advanceFee in advanceFees) {

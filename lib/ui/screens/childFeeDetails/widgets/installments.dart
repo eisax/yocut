@@ -27,8 +27,7 @@ class Installments extends StatelessWidget {
     return context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .schoolSettings
-            .currencySymbol ??
+            .body.registration.??
         '';
   }
 
