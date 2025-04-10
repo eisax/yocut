@@ -177,7 +177,7 @@ class HomeScreenState extends State<HomeScreen>
     _bottomNavItems = context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .isAssignmentModuleEnabled()
+            .body.registration.isRegistered
         ? [
             BottomNavItem(
               activeImageUrl: Utils.getImagePath("home_active_icon.svg"),
