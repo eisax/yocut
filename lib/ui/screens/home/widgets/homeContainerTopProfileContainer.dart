@@ -1,6 +1,7 @@
 import 'package:yocut/app/routes.dart';
 import 'package:yocut/cubits/appConfigurationCubit.dart';
 import 'package:yocut/cubits/authCubit.dart';
+import 'package:yocut/cubits/schoolConfigurationCubit.dart';
 import 'package:yocut/ui/widgets/borderedProfilePictureContainer.dart';
 import 'package:yocut/ui/widgets/screenTopBackgroundContainer.dart';
 import 'package:yocut/ui/widgets/svgButton.dart';
@@ -81,7 +82,7 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                       BorderedProfilePictureContainer(
                         heightAndWidth: 60,
                         imageUrl: context
-                                .read<AuthCubit>()
+                                .read<SchoolConfigurationCubit>()
                                 .getStudentDetails()
                                 .body.profile.name ??
                             "",
