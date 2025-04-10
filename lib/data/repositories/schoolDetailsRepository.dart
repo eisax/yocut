@@ -12,7 +12,7 @@ class Schooldetailsfetch {
     return Hive.box(authBoxKey).get(studentRegNumberKey) ?? "";
   }
 
-  Future<SchoolDetails> fetchSchoolDetails() async {
+  Future<Student> fetchSchoolDetails() async {
     try {
       final result = await Api.get(
         url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
