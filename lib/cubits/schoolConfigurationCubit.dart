@@ -1,4 +1,3 @@
-import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
 import 'package:yocut/data/models/semesterDetails.dart';
@@ -13,7 +12,7 @@ class SchoolConfigurationInitial extends SchoolConfigurationState {}
 class SchoolConfigurationFetchInProgress extends SchoolConfigurationState {}
 
 class SchoolConfigurationFetchSuccess extends SchoolConfigurationState {
-  final Student schoolConfiguration;
+  final SchoolConfiguration schoolConfiguration;
 
   SchoolConfigurationFetchSuccess({required this.schoolConfiguration});
 }
@@ -26,28 +25,31 @@ class SchoolConfigurationFetchFailure extends SchoolConfigurationState {
 
 class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
   final SchoolRepository _schoolRepository;
-  
 
   SchoolConfigurationCubit(this._schoolRepository)
     : super(SchoolConfigurationInitial());
 
   Future<void> fetchSchoolConfiguration({
-
     required bool useParentApi,
     int? childId,
   }) async {
-     final Student schoolConfiguration;
     emit(SchoolConfigurationFetchInProgress());
 
     try {
       emit(
         SchoolConfigurationFetchSuccess(
-          schoolConfiguration: await _schoolRepository
-              .getSchoolSchoolSettingDetails(
-                useParentApi: useParentApi,
-                childId: childId,
-              ),
-          
+          // schoolConfiguration: await _schoolRepository
+          //     .getSchoolSchoolSettingDetails(
+          //       useParentApi: useParentApi,
+          //       childId: childId,
+          //     ),
+          schoolConfiguration: SchoolConfiguration(
+            sessionYear: SessionYear(),
+            semesterDetails: SemesterDetails(),
+            schoolSettings: SchoolSettings(),
+            enabledPaymentGateways: [],
+            enabledModules: {},
+          ),
         ),
       );
     } catch (e) {
@@ -55,8 +57,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     }
   }
 
-    final Student schoolConfiguration;
- getSchoolConfiguration() {
+  SchoolConfiguration getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
       return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
     }
