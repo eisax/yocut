@@ -49,7 +49,7 @@ class Api {
   static String chatMessages = "${databaseUrl}message";
   static String readMessages = "${databaseUrl}message/read";
   static String deleteMessages = "${databaseUrl}delete/message";
-  static String schoolDetails = "${databaseUrl}school-details";
+  static String schoolDetails = "${baseUrl}/portal/index.php/cut_elearning/api/getHomeData";
   //
 
   //
