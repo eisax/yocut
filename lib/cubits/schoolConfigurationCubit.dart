@@ -39,18 +39,11 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     try {
       emit(
         SchoolConfigurationFetchSuccess(
-          // schoolConfiguration: await _schoolRepository
-          //     .getSchoolSchoolSettingDetails(
-          //       useParentApi: useParentApi,
-          //       childId: childId,
-          //     ),
-          schoolConfiguration: Student(
-            sessionYear: SessionYear(),
-            semesterDetails: SemesterDetails(),
-            schoolSettings: SchoolSettings(),
-            enabledPaymentGateways: [],
-            enabledModules: {},
-          ),
+          schoolConfiguration: await _schoolRepository
+              .getSchoolSchoolSettingDetails(
+                useParentApi: useParentApi,
+                childId: childId,
+              ),
         ),
       );
     } catch (e) {
@@ -68,8 +61,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
   String fetchExamRules() {
     if (state is SchoolConfigurationFetchSuccess) {
-      return 
-          "";
+      return "";
     }
     return '';
   }
