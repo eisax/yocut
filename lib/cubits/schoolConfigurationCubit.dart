@@ -41,7 +41,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
       print(config['student']);
       print("---------------test");
       emit(
-        SchoolConfigurationFetchSuccess(schoolConfiguration: config['student']),
+        SchoolConfigurationFetchSuccess(schoolConfiguration: J),
       );
     } catch (e) {
       emit(SchoolConfigurationFetchFailure(e.toString()));
