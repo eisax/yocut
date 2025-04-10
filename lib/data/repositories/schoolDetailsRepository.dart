@@ -22,7 +22,7 @@ class Schooldetailsfetch {
 
       print("This is school details : ${result['data']}");
 
-      final SchoolDetails schoolDetails = SchoolDetails.fromJson(
+      final Student schoolDetails = Student.fromJson(
         result['data'],
       );
 
