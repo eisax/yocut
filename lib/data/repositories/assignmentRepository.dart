@@ -50,6 +50,14 @@ class AssignmentRepository {
       //   "totalPage": result['data']['last_page'] as int,
       //   "currentPage": result['data']['current_page'] as int,
       // };
+
+      return {
+        "assignments": ().map((e) {
+          return Assignment.fromJson(Map.from(e));
+        }).toList(),
+        "totalPage": result['data']['last_page'] as int,
+        "currentPage": result['data']['current_page'] as int,
+      };
     } catch (e) {
       throw ApiException(e.toString());
     }
