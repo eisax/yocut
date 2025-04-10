@@ -65,8 +65,8 @@ class Api {
   static String studentTimeTable = "${databaseUrl}student/timetable";
   static String studentExamList = "${databaseUrl}student/get-exam-list";
 
-  // static String getSchoolSettingDetails =
-  //     "${databaseUrl}student/school-settings";
+  static String getSchoolSettingDetails =
+      "${databaseUrl}student/school-settings";
 
   static String studentExamDetails = "${databaseUrl}student/get-exam-details";
   static String selectStudentElectiveSubjects =
