@@ -86,7 +86,7 @@ class StudentRepository {
       // ).toList();
 
       return {
-        "coreSubjects": coreSubjects,
+        "coreSubjects": CoreSubject.fromJson(json: {}),
         "electiveSubjects": electiveSubjects,
         "doesClassHaveElectiveSubjects":
             result['data']?['elective_subject'] != null
