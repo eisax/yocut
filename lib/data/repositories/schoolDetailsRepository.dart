@@ -7,7 +7,7 @@ import 'package:yocut/data/models/schoolDetails.dart';
 import 'package:yocut/utils/api.dart';
 import 'package:yocut/utils/hiveBoxKeys.dart';
 
-class Schooldetailsfetch {
+class SchooldetailsfetchRepository {
   String getJwtToken() {
     return Hive.box(authBoxKey).get(jwtTokenKey) ?? "";
   }

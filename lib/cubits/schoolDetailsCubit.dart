@@ -34,7 +34,7 @@ class SchooldetailsFetchFailure extends SchooldetailsState {
 }
 
 class SchooldetailsCubit extends Cubit<SchooldetailsState> {
-  final Schooldetailsfetch _schooldetailsfetch;
+  final SchooldetailsfetchRepository _schooldetailsfetch;
   SchooldetailsCubit(this._schooldetailsfetch) : super(SchooldetailsInitial());
 
   Future<void> fetchSchooldetails() async {
