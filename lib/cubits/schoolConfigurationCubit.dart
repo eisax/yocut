@@ -40,6 +40,8 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
     try {
       final config = await _schoolRepository.fetchSchoolDetails();
+      print(jsonEncode(config['student']));
+      print("---------------test");
       emit(
         SchoolConfigurationFetchSuccess(schoolConfiguration: config['student']),
       );
@@ -50,7 +52,6 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
   Student getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
-      print((state as SchoolConfigurationFetchSuccess).schoolConfiguration);
       return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
     }
     return Student.fromJson({});
