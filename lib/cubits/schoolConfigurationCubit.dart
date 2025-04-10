@@ -38,8 +38,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
     try {
       final config = await _schoolRepository.fetchSchoolDetails(
-        useParentApi: useParentApi,
-        childId: childId,
+       
       );
       emit(SchoolConfigurationFetchSuccess(schoolConfiguration: config));
     } catch (e) {
@@ -47,11 +46,11 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     }
   }
 
-  SchoolConfiguration getSchoolConfiguration() {
+  Student getSchoolConfiguration() {
     if (state is SchoolConfigurationFetchSuccess) {
       return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
     }
-    return SchoolConfiguration.fromJson({});
+    return Student.fromJson({});
   }
 
   String fetchExamRules() {
