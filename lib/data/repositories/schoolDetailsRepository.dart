@@ -15,17 +15,15 @@ class Schooldetailsfetch {
 
   Future<Map<String, dynamic>> fetchSchoolDetails() async {
 
-      
+      final result = await Api.get(
+        url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
+        useAuthToken: false,
+      );
 
 
       try {
-      // final response = await dio.get(
-      //   '${Api.studentData}/${credentials.regNumber}/${credentials.token}',
-      // );
-
-      final response = await Api.get(
-        url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
-        useAuthToken: false,
+      final response = await dio.get(
+        '${Api.studentData}/${credentials.regNumber}/${credentials.token}',
       );
 
       if (response.data == null) {
