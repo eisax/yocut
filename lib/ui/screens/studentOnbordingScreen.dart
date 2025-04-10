@@ -54,7 +54,7 @@ class _StudentOnbordingScreenState extends State<StudentOnbordingScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CachedNetworkImage(
-                    imageUrl: '${state.schoolDetails.schoolLogo}',
+                    imageUrl: '${state.schoolDetails.body.profile.}',
                     errorWidget: (context, url, error) => SvgPicture.asset(
                       fit: BoxFit.fill,
                       Utils.getImagePath("appLogo.svg"),
