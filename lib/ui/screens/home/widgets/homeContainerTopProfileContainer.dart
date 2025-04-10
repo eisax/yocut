@@ -97,9 +97,9 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                           children: [
                             Text(
                               context
-                                  .read<AuthCubit>()
-                                  .getStudentDetails()
-                                  .body.profile.name,
+                                  .read<SchoolConfigurationCubit>()
+                                  .getSchoolConfiguration()
+                                .body.profile.name,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
