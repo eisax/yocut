@@ -536,7 +536,7 @@ class HomeScreenState extends State<HomeScreen>
                 listener: (context, state) {
                   if (state is SchoolConfigurationFetchSuccess ||
                       state is SchoolConfigurationFetchFailure) {
-                    updateBottomNavItems();
+                   
                     if (state is SchoolConfigurationFetchSuccess) {
                       
 
