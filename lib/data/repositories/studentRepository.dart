@@ -87,9 +87,9 @@ class StudentRepository {
 
       return {
         "coreSubjects": CoreSubject.fromJson(json: {}),
-        "electiveSubjects": electiveSubjects,
+        "electiveSubjects": ElectiveSubject.fromJson(json: {}, electiveSubjectGroupId: {}),
         "doesClassHaveElectiveSubjects":
-            result['data']?['elective_subject'] != null
+            {}
       };
     } catch (e) {
       throw ApiException(e.toString());
