@@ -42,8 +42,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     try {
       late Map<String, dynamic> result;
        result = await _schoolRepository.fetchSchoolDetails();
-      print(jsonEncode(result['student']));
-      print("---------------test");
+      
       emit(
         SchoolConfigurationFetchSuccess(schoolConfiguration: result['student']),
       );
