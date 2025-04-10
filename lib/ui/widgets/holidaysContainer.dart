@@ -226,18 +226,23 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
                     .sessionYear
                     .getEndDateInDateTime(),
               )) {
-                firstDay = context
-                    .read<SchoolConfigurationCubit>()
-                    .getSchoolConfiguration()
-                    .sessionYear
-                    .getStartDateInDateTime();
-                lastDay = 
+                firstDay =
                 
-                context
+                 context
                     .read<SchoolConfigurationCubit>()
                     .getSchoolConfiguration()
                     .sessionYear
-                    .getEndDateInDateTime();
+                    .getStartDateInDateTime()
+                    
+                    ;
+                lastDay = DateTime(0)
+                
+                // context
+                //     .read<SchoolConfigurationCubit>()
+                //     .getSchoolConfiguration()
+                //     .sessionYear
+                //     .getEndDateInDateTime()
+                    ;
 
                 setState(() {});
                 updateMonthViceHolidays();
