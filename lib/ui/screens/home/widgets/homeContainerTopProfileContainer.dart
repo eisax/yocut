@@ -83,7 +83,8 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                         heightAndWidth: 60,
                         imageUrl: context
                                 .read<SchoolConfigurationCubit>()
-                                . getStudentRegNumber() ??
+                                .getSchoolConfiguration()
+                                .body.profile.firstName ??
                             "",
                       ),
                       SizedBox(
