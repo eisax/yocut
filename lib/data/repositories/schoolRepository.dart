@@ -5,21 +5,21 @@ import 'package:yocut/data/models/sliderDetails.dart';
 import 'package:yocut/utils/api.dart';
 
 class SchoolRepository {
-  // Future<SchoolConfiguration> getSchoolSchoolSettingDetails(
-  //     {required bool useParentApi, int? childId}) async {
-  //   try {
-  //     final result = await Api.get(
-  //         url: useParentApi
-  //             ? Api.getParentChildSchoolSettingDetails
-  //             : Api.getSchoolSettingDetails,
-  //         useAuthToken: true,
-  //         queryParameters: useParentApi ? {"child_id": childId ?? 0} : {});
+  Future<SchoolConfiguration> getSchoolSchoolSettingDetails(
+      {required bool useParentApi, int? childId}) async {
+    try {
+      final result = await Api.get(
+          url: useParentApi
+              ? Api.getParentChildSchoolSettingDetails
+              : Api.getSchoolSettingDetails,
+          useAuthToken: true,
+          queryParameters: useParentApi ? {"child_id": childId ?? 0} : {});
 
-  //     return SchoolConfiguration.fromJson(Map.from(result['data'] ?? {}));
-  //   } catch (e) {
-  //     throw ApiException(e.toString());
-  //   }
-  // }
+      return SchoolConfiguration.fromJson(Map.from(result['data'] ?? {}));
+    } catch (e) {
+      throw ApiException(e.toString());
+    }
+  }
 
   Future<List<SliderDetails>> fetchSliders(
       {required bool useParentApi, int? childId}) async {
