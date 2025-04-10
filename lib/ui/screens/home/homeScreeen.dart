@@ -569,7 +569,7 @@ class HomeScreenState extends State<HomeScreen>
                         IndexedStack(
                           index: _currentSelectedBottomNavIndex,
                           children: state.schoolConfiguration
-                                  .
+                                  .body.registration.isRegistered
                               ? [
                                   const HomeContainer(
                                     isForBottomMenuBackground: false,
