@@ -26,6 +26,7 @@ class SchoolConfigurationFetchFailure extends SchoolConfigurationState {
 
 class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
   final SchoolRepository _schoolRepository;
+  
 
   SchoolConfigurationCubit(this._schoolRepository)
     : super(SchoolConfigurationInitial());
