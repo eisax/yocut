@@ -70,16 +70,6 @@ class StudentRepository {
         return CoreSubject.fromJson(json: Map.from(e ?? {}));
       }).toList();
 
-      // if (kDebugMode) {
-      //   print("Result of student subjects api : $result");
-      // }
-
-      //If class have any elective subjects then of key of elective subject will be there
-      //if elective subject key has empty list means student has not slected any
-      //elective subjctes
-
-      //If there is not electvie subjects key in result means no elective subjects
-      //in given class
 
       final electiveSubjects =
           ((result['data']['elective_subject'] ?? []) as List).map(
