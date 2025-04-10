@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolConfiguration.dart';
 import 'package:yocut/data/models/schoolSettings.dart';
@@ -38,10 +40,10 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
     try {
       final config = await _schoolRepository.fetchSchoolDetails();
-      print(config['student']);
+      print(jsonEncode(config['student']));
       print("---------------test");
       emit(
-        SchoolConfigurationFetchSuccess(schoolConfiguration: Jso),
+        SchoolConfigurationFetchSuccess(schoolConfiguration: config['student']),
       );
     } catch (e) {
       emit(SchoolConfigurationFetchFailure(e.toString()));
