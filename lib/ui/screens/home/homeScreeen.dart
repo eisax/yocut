@@ -633,44 +633,7 @@ class HomeScreenState extends State<HomeScreen>
                       ],
                     );
                   }
-                  if (state is SchoolConfigurationFetchFailure) {
-                    return Center(
-                      child: Column(
-                        children: [
-                          HomeContainerTopProfileContainer(),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          ErrorContainer(
-                            errorMessageCode: state.errorMessage,
-                            onTapRetry: () {
-                              print("-------cliked btn");
-                              context
-                                  .read<SchoolConfigurationCubit>()
-                                  .fetchSchoolConfiguration(
-                                      useParentApi: false);
-                            },
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          CustomRoundedButton(
-                            height: 40,
-                            widthPercentage: 0.3,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            onTap: () {
-                              Get.toNamed(Routes.settings);
-                            },
-                            titleColor:
-                                Theme.of(context).scaffoldBackgroundColor,
-                            buttonTitle: Utils.getTranslatedLabel(settingsKey),
-                            showBorder: false,
-                          )
-                        ],
-                      ),
-                    );
-                  }
+               
 
                   return Column(
                     children: [
