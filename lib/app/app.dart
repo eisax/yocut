@@ -142,7 +142,7 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SchooldetailsCubit>(
-          create: (_) => SchooldetailsCubit(),
+          create: (_) => SchooldetailsCubit(SettingsRepository()),
         ),
         BlocProvider<AppLocalizationCubit>(
           create: (_) => AppLocalizationCubit(SettingsRepository()),
