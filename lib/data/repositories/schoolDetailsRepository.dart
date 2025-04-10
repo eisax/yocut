@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolDetails.dart';
@@ -16,6 +17,20 @@ class Schooldetailsfetch {
   }
 
   Future<Map<String, dynamic>> fetchSchoolDetails() async {
+    final Dio dio = Dio(
+      BaseOptions(
+        connectTimeout: Duration(seconds: 30),
+        receiveTimeout: Duration(seconds: 30),
+        followRedirects: false,
+        validateStatus: (status) => status != null && status < 400,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (compatible; DartApp/1.0)',
+        },
+      ),
+    );
+
     // final result = await Api.get(
     //   url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
     //   useAuthToken: false,
