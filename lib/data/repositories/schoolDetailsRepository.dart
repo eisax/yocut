@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/schoolDetails.dart';
@@ -14,14 +16,12 @@ class Schooldetailsfetch {
   }
 
   Future<Map<String, dynamic>> fetchSchoolDetails() async {
+    // final result = await Api.get(
+    //   url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
+    //   useAuthToken: false,
+    // );
 
-      final result = await Api.get(
-        url: '${Api.schoolDetails}/${getRegNumber()}/${getJwtToken()}',
-        useAuthToken: false,
-      );
-
-
-      try {
+    try {
       final response = await dio.get(
         '${Api.studentData}/${getRegNumber()}/${getJwtToken()}',
       );
@@ -44,7 +44,5 @@ class Schooldetailsfetch {
     } catch (e) {
       throw ApiException('Failed to fetch student data: ${e.toString()}');
     }
-
-    
   }
 }
