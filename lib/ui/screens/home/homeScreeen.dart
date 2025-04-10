@@ -146,7 +146,7 @@ class HomeScreenState extends State<HomeScreen>
     _animationController.forward();
 
     Future.delayed(Duration.zero, () {
-      loadTemporarilyStoredNotifications();
+    //  loadTemporarilyStoredNotifications();
       context
           .read<SchoolConfigurationCubit>()
           .fetchSchoolConfiguration(useParentApi: false);
