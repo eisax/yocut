@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/gallery.dart';
