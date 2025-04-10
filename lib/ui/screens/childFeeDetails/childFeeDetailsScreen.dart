@@ -89,7 +89,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     return context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .body. ??
+            .body.profile.name ??
         '';
   }
 
@@ -150,8 +150,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
         'name': context
                 .read<SchoolConfigurationCubit>()
                 .getSchoolConfiguration()
-                .schoolSettings
-                .schoolName ??
+                .body.registration.isRegistered ??
             '',
         'prefill': {
           'contact': context.read<AuthCubit>().getParentDetails().mobile ?? "",
