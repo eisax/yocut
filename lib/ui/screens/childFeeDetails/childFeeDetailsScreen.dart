@@ -263,7 +263,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
       ///[If multiple payment gateway enabled by school then user need to select the payment gateway]
       Utils.showBottomSheet(
               child: SelectPaymentMethodBottomsheet(
-                  paymentGeteways: enabledPaymentGateways),
+                  paymentGeteways:[]),
               context: context)
           .then((selectedPaymentMethod) {
         if (selectedPaymentMethod != null) {
