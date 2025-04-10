@@ -826,7 +826,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                       (context
                               .read<SchoolConfigurationCubit>()
                               .getSchoolConfiguration()
-                              .isOnlineFeePaymentEnable())
+                              .body.registration.isRegistered)
                           ? (optionalFee.isPaid ?? false)
                               ? Icon(Icons.verified,
                                   color:
@@ -861,7 +861,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
                         width: (context
                                 .read<SchoolConfigurationCubit>()
                                 .getSchoolConfiguration()
-                                .isOnlineFeePaymentEnable())
+                                .body.registration.isRegistered)
                             ? 10
                             : 0,
                       ),
