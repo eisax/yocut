@@ -461,11 +461,11 @@ class Profile {
 
   factory Profile.fromJson(Map<String, dynamic> json) {
     return Profile(
-      firstName: json['first_name'],
-      surname: json['surname'],
-      nationality: json['nationality'],
-      nationalId: json['national_id'],
-      placeOfBirth: json['place_of_birth'],
+      firstName: json['first_name']??"",
+      surname: json['surname']??"",
+      nationality: json['nationality']??"",
+      nationalId: json['national_id']??"",
+      placeOfBirth: json['place_of_birth']??"",
       citizenship: json['citizenship'],
       permanantAddress: json['permanant_address'],
       passportNumber: json['passport_number'],
