@@ -247,7 +247,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     final enabledPaymentGateways = context
         .read<SchoolConfigurationCubit>()
         .getSchoolConfiguration()
-        .body.registration;
+        .body.registration.modules;
 
     ///[If there is only one enabled payment gateway then start the prepayment process]
     if (enabledPaymentGateways.length == 1) {
@@ -256,7 +256,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
           installmentIds: installmentIds,
           optionalFeeIds: _toPayOptionalFeeIds,
           compulsoryFee: _currentlySelectedTabKey == compulsoryTitleKey,
-          paymentMethod: enabledPaymentGateways.first,
+          paymentMethod: Enab,
           childId: 0,
           feeId: widget.childFeeDetails.id ?? 0);
     } else {
