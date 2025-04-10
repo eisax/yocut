@@ -209,11 +209,11 @@ class _HolidaysContainerState extends State<HolidaysContainer> {
         child: BlocConsumer<HolidaysCubit, HolidaysState>(
           listener: (context, state) {
             if (state is HolidaysFetchSuccess) {
-              print(context
-                  .read<SchoolConfigurationCubit>()
-                  .getSchoolConfiguration()
-                  .sessionYear
-                  .toJson());
+              // print(context
+              //     .read<SchoolConfigurationCubit>()
+              //     .getSchoolConfiguration()
+              //     .sessionYear
+              //     .toJson());
               if (Utils.isTodayInSessionYear(
                 context
                     .read<SchoolConfigurationCubit>()
