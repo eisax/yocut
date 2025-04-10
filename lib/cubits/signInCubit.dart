@@ -70,6 +70,13 @@ class SignInCubit extends Cubit<SignInState> {
           regNumber: userId,
           password: password,
         );
+
+
+        if (loginResponse != null) {
+          result = await _authRepository.getStudent(
+            credentials: loginResponse,
+          );
+        }
       } 
 
       emit(
@@ -77,7 +84,7 @@ class SignInCubit extends Cubit<SignInState> {
           schoolCode: "",
           jwtToken: loginResponse?.token ?? "",
           isStudentLogIn: isStudentLogin,
-          student: Student.fromJson({}),
+          student: isStudentLogin ? result['student'] : Student.fromJson({}),
           parent: isStudentLogin ? Guardian.fromJson({}) : result['parent'],
         ),
       );
