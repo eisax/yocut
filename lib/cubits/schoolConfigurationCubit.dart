@@ -67,9 +67,7 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
 
   String fetchExamRules() {
     if (state is SchoolConfigurationFetchSuccess) {
-      return getSchoolConfiguration()
-              .schoolSettings
-              .onlineExamTermsAndCondition ??
+      return 
           "";
     }
     return '';
