@@ -31,30 +31,31 @@ class SchoolConfigurationCubit extends Cubit<SchoolConfigurationState> {
     : super(SchoolConfigurationInitial());
 
   Future<void> fetchSchoolConfiguration({
-  required bool useParentApi,
-  int? childId,
-}) async {
-  emit(SchoolConfigurationFetchInProgress());
+    required bool useParentApi,
+    int? childId,
+  }) async {
+    emit(SchoolConfigurationFetchInProgress());
 
-  try {
-    emit(
-      SchoolConfigurationFetchSuccess(
-        schoolConfiguration: await _schoolRepository.fetchSchoolDetails(),
-      ),
-    );
-  } catch (e) {
-    emit(SchoolConfigurationFetchFailure(e.toString()));
-  }
-}
-
-Student getSchoolConfiguration() {
-  if (state is SchoolConfigurationFetchSuccess) {
-    return (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
+    try {
+      emit(
+        SchoolConfigurationFetchSuccess(
+          schoolConfiguration: await _schoolRepository.fetchSchoolDetails(),
+        ),
+      );
+    } catch (e) {
+      emit(SchoolConfigurationFetchFailure(e.toString()));
+    }
   }
 
-  return Student.fromJson({});
-}
+  Student getSchoolConfiguration() {
+    if (state is SchoolConfigurationFetchSuccess) {
+      final config =
+          (state as SchoolConfigurationFetchSuccess).schoolConfiguration;
+      return Student.fromJson(config);
+    }
 
+    return Student.fromJson({});
+  }
 
   String fetchExamRules() {
     if (state is SchoolConfigurationFetchSuccess) {
