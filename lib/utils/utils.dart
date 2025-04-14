@@ -426,7 +426,7 @@ class Utils {
     final enabledFeatures = context
         .read<SchoolConfigurationCubit>()
         .getSchoolConfiguration()
-        .body.profile.name;
+        .body.profile.firstName;
 
     //Module id will have "1" or "1#2".
     final ids = moduleId.split(moduleIdJoiner).toList();

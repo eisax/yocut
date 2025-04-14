@@ -89,7 +89,7 @@ class SchoolGalleryContainer extends StatelessWidget {
                                         "sessionYear": context
                                             .read<SchoolConfigurationCubit>()
                                             .getSchoolConfiguration()
-                                            .body.profile.name
+                                            .body.profile.firstName
                                       });
                                 },
                                 child: SizedBox(

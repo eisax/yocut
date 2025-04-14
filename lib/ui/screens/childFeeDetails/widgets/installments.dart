@@ -27,7 +27,7 @@ class Installments extends StatelessWidget {
     return context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .body.profile.name??
+            .body.profile.firstName??
         '';
   }
 

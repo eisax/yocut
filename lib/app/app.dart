@@ -117,29 +117,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // AwesomeNotifications().setListeners(
-    //   onActionReceivedMethod: NotificationUtility.onActionReceivedMethod,
-    //   onNotificationCreatedMethod:
-    //       NotificationUtility.onNotificationCreatedMethod,
-    //   onNotificationDisplayedMethod:
-    //       NotificationUtility.onNotificationDisplayedMethod,
-    //   onDismissActionReceivedMethod:
-    //       NotificationUtility.onDismissActionReceivedMethod,
-    // );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    //preloading some of the imaegs
-    precacheImage(
-      AssetImage(Utils.getImagePath("upper_pattern.png")),
-      context,
-    );
-    precacheImage(
-      AssetImage(Utils.getImagePath("lower_pattern.png")),
-      context,
-    );
+    precacheImage(AssetImage(Utils.getImagePath("upper_pattern.png")), context);
+    precacheImage(AssetImage(Utils.getImagePath("lower_pattern.png")), context);
     return MultiBlocProvider(
       providers: [
         BlocProvider<SchooldetailsCubit>(
@@ -195,29 +179,33 @@ class _MyAppState extends State<MyApp> {
           create: (_) => AssignmentsCubit(AssignmentRepository()),
         ),
         BlocProvider<SchoolConfigurationCubit>(
-            create: (_) => SchoolConfigurationCubit(SchoolRepository())),
+          create: (_) => SchoolConfigurationCubit(SchoolRepository()),
+        ),
         BlocProvider<ChildFeeDetailsCubit>(
-            create: (_) => ChildFeeDetailsCubit(FeeRepository())),
+          create: (_) => ChildFeeDetailsCubit(FeeRepository()),
+        ),
         BlocProvider<SocketSettingCubit>(
-            create: (context) => SocketSettingCubit())
+          create: (context) => SocketSettingCubit(),
+        ),
       ],
       child: Builder(
         builder: (context) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             theme: Theme.of(context).copyWith(
-              textTheme:
-                  GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+              textTheme: GoogleFonts.poppinsTextTheme(
+                Theme.of(context).textTheme,
+              ),
               scaffoldBackgroundColor: pageBackgroundColor,
               colorScheme: Theme.of(context).colorScheme.copyWith(
-                    primary: primaryColor,
-                    onPrimary: onPrimaryColor,
-                    secondary: secondaryColor,
-                    surface: backgroundColor,
-                    error: errorColor,
-                    onSecondary: onSecondaryColor,
-                    onSurface: onBackgroundColor,
-                  ),
+                primary: primaryColor,
+                onPrimary: onPrimaryColor,
+                secondary: secondaryColor,
+                surface: backgroundColor,
+                error: errorColor,
+                onSecondary: onSecondaryColor,
+                onSurface: onBackgroundColor,
+              ),
             ),
             locale: context.read<AppLocalizationCubit>().state.language,
             getPages: Routes.getPages,

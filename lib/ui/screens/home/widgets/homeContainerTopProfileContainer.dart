@@ -84,7 +84,7 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                         imageUrl: context
                                 .read<SchoolConfigurationCubit>()
                                 .getSchoolConfiguration()
-                                .body.profile.name ??
+                                .body.profile.firstName ??
                             "",
                       ),
                       SizedBox(
@@ -97,9 +97,9 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                           children: [
                             Text(
                               context
-                                  .read<AuthCubit>()
-                                  .getStudentDetails()
-                                  .body.profile.name,
+                                  .read<SchoolConfigurationCubit>()
+                                  .getSchoolConfiguration()
+                                .body.profile.firstName,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -111,19 +111,21 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                // Flexible(
-                                //   child: Text(
-                                //     "${Utils.getTranslatedLabel(classKey)} : ${context.read<AuthCubit>().getStudentDetails().classSection?.fullName}",
-                                //     maxLines: 1,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     style: TextStyle(
-                                //       fontSize: 12.0,
-                                //       fontWeight: FontWeight.w400,
-                                //       color: Theme.of(context)
-                                //           .scaffoldBackgroundColor,
-                                //     ),
-                                //   ),
-                                // ),
+                                Flexible(
+                                  child: Text(
+                                    context
+                                  .read<SchoolConfigurationCubit>()
+                                  . getStudentRegNumber(),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                    ),
+                                  ),
+                                ),
                                 const SizedBox(
                                   width: 10.0,
                                 ),
@@ -136,19 +138,22 @@ class HomeContainerTopProfileContainer extends StatelessWidget {
                                 const SizedBox(
                                   width: 10.0,
                                 ),
-                                // Flexible(
-                                //   child: Text(
-                                //     "${Utils.getTranslatedLabel(rollNoKey)} : ${context.read<AuthCubit>().getStudentDetails().rollNumber}",
-                                //     maxLines: 1,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     style: TextStyle(
-                                //       fontSize: 12.0,
-                                //       fontWeight: FontWeight.w400,
-                                //       color: Theme.of(context)
-                                //           .scaffoldBackgroundColor,
-                                //     ),
-                                //   ),
-                                // ),
+                                Flexible(
+                                  child: Text(
+                                    context
+                                  .read<SchoolConfigurationCubit>()
+                                  .getSchoolConfiguration()
+                                .body.profile.firstName,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                    ),
+                                  ),
+                                ),
                               ],
                             )
                           ],

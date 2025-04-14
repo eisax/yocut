@@ -54,7 +54,7 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CachedNetworkImage(
-                    imageUrl: '${state.schoolDetails.body.profile.name}',
+                    imageUrl: '${state.schoolDetails.body.profile.firstName}',
                     errorWidget: (context, url, error) => SvgPicture.asset(
                       fit: BoxFit.fill,
                       Utils.getImagePath("appLogo.svg"),
@@ -65,7 +65,7 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                   ),
                   SizedBox(height: context.height * 0.03),
                   Text(
-                    '${state.schoolDetails.body.profile.name}',
+                    '${state.schoolDetails.body.profile.firstName}',
                     style: TextStyle(
                       fontSize: Utils.screenOnbordingTitleFontSize,
                       fontWeight: FontWeight.bold,
@@ -84,10 +84,10 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     itemBuilder: (context, index) {
-                      String? imageUrl = (state.schoolDetails.body.profile.name !=
+                      String? imageUrl = (state.schoolDetails.body.profile.firstName !=
                                   null &&
-                              state.schoolDetails.body.profile.name!.length > index)
-                          ? state.schoolDetails.body.profile.name![index]
+                              state.schoolDetails.body.profile.firstName!.length > index)
+                          ? state.schoolDetails.body.profile.firstName![index]
                           : '';
 
                       return ClipRRect(
@@ -114,7 +114,7 @@ class _ParentOnbordingScreenState extends State<ParentOnbordingScreen> {
                   ),
                   SizedBox(height: context.height * 0.03),
                   Text(
-                    '${state.schoolDetails.body.profile.name}',
+                    '${state.schoolDetails.body.profile.firstName}',
                     style: TextStyle(
                       fontSize: Utils.screenOnbordingTitleFontSize,
                       fontWeight: FontWeight.bold,

@@ -89,7 +89,7 @@ class _ChildFeeDetailsScreenState extends State<ChildFeeDetailsScreen> {
     return context
             .read<SchoolConfigurationCubit>()
             .getSchoolConfiguration()
-            .body.profile.name ??
+            .body.profile.firstName ??
         '';
   }
 
