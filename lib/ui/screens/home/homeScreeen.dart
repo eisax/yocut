@@ -571,9 +571,7 @@ class HomeScreenState extends State<HomeScreen>
                           children: state.schoolConfiguration
                                   .body.registration.isRegistered
                               ? [
-                                  const HomeContainer(
-                                    isForBottomMenuBackground: false,
-                                  ),
+                                 
                                   const AssignmentsContainer(
                                     isForBottomMenuBackground: false,
                                   ),
