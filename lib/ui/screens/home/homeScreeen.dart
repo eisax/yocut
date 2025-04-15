@@ -586,17 +586,50 @@ class HomeScreenState extends State<HomeScreen>
                                   _buildBottomSheetBackgroundContent(),
                                 ],
                         ),
-                       
+                        IgnorePointer(
+                          ignoring: !_isMoreMenuOpen,
+                          child: FadeTransition(
+                            opacity: _moreMenuBackgroundContainerColorAnimation,
+                            child: _buildMoreMenuBackgroundContainer(),
+                          ),
+                        ),
 
                         //More menu bottom sheet
-                        
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SlideTransition(
+                            position: _moreMenuBottomsheetAnimation,
+                            child: MoreMenuBottomsheetContainer(
+                              closeBottomMenu: _closeBottomMenu,
+                              onTapMoreMenuItemContainer:
+                                  _onTapMoreMenuItemContainer,
+                            ),
+                          ),
+                        ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: _buildBottomNavigationContainer(),
                         ),
 
                         //Check forece update here
-                      
+                        context.read<AppConfigurationCubit>().forceUpdate()
+                            ? FutureBuilder<bool>(
+                                future: Utils.forceUpdate(
+                                  context
+                                      .read<AppConfigurationCubit>()
+                                      .getAppVersion(),
+                                ),
+                                builder: (context, snaphsot) {
+                                  if (snaphsot.hasData) {
+                                    return (snaphsot.data ?? false)
+                                        ? const ForceUpdateDialogContainer()
+                                        : const SizedBox();
+                                  }
+
+                                  return const SizedBox();
+                                },
+                              )
+                            : const SizedBox(),
                       ],
                     );
                   }
@@ -604,7 +637,35 @@ class HomeScreenState extends State<HomeScreen>
                     return Center(
                       child: Column(
                         children: [
-                         
+                          HomeContainerTopProfileContainer(),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          ErrorContainer(
+                            errorMessageCode: state.errorMessage,
+                            onTapRetry: () {
+                              context
+                                  .read<SchoolConfigurationCubit>()
+                                  .fetchSchoolConfiguration(
+                                      useParentApi: false);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomRoundedButton(
+                            height: 40,
+                            widthPercentage: 0.3,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            onTap: () {
+                              Get.toNamed(Routes.settings);
+                            },
+                            titleColor:
+                                Theme.of(context).scaffoldBackgroundColor,
+                            buttonTitle: Utils.getTranslatedLabel(settingsKey),
+                            showBorder: false,
+                          )
                         ],
                       ),
                     );
@@ -612,7 +673,11 @@ class HomeScreenState extends State<HomeScreen>
 
                   return Column(
                     children: [
-                     
+                      HomeContainerTopProfileContainer(),
+                      Expanded(
+                          child: HomeScreenDataLoadingContainer(
+                        addTopPadding: false,
+                      )),
                     ],
                   );
                 },
