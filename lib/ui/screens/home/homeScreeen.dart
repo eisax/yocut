@@ -532,7 +532,7 @@ class HomeScreenState extends State<HomeScreen>
       child: Scaffold(
         body: context.read<AppConfigurationCubit>().appUnderMaintenance()
             ? const AppUnderMaintenanceContainer()
-            : Cont ),
+            : Container(child: Tex,) ),
     );
   }
 }
