@@ -645,11 +645,7 @@ class HomeScreenState extends State<HomeScreen>
 
                   return Column(
                     children: [
-                      HomeContainerTopProfileContainer(),
-                      Expanded(
-                          child: HomeScreenDataLoadingContainer(
-                        addTopPadding: false,
-                      )),
+                     
                     ],
                   );
                 },
