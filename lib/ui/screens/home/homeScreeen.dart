@@ -586,13 +586,7 @@ class HomeScreenState extends State<HomeScreen>
                                   _buildBottomSheetBackgroundContent(),
                                 ],
                         ),
-                        IgnorePointer(
-                          ignoring: !_isMoreMenuOpen,
-                          child: FadeTransition(
-                            opacity: _moreMenuBackgroundContainerColorAnimation,
-                            child: _buildMoreMenuBackgroundContainer(),
-                          ),
-                        ),
+                       
 
                         //More menu bottom sheet
                         
