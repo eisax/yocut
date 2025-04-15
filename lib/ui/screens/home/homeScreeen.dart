@@ -580,10 +580,7 @@ class HomeScreenState extends State<HomeScreen>
                                   _buildBottomSheetBackgroundContent(),
                                 ]
                               : [
-                                  const HomeContainer(
-                                    isForBottomMenuBackground: false,
-                                  ),
-                                  _buildBottomSheetBackgroundContent(),
+                                 
                                 ],
                         ),
                         IgnorePointer(
