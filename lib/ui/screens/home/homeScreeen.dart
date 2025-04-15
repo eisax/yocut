@@ -574,9 +574,7 @@ class HomeScreenState extends State<HomeScreen>
                                   const HomeContainer(
                                     isForBottomMenuBackground: false,
                                   ),
-                                  const AssignmentsContainer(
-                                    isForBottomMenuBackground: false,
-                                  ),
+                                
                                   _buildBottomSheetBackgroundContent(),
                                 ]
                               : [
