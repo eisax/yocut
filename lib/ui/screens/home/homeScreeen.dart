@@ -612,24 +612,7 @@ class HomeScreenState extends State<HomeScreen>
                         ),
 
                         //Check forece update here
-                        context.read<AppConfigurationCubit>().forceUpdate()
-                            ? FutureBuilder<bool>(
-                                future: Utils.forceUpdate(
-                                  context
-                                      .read<AppConfigurationCubit>()
-                                      .getAppVersion(),
-                                ),
-                                builder: (context, snaphsot) {
-                                  if (snaphsot.hasData) {
-                                    return (snaphsot.data ?? false)
-                                        ? const ForceUpdateDialogContainer()
-                                        : const SizedBox();
-                                  }
-
-                                  return const SizedBox();
-                                },
-                              )
-                            : const SizedBox(),
+                      
                       ],
                     );
                   }
