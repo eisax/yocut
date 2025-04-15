@@ -641,7 +641,15 @@ class HomeScreenState extends State<HomeScreen>
                           const SizedBox(
                             height: 15,
                           ),
-                          
+                          ErrorContainer(
+                            errorMessageCode: state.errorMessage,
+                            onTapRetry: () {
+                              context
+                                  .read<SchoolConfigurationCubit>()
+                                  .fetchSchoolConfiguration(
+                                      useParentApi: false);
+                            },
+                          ),
                           const SizedBox(
                             height: 20,
                           ),
