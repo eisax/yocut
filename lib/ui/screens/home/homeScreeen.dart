@@ -595,17 +595,7 @@ class HomeScreenState extends State<HomeScreen>
                         ),
 
                         //More menu bottom sheet
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: SlideTransition(
-                            position: _moreMenuBottomsheetAnimation,
-                            child: MoreMenuBottomsheetContainer(
-                              closeBottomMenu: _closeBottomMenu,
-                              onTapMoreMenuItemContainer:
-                                  _onTapMoreMenuItemContainer,
-                            ),
-                          ),
-                        ),
+                        
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: _buildBottomNavigationContainer(),
