@@ -46,7 +46,7 @@ class _SlidersContainerState extends State<SlidersContainer> {
   @override
   Widget build(BuildContext context) {
     return widget.sliders.isEmpty
-        ? const SizedBox.shrink()
+        // ? const SizedBox.shrink()
         // : Column(
         //     children: [
               // SizedBox(
