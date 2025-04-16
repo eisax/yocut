@@ -80,21 +80,21 @@ class _SlidersContainerState extends State<SlidersContainer> {
                         ),
                       )
                       .toList(),
-                  options: CarouselOptions(
-                    viewportFraction: 1.0,
-                    autoPlay: true,
-                    autoPlayInterval: changeSliderDuration,
-                    onPageChanged: (index, _) {
-                      setState(() {
-                        _currentSliderIndex = index;
-                      });
-                    },
-                  ),
+                  // options: CarouselOptions(
+                  //   viewportFraction: 1.0,
+                  //   autoPlay: true,
+                  //   autoPlayInterval: changeSliderDuration,
+                  //   onPageChanged: (index, _) {
+                  //     setState(() {
+                  //       _currentSliderIndex = index;
+                  //     });
+                  //   },
+                  // ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
               // _buildSliderIndicator(),
             ],
           );
