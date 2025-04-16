@@ -95,7 +95,7 @@ class _SlidersContainerState extends State<SlidersContainer> {
               const SizedBox(
                 height: 20,
               ),
-              // _buildSliderIndicator(),
+              _buildSliderIndicator(),
             ],
           );
   }
