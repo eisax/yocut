@@ -47,8 +47,8 @@ class _SlidersContainerState extends State<SlidersContainer> {
   Widget build(BuildContext context) {
     return widget.sliders.isEmpty
         ? const SizedBox.shrink()
-        : Column(
-            children: [
+        // : Column(
+        //     children: [
               // SizedBox(
                 // width: MediaQuery.of(context).size.width,
                 // height: MediaQuery.of(context).size.height *
@@ -90,13 +90,13 @@ class _SlidersContainerState extends State<SlidersContainer> {
                   //     });
                   //   },
                   // ),
-                ),
-              ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // _buildSliderIndicator(),
-            ],
-          );
+          //       ),
+          //     ),
+          //     // const SizedBox(
+          //     //   height: 20,
+          //     // ),
+          //     // _buildSliderIndicator(),
+          //   ],
+          // );
   }
 }
