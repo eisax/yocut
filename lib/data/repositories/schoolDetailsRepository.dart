@@ -52,7 +52,7 @@ class SchooldetailsfetchRepository {
       // If it's a String, decode it into a Map
       else if (response.data is String) {
         final Map<String, dynamic> json = jsonDecode(response.data);
-      pri
+      print(json);
         return {"student": Student.fromJson(json)};
       } else {
         throw ApiException('Unexpected response format');
