@@ -49,9 +49,9 @@ class _SlidersContainerState extends State<SlidersContainer> {
         ? const SizedBox.shrink()
         : Column(
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height *
+              // SizedBox(
+                // width: MediaQuery.of(context).size.width,
+                // height: MediaQuery.of(context).size.height *
                     // Utils.appBarBiggerHeightPercentage,
                 // child: CarouselSlider(
                   // items: widget.sliders
