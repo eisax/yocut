@@ -50,10 +50,10 @@ class _SlidersContainerState extends State<SlidersContainer> {
         : Column(
             children: [
               SizedBox(
-                // width: MediaQuery.of(context).size.width,
-                // height: MediaQuery.of(context).size.height *
-                    // Utils.appBarBiggerHeightPercentage,
-                // child: CarouselSlider(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height *
+                    Utils.appBarBiggerHeightPercentage,
+                child: CarouselSlider(
                   // items: widget.sliders
                       // .map(
                       //   (slider) => InkWell(
