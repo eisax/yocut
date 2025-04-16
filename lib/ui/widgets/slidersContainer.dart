@@ -54,7 +54,7 @@ class _SlidersContainerState extends State<SlidersContainer> {
                 height: MediaQuery.of(context).size.height *
                     Utils.appBarBiggerHeightPercentage,
                 child: CarouselSlider(
-                  items: widget.sliders
+                  // items: widget.sliders
                       // .map(
                       //   (slider) => InkWell(
                       //     onTap: () async {
