@@ -55,31 +55,31 @@ class _SlidersContainerState extends State<SlidersContainer> {
                     Utils.appBarBiggerHeightPercentage,
                 child: CarouselSlider(
                   items: widget.sliders
-                      .map(
-                        (slider) => InkWell(
-                          onTap: () async {
-                            try {
-                              final canLaunchLink = await canLaunchUrl(
-                                  Uri.parse(slider.link ?? ""));
-                              if (canLaunchLink) {
-                                launchUrl(Uri.parse(slider.link ?? ""));
-                              }
-                            } catch (e) {}
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * (0.85),
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: CachedNetworkImageProvider(
-                                    slider.image ?? ""),
-                              ),
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                          ),
-                        ),
-                      )
-                      .toList(),
+                      // .map(
+                      //   (slider) => InkWell(
+                      //     onTap: () async {
+                      //       try {
+                      //         final canLaunchLink = await canLaunchUrl(
+                      //             Uri.parse(slider.link ?? ""));
+                      //         if (canLaunchLink) {
+                      //           launchUrl(Uri.parse(slider.link ?? ""));
+                      //         }
+                      //       } catch (e) {}
+                      //     },
+                      //     child: Container(
+                      //       width: MediaQuery.of(context).size.width * (0.85),
+                      //       decoration: BoxDecoration(
+                      //         image: DecorationImage(
+                      //           fit: BoxFit.cover,
+                      //           image: CachedNetworkImageProvider(
+                      //               slider.image ?? ""),
+                      //         ),
+                      //         borderRadius: BorderRadius.circular(25.0),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // )
+                      // .toList(),
                   // options: CarouselOptions(
                   //   viewportFraction: 1.0,
                   //   autoPlay: true,
