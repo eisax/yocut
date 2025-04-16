@@ -78,7 +78,7 @@ class HomeScreen extends StatefulWidget {
         ),
       ],
       child: HomeScreen(
-        key: homeScreenKey,
+
       ),
     );
   }
