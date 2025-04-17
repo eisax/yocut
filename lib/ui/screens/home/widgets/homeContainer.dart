@@ -119,11 +119,11 @@ class _HomeContainerState extends State<HomeContainer> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.025),
                   ),
-                  // StudentSubjectsContainer(
-                  //   subjects: state.schoolConfiguration.body.registration.modules,
-                  //   subjectsTitleKey: mySubjectsKey,
-                  //   animate: !widget.isForBottomMenuBackground,
-                  // ),
+                  StudentSubjectsContainer(
+                    subjects: state.schoolConfiguration.body.registration.modules,
+                    subjectsTitleKey: mySubjectsKey,
+                    animate: !widget.isForBottomMenuBackground,
+                  ),
                   Utils.isModuleEnabled(
                           context: context,
                           moduleId: announcementManagementModuleId.toString())
