@@ -1,7 +1,7 @@
 import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/examTimeTableCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/exam.dart';
-import 'package:yocut/data/models/student.dart';
 import 'package:yocut/data/repositories/studentRepository.dart';
 import 'package:yocut/ui/widgets/customShimmerContainer.dart';
 import 'package:yocut/ui/widgets/errorContaineer.dart';
@@ -77,7 +77,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                   showShadow: true,
                   height: boxConstraints.maxWidth * (0.235),
                   radius: 10,
-                  subject: subjectDetails!,
+                  subject:Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: [], vleStatus: true) ,
                   width: boxConstraints.maxWidth * (0.26),
                 ),
               ),
@@ -97,7 +97,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                           SizedBox(
                             width: boxConstraints.maxWidth * 0.51,
                             child: Text(
-                              subjectDetails.name ?? "",
+                               "",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -128,13 +128,11 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                           ),
                         ],
                       ),
-                      subjectDetails.type == ' '
+                    false
                           ? const SizedBox()
                           : Text(
                             Utils.getTranslatedLabel(
-                              subjectDetails.isPractial()
-                                  ? practicalKey
-                                  : theoryKey,
+                              theoryKey,
                             ),
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.onSurface,
@@ -248,16 +246,16 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
 
   Widget _buildAppBar(BuildContext context) {
     String studentName = "";
-    if (context.read<AuthCubit>().isParent()) {
-      final Student student =
-          (context.read<AuthCubit>().getParentDetails().children ?? [])
-              .where((element) => 0 == widget.childID)
-              .first;
+    // if (context.read<AuthCubit>().isParent()) {
+    //   final Student student =
+    //       (context.read<AuthCubit>().getParentDetails().children ?? [])
+    //           .where((element) => 0 == widget.childID)
+    //           .first;
 
-      studentName =
-          ""; 
-          //"${student.body.profile.name} ${student.body.profile.name}";
-    }
+    //   studentName =
+    //       ""; 
+    //       //"${student.body.profile.name} ${student.body.profile.name}";
+    // }
     return ScreenTopBackgroundContainer(
       heightPercentage: Utils.appBarMediumtHeightPercentage,
       child: LayoutBuilder(

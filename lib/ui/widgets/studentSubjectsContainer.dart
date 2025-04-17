@@ -6,9 +6,11 @@ import 'package:yocut/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../data/models/Student.dart';
+
 class StudentSubjectsContainer extends StatelessWidget {
   final String subjectsTitleKey;
-  final List<Subject> subjects;
+  final List<Module> subjects;
   final int? childId;
   final bool showReport;
   final bool animate;
@@ -23,7 +25,7 @@ class StudentSubjectsContainer extends StatelessWidget {
 
   Widget _buildSubjectContainer({
     required BoxConstraints boxConstraints,
-    required Subject subject,
+    required Module subject,
     required BuildContext context,
   }) {
     return GestureDetector(
@@ -41,10 +43,10 @@ class StudentSubjectsContainer extends StatelessWidget {
           //If module is not enable then do not navigate to subject details screen
           bool sholdNavigateToSubjectDetailsScreen = Utils.isModuleEnabled(
                   context: context,
-                  moduleId: announcementManagementModuleId.toString()) ||
+                  moduleId: subject.moduleId) ||
               Utils.isModuleEnabled(
                   context: context,
-                  moduleId: lessonManagementModuleId.toString());
+                  moduleId: subject.moduleId);
 
           if (sholdNavigateToSubjectDetailsScreen) {
             Get.toNamed(
@@ -76,7 +78,7 @@ class StudentSubjectsContainer extends StatelessWidget {
             ),
             5.sizedBoxHeight,
             Text(
-              subject.getSubjectName(context: context),
+              subject.moduleName,
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

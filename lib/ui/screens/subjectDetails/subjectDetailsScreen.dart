@@ -1,6 +1,7 @@
 import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/subjectAnnouncementsCubit.dart';
 import 'package:yocut/cubits/subjectLessonsCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/subject.dart';
 import 'package:yocut/data/repositories/announcementRepository.dart';
 import 'package:yocut/data/repositories/subjectRepository.dart';
@@ -19,7 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class SubjectDetailsScreen extends StatefulWidget {
-  final Subject subject;
+  final Module subject;
   final int? childId;
   const SubjectDetailsScreen({super.key, required this.subject, this.childId});
 
@@ -74,37 +75,37 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
       context: context, moduleId: announcementManagementModuleId.toString());
 
   void initializeTabBar() {
-    if (isLessonManagementModuleEnable() &&
-        isAnnouncementManagementModuleEnable()) {
-      context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-            classSubjectId: widget.subject.classSubjectId ?? 0,
-            useParentApi: context.read<AuthCubit>().isParent(),
-            childId: widget.childId,
-          );
-      context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-            useParentApi: context.read<AuthCubit>().isParent(),
-            classSubjectId: widget.subject.classSubjectId ?? 0,
-            childId: widget.childId,
-          );
-      _selectedTabTitle = chaptersKey;
-    } else {
-      if (isAnnouncementManagementModuleEnable()) {
-        context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-              useParentApi: context.read<AuthCubit>().isParent(),
-              classSubjectId: widget.subject.classSubjectId ?? 0,
-              childId: widget.childId,
-            );
-        _selectedTabTitle = announcementKey;
-      }
-      if (isLessonManagementModuleEnable()) {
-        context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-              classSubjectId: widget.subject.classSubjectId ?? 0,
-              useParentApi: context.read<AuthCubit>().isParent(),
-              childId: widget.childId,
-            );
-        _selectedTabTitle = chaptersKey;
-      }
-    }
+    // if (isLessonManagementModuleEnable() &&
+    //     isAnnouncementManagementModuleEnable()) {
+    //   context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+    //         classSubjectId: widget.subject.moduleId ?? 0,
+    //         useParentApi: context.read<AuthCubit>().isParent(),
+    //         childId: widget.childId,
+    //       );
+    //   context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+    //         useParentApi: context.read<AuthCubit>().isParent(),
+    //         classSubjectId: widget.subject.classSubjectId ?? 0,
+    //         childId: widget.childId,
+    //       );
+    //   _selectedTabTitle = chaptersKey;
+    // } else {
+    //   if (isAnnouncementManagementModuleEnable()) {
+    //     context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+    //           useParentApi: context.read<AuthCubit>().isParent(),
+    //           classSubjectId: widget.subject.classSubjectId ?? 0,
+    //           childId: widget.childId,
+    //         );
+    //     _selectedTabTitle = announcementKey;
+    //   }
+    //   if (isLessonManagementModuleEnable()) {
+    //     context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+    //           classSubjectId: widget.subject.classSubjectId ?? 0,
+    //           useParentApi: context.read<AuthCubit>().isParent(),
+    //           childId: widget.childId,
+    //         );
+    //     _selectedTabTitle = chaptersKey;
+    //   }
+    // }
 
     //
     setState(() {});
@@ -115,11 +116,11 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
         _scrollController.position.maxScrollExtent) {
       if (_selectedTabTitle == announcementKey) {
         if (context.read<SubjectAnnouncementCubit>().hasMore()) {
-          context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
-                useParentApi: context.read<AuthCubit>().isParent(),
-                classSubjectId: widget.subject.classSubjectId ?? 0,
-                childId: widget.childId,
-              );
+          // context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
+          //       useParentApi: context.read<AuthCubit>().isParent(),
+          //       classSubjectId: widget.subject.classSubjectId ?? 0,
+          //       childId: widget.childId,
+          //     );
         }
         //to scroll to last in order for users to see the progress
         Future.delayed(const Duration(milliseconds: 10), () {
@@ -145,15 +146,15 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                 child: Container(
                   alignment: Alignment.topCenter,
                   width: boxConstraints.maxWidth * (0.5),
-                  child: Text(
-                    widget.subject.getSubjectName(context: context),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      fontSize: Utils.screenTitleFontSize,
-                    ),
-                  ),
+                  // child: Text(
+                  //   widget.subject.getSubjectName(context: context),
+                  //   maxLines: 1,
+                  //   overflow: TextOverflow.ellipsis,
+                  //   style: TextStyle(
+                  //     color: Theme.of(context).scaffoldBackgroundColor,
+                  //     fontSize: Utils.screenTitleFontSize,
+                  //   ),
+                  // ),
                 ),
               ),
               (isAnnouncementManagementModuleEnable() &&
@@ -225,20 +226,20 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
             child: CustomRefreshIndicator(
               onRefreshCallback: () {
                 if (isAnnouncementManagementModuleEnable()) {
-                  context
-                      .read<SubjectAnnouncementCubit>()
-                      .fetchSubjectAnnouncement(
-                        useParentApi: context.read<AuthCubit>().isParent(),
-                        classSubjectId: widget.subject.classSubjectId ?? 0,
-                        childId: widget.childId,
-                      );
+                  // context
+                  //     .read<SubjectAnnouncementCubit>()
+                  //     .fetchSubjectAnnouncement(
+                  //       useParentApi: context.read<AuthCubit>().isParent(),
+                  //       classSubjectId: widget.subject.classSubjectId ?? 0,
+                  //       childId: widget.childId,
+                  //     );
                 }
                 if (isLessonManagementModuleEnable()) {
-                  context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-                        classSubjectId: widget.subject.classSubjectId ?? 0,
-                        useParentApi: context.read<AuthCubit>().isParent(),
-                        childId: widget.childId,
-                      );
+                  // context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+                  //       classSubjectId: widget.subject.classSubjectId ?? 0,
+                  //       useParentApi: context.read<AuthCubit>().isParent(),
+                  //       childId: widget.childId,
+                  //     );
                 }
               },
               displacment: Utils.getScrollViewTopPadding(

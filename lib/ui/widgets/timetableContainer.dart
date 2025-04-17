@@ -1,5 +1,6 @@
 import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/timeTableCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/timeTableSlot.dart';
 import 'package:yocut/ui/widgets/customBackButton.dart';
 import 'package:yocut/ui/widgets/customShimmerContainer.dart';
@@ -271,7 +272,7 @@ class _TimeTableContainerState extends State<TimeTableContainer>
                   height: imageHeight,
                   width: imageWidth,
                   radius: 7.5,
-                  subject: timeTableSlot.subject,
+                  subject: Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: [], vleStatus: true),
                 ),
           const SizedBox(
             width: 20,

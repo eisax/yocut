@@ -2,6 +2,7 @@ import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/classElectiveSubjectsCubit.dart';
 import 'package:yocut/cubits/selectElectiveSubjectsCubit.dart';
 import 'package:yocut/cubits/studentSubjectAndSlidersCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 
 import 'package:yocut/data/models/electiveSubject.dart';
 import 'package:yocut/data/models/electiveSubjectGroup.dart';
@@ -175,7 +176,7 @@ class _SelectSubjectsScreenState extends State<SelectSubjectsScreen> {
                 showShadow: false,
                 height: 60,
                 radius: 7.5,
-                subject: subject,
+                subject: Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: [], vleStatus: true),
                 width: boxConstraints.maxWidth * (0.2),
               ),
               SizedBox(

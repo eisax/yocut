@@ -81,7 +81,7 @@ Widget _buildMySubjects() {
     child: (context.read<AuthCubit>().isParent())
         ? (subjects != null && subjects!.isNotEmpty
             ? StudentSubjectsContainer(
-                subjects: subjects!,
+                subjects: [],
                 subjectsTitleKey: '', // Already shown in title
                 childId: widget.childId,
                 showReport: true,
@@ -108,7 +108,7 @@ Widget _buildMySubjects() {
                 }
 
                 return StudentSubjectsContainer(
-                  subjects: cubitSubjects,
+                  subjects: [],
                   subjectsTitleKey: '', // Already shown in title
                   // childId: context.read<AuthCubit>().getStudentDetails().id,
                   showReport: true,

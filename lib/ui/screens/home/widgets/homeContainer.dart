@@ -34,40 +34,40 @@ class _HomeContainerState extends State<HomeContainer> {
   @override
   void initState() {
     super.initState();
-    if (!widget.isForBottomMenuBackground) {
-      Future.delayed(Duration.zero, () {
-        fetchSubjectSlidersAndNoticeBoardDetails();
-      });
-    }
+    // if (!widget.isForBottomMenuBackground) {
+    //   Future.delayed(Duration.zero, () {
+    //     // fetchSubjectSlidersAndNoticeBoardDetails();
+    //   });
+    // }
   }
 
-  void fetchSubjectSlidersAndNoticeBoardDetails() {
-    context.read<StudentSubjectsAndSlidersCubit>().fetchSubjectsAndSliders(
-        useParentApi: false,
-        isSliderModuleEnable: Utils.isModuleEnabled(
-            context: context, moduleId: sliderManagementModuleId.toString()));
+  // void fetchSubjectSlidersAndNoticeBoardDetails() {
+  //   context.read<StudentSubjectsAndSlidersCubit>().fetchSubjectsAndSliders(
+  //       useParentApi: false,
+  //       isSliderModuleEnable: Utils.isModuleEnabled(
+  //           context: context, moduleId: sliderManagementModuleId.toString()));
 
-    if (Utils.isModuleEnabled(
-        context: context,
-        moduleId: announcementManagementModuleId.toString())) {
-      context
-          .read<NoticeBoardCubit>()
-          .fetchNoticeBoardDetails(useParentApi: false);
-    }
-  }
+  //   if (Utils.isModuleEnabled(
+  //       context: context,
+  //       moduleId: announcementManagementModuleId.toString())) {
+  //     context
+  //         .read<NoticeBoardCubit>()
+  //         .fetchNoticeBoardDetails(useParentApi: false);
+  //   }
+  // }
 
-  Widget _buildAdvertisemntSliders() {
-    final sliders = context.read<StudentSubjectsAndSlidersCubit>().getSliders();
-    return SlidersContainer(sliders: sliders);
-  }
+  // Widget _buildAdvertisemntSliders() {
+  //   final sliders = context.read<StudentSubjectsAndSlidersCubit>().getSliders();
+  //   return SlidersContainer(sliders: sliders);
+  // }
 
   Widget _buildSlidersSubjectsAndLatestNotcies() {
-    return BlocConsumer<StudentSubjectsAndSlidersCubit,
-        StudentSubjectsAndSlidersState>(
+    return BlocConsumer<SchoolConfigurationCubit,
+        SchoolConfigurationState>(
       listener: (context, state) {
-        if (state is StudentSubjectsAndSlidersFetchSuccess) {
-          if (state.doesClassHaveElectiveSubjects &&
-              state.electiveSubjects.isEmpty) {
+        if (state is SchoolConfigurationFetchSuccess) {
+          if (state.schoolConfiguration.body.registration.isRegistered &&
+              state.schoolConfiguration.body.registration.modules.isEmpty) {
             if (Get.currentRoute == Routes.selectSubjects) {
               return;
             }
@@ -76,10 +76,9 @@ class _HomeContainerState extends State<HomeContainer> {
         }
       },
       builder: (context, state) {
-        if (state is StudentSubjectsAndSlidersFetchSuccess) {
-          final subjects =
-              context.read<StudentSubjectsAndSlidersCubit>().getSubjects();
-          final hasData = subjects.isNotEmpty ||
+        if (state is SchoolConfigurationFetchSuccess) {
+        
+          final hasData = state.schoolConfiguration.body.registration.modules.isNotEmpty ||
               Utils.isModuleEnabled(
                   context: context,
                   moduleId: announcementManagementModuleId.toString()) ||
@@ -116,13 +115,13 @@ class _HomeContainerState extends State<HomeContainer> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildAdvertisemntSliders(),
+                  // _buildAdvertisemntSliders(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.025),
                   ),
                   StudentSubjectsContainer(
-                    subjects: subjects,
-                    subjectsTitleKey: mySubjectsKey,
+                    subjects: state.schoolConfiguration.body.registration.modules,
+                    subjectsTitleKey: myModulesKey,
                     animate: !widget.isForBottomMenuBackground,
                   ),
                   Utils.isModuleEnabled(
@@ -166,7 +165,7 @@ class _HomeContainerState extends State<HomeContainer> {
                             context: context,
                             moduleId: sliderManagementModuleId.toString()));
               },
-              errorMessageCode: state.errorMessage,
+              errorMessageCode: "Something went wrong",
             ),
           );
         }

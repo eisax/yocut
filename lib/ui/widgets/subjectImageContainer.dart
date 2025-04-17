@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:yocut/data/models/subject.dart';
 import 'package:yocut/ui/widgets/subjectFirstLetterContainer.dart';
 import 'package:yocut/utils/animationConfiguration.dart';
@@ -6,8 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../data/models/Student.dart';
+
 class SubjectImageContainer extends StatelessWidget {
-  final Subject subject;
+  final Module subject;
   final double height;
   final double width;
   final double radius;
@@ -32,30 +35,26 @@ class SubjectImageContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: border,
-          image: (subject.image ?? "" ).isEmpty || subject.hasSvgImage()
-              ? null
-              : DecorationImage(
+          image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: CachedNetworkImageProvider(subject.image ?? ""),
+                  image: CachedNetworkImageProvider(subject.moduleName ?? ""),
                 ),
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(radius),
         ),
         height: height,
         width: width,
-        child: (subject.image ?? "").isEmpty
+        child: (subject.moduleCode).isNotEmpty
             ? SubjectCodeContainer(
-              subjectCode: subject.code ?? "",
+              subjectCode: subject.moduleCode,
               )
-            : subject.hasSvgImage()
-                ? Padding(
+            : Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: width * (0.25),
                       vertical: height * 0.25,
                     ),
-                    child: SvgPicture.network(subject.image ??""),
-                  )
-                : const SizedBox(),
+                    child: SvgPicture.network(subject.moduleName),
+                  ),
       ),
     );
   }

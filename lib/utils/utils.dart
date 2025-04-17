@@ -428,13 +428,16 @@ class Utils {
         .getSchoolConfiguration()
         .body.profile.firstName;
 
+       
+
     //Module id will have "1" or "1#2".
     final ids = moduleId.split(moduleIdJoiner).toList();
     if (ids.contains(defaultModuleId.toString())) {
+       print("------module selected");
       return true;
     }
 
-    bool featureEnabled = false;
+    bool featureEnabled = true;
     for (var i = 0; i < ids.length; i++) {
       // if (enabledFeatures.containsKey(ids[i].toString())) {
       //   featureEnabled = true;
