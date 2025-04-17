@@ -428,7 +428,7 @@ class Utils {
         .getSchoolConfiguration()
         .body.profile.firstName;
 
-        pr
+        print("------module selected");
 
     //Module id will have "1" or "1#2".
     final ids = moduleId.split(moduleIdJoiner).toList();
