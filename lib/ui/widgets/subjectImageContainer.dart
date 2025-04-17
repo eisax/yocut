@@ -33,15 +33,15 @@ class SubjectImageContainer extends StatelessWidget {
     return Animate(
       effects: animate ? customItemFadeAppearanceEffects() : null,
       child: Container(
-        // decoration: BoxDecoration(
-        //   border: border,
-        //   image: DecorationImage(
-        //           fit: BoxFit.cover,
-        //           image: CachedNetworkImageProvider(subject.moduleName ?? ""),
-        //         ),
-        //   color: Theme.of(context).colorScheme.primary,
-        //   borderRadius: BorderRadius.circular(radius),
-        // ),
+        decoration: BoxDecoration(
+          border: border,
+          image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: CachedNetworkImageProvider(subject.moduleName ?? ""),
+                ),
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(radius),
+        ),
         height: height,
         width: width,
         child: (subject.moduleName).isNotEmpty
