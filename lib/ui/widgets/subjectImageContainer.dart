@@ -47,13 +47,7 @@ class SubjectImageContainer extends StatelessWidget {
               subjectCode: subject.name ?? "",
               )
             : subject.hasSvgImage()
-                ? Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: width * (0.25),
-                      vertical: height * 0.25,
-                    ),
-                    child: SvgPicture.network(subject.image ??""),
-                  )
+                ? 
                 : const SizedBox(),
       ),
     );
