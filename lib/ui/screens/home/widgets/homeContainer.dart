@@ -65,7 +65,7 @@ class _HomeContainerState extends State<HomeContainer> {
     return BlocConsumer<SchoolConfigurationCubit,
         SchoolConfigurationState>(
       listener: (context, state) {
-        if (state is StudentSubjectsAndSlidersFetchSuccess) {
+        if (state is SchoolConfigurationFetchSuccess) {
           if (state. &&
               state.electiveSubjects.isEmpty) {
             if (Get.currentRoute == Routes.selectSubjects) {
