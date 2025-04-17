@@ -1,5 +1,6 @@
 import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/examTimeTableCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/exam.dart';
 import 'package:yocut/data/repositories/studentRepository.dart';
 import 'package:yocut/ui/widgets/customShimmerContainer.dart';
