@@ -42,7 +42,7 @@ class SubjectImageContainer extends StatelessWidget {
         ),
         height: height,
         width: width,
-        child: (subject.image ?? "").isEmpty
+        child: (subject.name ?? "").isEmpty
             ? SubjectCodeContainer(
               subjectCode: subject.name ?? "",
               )
