@@ -77,7 +77,7 @@ class StudentSubjectsContainer extends StatelessWidget {
             ),
             5.sizedBoxHeight,
             Text(
-              subject.getSubjectName(context: context),
+              subject.name,
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
