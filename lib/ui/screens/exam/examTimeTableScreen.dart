@@ -128,7 +128,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                           ),
                         ],
                       ),
-                      subjectDetails.type == ' '
+                    false
                           ? const SizedBox()
                           : Text(
                             Utils.getTranslatedLabel(
