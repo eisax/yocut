@@ -97,7 +97,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                           SizedBox(
                             width: boxConstraints.maxWidth * 0.51,
                             child: Text(
-                              subjectDetails. ?? "",
+                              subjectDetails.id ?? "",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
