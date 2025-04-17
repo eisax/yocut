@@ -1,5 +1,4 @@
 import 'package:yocut/app/routes.dart';
-import 'package:yocut/data/models/module.dart';
 import 'package:yocut/data/models/subject.dart';
 import 'package:yocut/ui/widgets/subjectImageContainer.dart';
 import 'package:yocut/utils/systemModules.dart';
