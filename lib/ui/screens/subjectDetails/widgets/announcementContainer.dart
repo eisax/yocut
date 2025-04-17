@@ -14,7 +14,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AnnouncementContainer extends StatefulWidget {
-  final int classSubjectId;
+  final String classSubjectId;
   final int? childId;
   const AnnouncementContainer(
       {super.key, required this.classSubjectId, this.childId});
@@ -53,11 +53,11 @@ class _AnnouncementContainerState extends State<AnnouncementContainer> {
             child: CupertinoButton(
               child: Text(Utils.getTranslatedLabel(retryKey)),
               onPressed: () {
-                context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
-                      useParentApi: context.read<AuthCubit>().isParent(),
-                      classSubjectId: widget.classSubjectId,
-                      childId: widget.childId,
-                    );
+                // context.read<SubjectAnnouncementCubit>().fetchMoreAnnouncements(
+                //       useParentApi: context.read<AuthCubit>().isParent(),
+                //       classSubjectId: widget.classSubjectId,
+                //       childId: widget.childId,
+                //     );
               },
             ),
           ),
@@ -100,11 +100,11 @@ class _AnnouncementContainerState extends State<AnnouncementContainer> {
           return ErrorContainer(
             errorMessageCode: state.errorMessage,
             onTapRetry: () {
-              context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
-                    classSubjectId: widget.classSubjectId,
-                    useParentApi: context.read<AuthCubit>().isParent(),
-                    childId: widget.childId,
-                  );
+              // context.read<SubjectAnnouncementCubit>().fetchSubjectAnnouncement(
+              //       classSubjectId: widget.classSubjectId,
+              //       useParentApi: context.read<AuthCubit>().isParent(),
+              //       childId: widget.childId,
+              //     );
             },
           );
         }

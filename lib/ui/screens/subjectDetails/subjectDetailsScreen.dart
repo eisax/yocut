@@ -50,8 +50,8 @@ class SubjectDetailsScreen extends StatefulWidget {
 class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
   late String _selectedTabTitle = chaptersKey;
 
-  late final ScrollController _scrollController = ScrollController()
-    ..addListener(_subjectAnnouncementScrollListener);
+  late final ScrollController _scrollController =
+      ScrollController()..addListener(_subjectAnnouncementScrollListener);
 
   @override
   void initState() {
@@ -69,10 +69,14 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
   }
 
   bool isLessonManagementModuleEnable() => Utils.isModuleEnabled(
-      context: context, moduleId: lessonManagementModuleId.toString());
+    context: context,
+    moduleId: lessonManagementModuleId.toString(),
+  );
 
   bool isAnnouncementManagementModuleEnable() => Utils.isModuleEnabled(
-      context: context, moduleId: announcementManagementModuleId.toString());
+    context: context,
+    moduleId: announcementManagementModuleId.toString(),
+  );
 
   void initializeTabBar() {
     // if (isLessonManagementModuleEnable() &&
@@ -160,54 +164,58 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
               (isAnnouncementManagementModuleEnable() &&
                       isLessonManagementModuleEnable())
                   ? AnimatedAlign(
-                      curve: Utils.tabBackgroundContainerAnimationCurve,
-                      duration: Utils.tabBackgroundContainerAnimationDuration,
-                      alignment: _selectedTabTitle == chaptersKey
-                          ? AlignmentDirectional.centerStart
-                          : AlignmentDirectional.centerEnd,
-                      child: TabBarBackgroundContainer(
-                          boxConstraints: boxConstraints),
-                    )
+                    curve: Utils.tabBackgroundContainerAnimationCurve,
+                    duration: Utils.tabBackgroundContainerAnimationDuration,
+                    alignment:
+                        _selectedTabTitle == chaptersKey
+                            ? AlignmentDirectional.centerStart
+                            : AlignmentDirectional.centerEnd,
+                    child: TabBarBackgroundContainer(
+                      boxConstraints: boxConstraints,
+                    ),
+                  )
                   : Align(
-                      alignment: AlignmentDirectional.center,
-                      child: TabBarBackgroundContainer(
-                          boxConstraints: boxConstraints),
+                    alignment: AlignmentDirectional.center,
+                    child: TabBarBackgroundContainer(
+                      boxConstraints: boxConstraints,
                     ),
+                  ),
               (isAnnouncementManagementModuleEnable() &&
                       isLessonManagementModuleEnable())
                   ? CustomTabBarContainer(
-                      boxConstraints: boxConstraints,
-                      alignment: AlignmentDirectional.centerStart,
-                      isSelected: _selectedTabTitle == chaptersKey,
-                      onTap: () {
-                        setState(() {
-                          _selectedTabTitle = chaptersKey;
-                        });
-                      },
-                      titleKey: chaptersKey,
-                    )
+                    boxConstraints: boxConstraints,
+                    alignment: AlignmentDirectional.centerStart,
+                    isSelected: _selectedTabTitle == chaptersKey,
+                    onTap: () {
+                      setState(() {
+                        _selectedTabTitle = chaptersKey;
+                      });
+                    },
+                    titleKey: chaptersKey,
+                  )
                   : CustomTabBarContainer(
-                      boxConstraints: boxConstraints,
-                      alignment: AlignmentDirectional.center,
-                      isSelected: true,
-                      onTap: () {},
-                      titleKey: isAnnouncementManagementModuleEnable()
-                          ? announcementKey
-                          : chaptersKey,
-                    ),
+                    boxConstraints: boxConstraints,
+                    alignment: AlignmentDirectional.center,
+                    isSelected: true,
+                    onTap: () {},
+                    titleKey:
+                        isAnnouncementManagementModuleEnable()
+                            ? announcementKey
+                            : chaptersKey,
+                  ),
               (isAnnouncementManagementModuleEnable() &&
                       isLessonManagementModuleEnable())
                   ? CustomTabBarContainer(
-                      boxConstraints: boxConstraints,
-                      alignment: AlignmentDirectional.centerEnd,
-                      isSelected: _selectedTabTitle == announcementKey,
-                      onTap: () {
-                        setState(() {
-                          _selectedTabTitle = announcementKey;
-                        });
-                      },
-                      titleKey: announcementKey,
-                    )
+                    boxConstraints: boxConstraints,
+                    alignment: AlignmentDirectional.centerEnd,
+                    isSelected: _selectedTabTitle == announcementKey,
+                    onTap: () {
+                      setState(() {
+                        _selectedTabTitle = announcementKey;
+                      });
+                    },
+                    titleKey: announcementKey,
+                  )
                   : const SizedBox(),
             ],
           );
@@ -262,25 +270,20 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                     children: [
                       _selectedTabTitle == chaptersKey
                           ? ChaptersContainer(
-                              childId: widget.childId,
-                              classSubjectId:
-                                  widget.subject.classSubjectId ?? 0,
-                            )
+                            childId: 0,
+                            classSubjectId: widget.subject.moduleId,
+                          )
                           : AnnouncementContainer(
-                              classSubjectId:
-                                  widget.subject.classSubjectId ?? 0,
-                              childId: widget.childId,
-                            )
+                            classSubjectId: widget.subject.moduleId,
+                            childId: widget.childId,
+                          ),
                     ],
                   ),
                 ),
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: _buildAppBar(),
-          ),
+          Align(alignment: Alignment.topCenter, child: _buildAppBar()),
         ],
       ),
     );

@@ -15,7 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class ChaptersContainer extends StatefulWidget {
-  final int classSubjectId;
+  final String classSubjectId;
   final int? childId;
   const ChaptersContainer(
       {super.key, required this.classSubjectId, this.childId});
@@ -180,11 +180,11 @@ class _ChaptersContainerState extends State<ChaptersContainer> {
           return ErrorContainer(
             errorMessageCode: state.errorMessage,
             onTapRetry: () {
-              context.read<SubjectLessonsCubit>().fetchSubjectLessons(
-                    classSubjectId: widget.classSubjectId,
-                    useParentApi: context.read<AuthCubit>().isParent(),
-                    childId: widget.childId,
-                  );
+              // context.read<SubjectLessonsCubit>().fetchSubjectLessons(
+              //       classSubjectId: widget.classSubjectId,
+              //       useParentApi: context.read<AuthCubit>().isParent(),
+              //       childId: widget.childId,
+              //     );
             },
           );
         }
