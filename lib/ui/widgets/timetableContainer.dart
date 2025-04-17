@@ -271,7 +271,7 @@ class _TimeTableContainerState extends State<TimeTableContainer>
                   height: imageHeight,
                   width: imageWidth,
                   radius: 7.5,
-                  subject: ,
+                  subject: timeTableSlot.subject,
                 ),
           const SizedBox(
             width: 20,
