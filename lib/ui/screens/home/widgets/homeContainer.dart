@@ -67,7 +67,7 @@ class _HomeContainerState extends State<HomeContainer> {
       listener: (context, state) {
         if (state is SchoolConfigurationFetchSuccess) {
           if (state.schoolConfiguration.body.registration.isRegistered &&
-              state.) {
+              state.schoolConfiguration.body.registration.modules.) {
             if (Get.currentRoute == Routes.selectSubjects) {
               return;
             }
