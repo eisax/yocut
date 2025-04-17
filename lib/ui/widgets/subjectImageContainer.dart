@@ -33,9 +33,7 @@ class SubjectImageContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: border,
-          image: (subject.name ?? "" ).isEmpty || subject.
-              ? null
-              : DecorationImage(
+          image: DecorationImage(
                   fit: BoxFit.cover,
                   image: CachedNetworkImageProvider(subject.image ?? ""),
                 ),
