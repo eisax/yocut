@@ -433,7 +433,7 @@ class ExamOnlineScreenState extends State<ExamOnlineScreen>
               Get.back();
               //goto 1st tab [Home] in bottomNavigatonbar
               Get.until((route) => route.isFirst);
-              HomeScreen.homeScreenKey.currentState!.changeBottomNavItem(0);
+              // HomeScreen.homeScreenKey.currentState!.changeBottomNavItem(0);
             },
           ),
           CustomRoundedButton(

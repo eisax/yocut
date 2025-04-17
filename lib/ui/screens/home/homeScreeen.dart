@@ -47,8 +47,6 @@ import 'package:get/get.dart';
 import '../../widgets/resultsContainer.dart';
 
 class HomeScreen extends StatefulWidget {
-  static GlobalKey<HomeScreenState> homeScreenKey =
-      GlobalKey<HomeScreenState>();
   const HomeScreen({super.key});
 
   @override
@@ -80,7 +78,7 @@ class HomeScreen extends StatefulWidget {
         ),
       ],
       child: HomeScreen(
-        key: homeScreenKey,
+
       ),
     );
   }

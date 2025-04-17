@@ -124,7 +124,7 @@ class NotificationUtility {
         Get.toNamed(Routes.noticeBoard);
       }
     } else if (type == assignmentlNotificationType) {
-      HomeScreen.homeScreenKey.currentState?.navigateToAssignmentContainer();
+      // HomeScreen.homeScreenKey.currentState?.navigateToAssignmentContainer();
     } else if (type == paymentNotificationType) {
     } else if (type == messageType) {
       if (Get.currentRoute != Routes.chatContacts) {
