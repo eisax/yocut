@@ -53,7 +53,7 @@ class SubjectImageContainer extends StatelessWidget {
                       horizontal: width * (0.25),
                       vertical: height * 0.25,
                     ),
-                    child: SvgPicture.network(subject.moduleName ??""),
+                    child: SvgPicture.network(subject.moduleName),
                   ),
       ),
     );
