@@ -56,10 +56,10 @@ class _HomeContainerState extends State<HomeContainer> {
   //   }
   // }
 
-  Widget _buildAdvertisemntSliders() {
-    final sliders = context.read<StudentSubjectsAndSlidersCubit>().getSliders();
-    return SlidersContainer(sliders: sliders);
-  }
+  // Widget _buildAdvertisemntSliders() {
+  //   final sliders = context.read<StudentSubjectsAndSlidersCubit>().getSliders();
+  //   return SlidersContainer(sliders: sliders);
+  // }
 
   Widget _buildSlidersSubjectsAndLatestNotcies() {
     return BlocConsumer<StudentSubjectsAndSlidersCubit,
