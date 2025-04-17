@@ -437,7 +437,7 @@ class Utils {
       return true;
     }
 
-    bool featureEnabled = false;
+    bool featureEnabled = true;
     for (var i = 0; i < ids.length; i++) {
       // if (enabledFeatures.containsKey(ids[i].toString())) {
       //   featureEnabled = true;
