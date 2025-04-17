@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:yocut/data/models/module.dart';
+
 import 'package:yocut/data/models/subject.dart';
 import 'package:yocut/ui/widgets/subjectFirstLetterContainer.dart';
 import 'package:yocut/utils/animationConfiguration.dart';
