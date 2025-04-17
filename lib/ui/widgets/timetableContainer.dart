@@ -272,7 +272,7 @@ class _TimeTableContainerState extends State<TimeTableContainer>
                   height: imageHeight,
                   width: imageWidth,
                   radius: 7.5,
-                  subject: Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: P, vleStatus: true),
+                  subject: Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: PastExamPaper(pastExamPaperId: pastExamPaperId, year: year, description: description, documentSize: documentSize, periodId: periodId, documentPath: documentPath), vleStatus: true),
                 ),
           const SizedBox(
             width: 20,
