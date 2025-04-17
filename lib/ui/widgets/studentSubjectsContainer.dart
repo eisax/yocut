@@ -1,4 +1,5 @@
 import 'package:yocut/app/routes.dart';
+import 'package:yocut/data/models/module.dart';
 import 'package:yocut/data/models/subject.dart';
 import 'package:yocut/ui/widgets/subjectImageContainer.dart';
 import 'package:yocut/utils/systemModules.dart';
@@ -8,7 +9,7 @@ import 'package:get/get.dart';
 
 class StudentSubjectsContainer extends StatelessWidget {
   final String subjectsTitleKey;
-  final List<Modules> subjects;
+  final List<Module> subjects;
   final int? childId;
   final bool showReport;
   final bool animate;
