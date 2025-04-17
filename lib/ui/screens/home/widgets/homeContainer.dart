@@ -116,7 +116,7 @@ class _HomeContainerState extends State<HomeContainer> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildAdvertisemntSliders(),
+                  // _buildAdvertisemntSliders(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * (0.025),
                   ),
