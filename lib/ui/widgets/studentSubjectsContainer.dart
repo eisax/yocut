@@ -6,6 +6,8 @@ import 'package:yocut/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../data/models/Student.dart';
+
 class StudentSubjectsContainer extends StatelessWidget {
   final String subjectsTitleKey;
   final List<Module> subjects;
