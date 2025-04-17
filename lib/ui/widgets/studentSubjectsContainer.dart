@@ -43,7 +43,7 @@ class StudentSubjectsContainer extends StatelessWidget {
           //If module is not enable then do not navigate to subject details screen
           bool sholdNavigateToSubjectDetailsScreen = Utils.isModuleEnabled(
                   context: context,
-                  moduleId: announcementManagementModuleId.toString()) ||
+                  moduleId: su) ||
               Utils.isModuleEnabled(
                   context: context,
                   moduleId: lessonManagementModuleId.toString());
