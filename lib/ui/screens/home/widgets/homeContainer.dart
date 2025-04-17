@@ -121,7 +121,7 @@ class _HomeContainerState extends State<HomeContainer> {
                   ),
                   StudentSubjectsContainer(
                     subjects: state.schoolConfiguration.body.registration.modules,
-                    subjectsTitleKey: mySubjectsKey,
+                    subjectsTitleKey: myModulesKey,
                     animate: !widget.isForBottomMenuBackground,
                   ),
                   Utils.isModuleEnabled(
