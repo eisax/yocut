@@ -33,7 +33,7 @@ class SubjectImageContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: border,
-          image: (subject..name ?? "" ).isEmpty || subject.hasSvgImage()
+          image: (subject.name ?? "" ).isEmpty || subject.hasSvgImage()
               ? null
               : DecorationImage(
                   fit: BoxFit.cover,
