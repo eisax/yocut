@@ -46,7 +46,7 @@ class StudentSubjectsContainer extends StatelessWidget {
                   moduleId: subject.moduleId) ||
               Utils.isModuleEnabled(
                   context: context,
-                  moduleId: lessonManagementModuleId.toString());
+                  moduleId: subject.moduleId);
 
           if (sholdNavigateToSubjectDetailsScreen) {
             Get.toNamed(
