@@ -132,9 +132,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                           ? const SizedBox()
                           : Text(
                             Utils.getTranslatedLabel(
-                              subjectDetails.isPractial()
-                                  ? practicalKey
-                                  : theoryKey,
+                              theoryKey,
                             ),
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.onSurface,
