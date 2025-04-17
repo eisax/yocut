@@ -120,7 +120,7 @@ class _HomeContainerState extends State<HomeContainer> {
                     height: MediaQuery.of(context).size.height * (0.025),
                   ),
                   StudentSubjectsContainer(
-                    subjects: state.schoolConfiguration.body.registration.modules.isEmpty,
+                    subjects: state.schoolConfiguration.body.registration.modules,
                     subjectsTitleKey: mySubjectsKey,
                     animate: !widget.isForBottomMenuBackground,
                   ),
