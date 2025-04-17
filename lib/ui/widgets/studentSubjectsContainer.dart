@@ -68,14 +68,14 @@ class StudentSubjectsContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            // SubjectImageContainer(
-            //   showShadow: false,
-            //   animate: animate,
-            //   width: boxConstraints.maxWidth * (0.26),
-            //   height: boxConstraints.maxWidth * (0.26),
-            //   radius: 20,
-            //   subject: subject,
-            // ),
+            SubjectImageContainer(
+              showShadow: false,
+              animate: animate,
+              width: boxConstraints.maxWidth * (0.26),
+              height: boxConstraints.maxWidth * (0.26),
+              radius: 20,
+              subject: subject,
+            ),
             5.sizedBoxHeight,
             Text(
               subject.moduleName,
