@@ -37,7 +37,7 @@ class SubjectImageContainer extends StatelessWidget {
           border: border,
           image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: CachedNetworkImageProvider(subject.name ?? ""),
+                  image: CachedNetworkImageProvider(subject.moduleName ?? ""),
                 ),
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(radius),
@@ -46,14 +46,14 @@ class SubjectImageContainer extends StatelessWidget {
         width: width,
         child: (subject.moduleName ?? "").isEmpty
             ? SubjectCodeContainer(
-              subjectCode: subject.name ?? "",
+              subjectCode: subject.moduleName ?? "",
               )
             : Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: width * (0.25),
                       vertical: height * 0.25,
                     ),
-                    child: SvgPicture.network(subject.name ??""),
+                    child: SvgPicture.network(subject.moduleName ??""),
                   ),
       ),
     );
