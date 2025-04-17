@@ -166,7 +166,7 @@ class _HomeContainerState extends State<HomeContainer> {
                             context: context,
                             moduleId: sliderManagementModuleId.toString()));
               },
-              errorMessageCode: "",
+              errorMessageCode: "Something went wrong",
             ),
           );
         }
