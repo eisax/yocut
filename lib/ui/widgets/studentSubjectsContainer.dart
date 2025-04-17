@@ -19,7 +19,7 @@ class StudentSubjectsContainer extends StatelessWidget {
     this.childId,
     required this.subjects,
     required this.subjectsTitleKey,
-    this.showReport = false,
+    this.showReport = true,
     this.animate = true,
   });
 
