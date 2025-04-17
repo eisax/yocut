@@ -19,7 +19,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class SubjectDetailsScreen extends StatefulWidget {
-  final Subject subject;
+  final Module subject;
   final int? childId;
   const SubjectDetailsScreen({super.key, required this.subject, this.childId});
 
