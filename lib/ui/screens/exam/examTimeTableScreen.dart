@@ -246,16 +246,16 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
 
   Widget _buildAppBar(BuildContext context) {
     String studentName = "";
-    if (context.read<AuthCubit>().isParent()) {
-      final Student student =
-          (context.read<AuthCubit>().getParentDetails().children ?? [])
-              .where((element) => 0 == widget.childID)
-              .first;
+    // if (context.read<AuthCubit>().isParent()) {
+    //   final Student student =
+    //       (context.read<AuthCubit>().getParentDetails().children ?? [])
+    //           .where((element) => 0 == widget.childID)
+    //           .first;
 
-      studentName =
-          ""; 
-          //"${student.body.profile.name} ${student.body.profile.name}";
-    }
+    //   studentName =
+    //       ""; 
+    //       //"${student.body.profile.name} ${student.body.profile.name}";
+    // }
     return ScreenTopBackgroundContainer(
       heightPercentage: Utils.appBarMediumtHeightPercentage,
       child: LayoutBuilder(
