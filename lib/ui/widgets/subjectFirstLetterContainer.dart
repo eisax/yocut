@@ -11,7 +11,7 @@ class SubjectCodeContainer extends StatelessWidget {
       child: Text(
         subjectCode,
         style: TextStyle(
-          fontSize: Utils.subjectFirstLetterFontSize,
+          fontSize: Utils.screenSubTitleFontSize,
           fontWeight: FontWeight.w600,
           color: Theme.of(context).scaffoldBackgroundColor,
         ),
