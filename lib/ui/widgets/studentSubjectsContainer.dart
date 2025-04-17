@@ -24,7 +24,7 @@ class StudentSubjectsContainer extends StatelessWidget {
 
   Widget _buildSubjectContainer({
     required BoxConstraints boxConstraints,
-    required Subject subject,
+    required Module subject,
     required BuildContext context,
   }) {
     return GestureDetector(
