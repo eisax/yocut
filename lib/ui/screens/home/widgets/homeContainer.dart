@@ -34,11 +34,11 @@ class _HomeContainerState extends State<HomeContainer> {
   @override
   void initState() {
     super.initState();
-    if (!widget.isForBottomMenuBackground) {
-      Future.delayed(Duration.zero, () {
-        fetchSubjectSlidersAndNoticeBoardDetails();
-      });
-    }
+    // if (!widget.isForBottomMenuBackground) {
+    //   Future.delayed(Duration.zero, () {
+    //     // fetchSubjectSlidersAndNoticeBoardDetails();
+    //   });
+    // }
   }
 
   // void fetchSubjectSlidersAndNoticeBoardDetails() {
