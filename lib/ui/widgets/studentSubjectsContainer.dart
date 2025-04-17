@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class StudentSubjectsContainer extends StatelessWidget {
   final String subjectsTitleKey;
-  final List<Subject> subjects;
+  final List<Modules> subjects;
   final int? childId;
   final bool showReport;
   final bool animate;
