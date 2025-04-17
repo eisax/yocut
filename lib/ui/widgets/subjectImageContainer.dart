@@ -7,7 +7,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SubjectImageContainer extends StatelessWidget {
-  final Subject subject;
+  final Module subject;
   final double height;
   final double width;
   final double radius;
