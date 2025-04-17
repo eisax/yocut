@@ -44,7 +44,7 @@ class SubjectImageContainer extends StatelessWidget {
         width: width,
         child: (subject.image ?? "").isEmpty
             ? SubjectCodeContainer(
-              subjectCode: subject. ?? "",
+              subjectCode: subject.name ?? "",
               )
             : subject.hasSvgImage()
                 ? Padding(
