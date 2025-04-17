@@ -63,7 +63,7 @@ class _HomeContainerState extends State<HomeContainer> {
 
   Widget _buildSlidersSubjectsAndLatestNotcies() {
     return BlocConsumer<SchoolConfigurationCubit,
-        SchoolConfigurationCubitState>(
+        SchoolConfigurationState>(
       listener: (context, state) {
         if (state is StudentSubjectsAndSlidersFetchSuccess) {
           if (state.doesClassHaveElectiveSubjects &&
