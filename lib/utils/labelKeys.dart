@@ -121,7 +121,7 @@ const String pleaseEnterPasswordKey = "pleaseEnterPassword";
 const String pleaseEnterregNumberKey = "pleaseEnterregNumber";
 const String pleaseEnterSchoolCodeKey = "pleaseEnterSchoolCode";
 
-const String mySubjectsKey = "mySubjects";
+const String myModulesKey = "myModules";
 const String selectAnyKey = "selectAny";
 const String canNotSelectMoreSubjectsKey = "canNotSelectMoreSubject";
 const String pleaseSelectAllElectiveSubjectsKey =
