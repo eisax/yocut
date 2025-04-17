@@ -46,7 +46,7 @@ class SubjectImageContainer extends StatelessWidget {
         width: width,
         child: (subject.moduleName).isNotEmpty
             ? SubjectCodeContainer(
-              subjectCode: subject.,
+              subjectCode: subject.moduleCode,
               )
             : Padding(
                     padding: EdgeInsets.symmetric(
