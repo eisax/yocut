@@ -77,7 +77,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                   showShadow: true,
                   height: boxConstraints.maxWidth * (0.235),
                   radius: 10,
-                  subject: Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: [], vleStatus: true),
+                  subject:,
                   width: boxConstraints.maxWidth * (0.26),
                 ),
               ),
