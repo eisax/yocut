@@ -57,7 +57,7 @@ class _HomeContainerState extends State<HomeContainer> {
   // }
 
   Widget _buildAdvertisemntSliders() {
-    final sliders = context.read<StudentSubjectsAndSlidersCubit>().getSliders();
+    final sliders = context.read<SchoolConfigurationCubit>().getSliders();
     return SlidersContainer(sliders: sliders);
   }
 
