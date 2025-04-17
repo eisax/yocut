@@ -1,6 +1,7 @@
 import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/subjectAnnouncementsCubit.dart';
 import 'package:yocut/cubits/subjectLessonsCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 import 'package:yocut/data/models/subject.dart';
 import 'package:yocut/data/repositories/announcementRepository.dart';
 import 'package:yocut/data/repositories/subjectRepository.dart';
