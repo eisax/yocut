@@ -158,19 +158,19 @@ class AssignmentListContainer extends StatelessWidget {
                   return Stack(
                     clipBehavior: Clip.none,
                     children: [
-                      PositionedDirectional(
-                        top: boxConstraints.maxHeight * (0.5) -
-                            boxConstraints.maxWidth * (0.118),
-                        start: boxConstraints.maxWidth * (-0.125),
-                        child: SubjectImageContainer(
-                          showShadow: true,
-                          animate: animateItems,
-                          height: boxConstraints.maxWidth * (0.235),
-                          radius: 10,
-                          subject: assignment.subject,
-                          width: boxConstraints.maxWidth * (0.26),
-                        ),
-                      ),
+                      // PositionedDirectional(
+                      //   top: boxConstraints.maxHeight * (0.5) -
+                      //       boxConstraints.maxWidth * (0.118),
+                      //   start: boxConstraints.maxWidth * (-0.125),
+                      //   child: SubjectImageContainer(
+                      //     showShadow: true,
+                      //     animate: animateItems,
+                      //     height: boxConstraints.maxWidth * (0.235),
+                      //     radius: 10,
+                      //     subject: assignment.subject,
+                      //     width: boxConstraints.maxWidth * (0.26),
+                      //   ),
+                      // ),
                       Align(
                         alignment: AlignmentDirectional.topStart,
                         child: Padding(
