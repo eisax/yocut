@@ -108,7 +108,7 @@ Widget _buildMySubjects() {
                 }
 
                 return StudentSubjectsContainer(
-                  subjects: cubitSubjects,
+                  subjects: [],
                   subjectsTitleKey: '', // Already shown in title
                   // childId: context.read<AuthCubit>().getStudentDetails().id,
                   showReport: true,
