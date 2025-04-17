@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../data/models/Student.dart';
+
 class SubjectImageContainer extends StatelessWidget {
   final Module subject;
   final double height;
