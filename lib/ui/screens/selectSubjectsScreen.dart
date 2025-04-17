@@ -2,6 +2,7 @@ import 'package:yocut/cubits/authCubit.dart';
 import 'package:yocut/cubits/classElectiveSubjectsCubit.dart';
 import 'package:yocut/cubits/selectElectiveSubjectsCubit.dart';
 import 'package:yocut/cubits/studentSubjectAndSlidersCubit.dart';
+import 'package:yocut/data/models/Student.dart';
 
 import 'package:yocut/data/models/electiveSubject.dart';
 import 'package:yocut/data/models/electiveSubjectGroup.dart';
