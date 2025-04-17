@@ -80,7 +80,7 @@ class _HomeContainerState extends State<HomeContainer> {
 
           print(state.schoolConfiguration.body.registration.modules.toString());
         
-          final hasData = state.schoolConfiguration.body.registration.modules.is ||
+          final hasData = state.schoolConfiguration.body.registration.modules.isNotEmpty ||
               Utils.isModuleEnabled(
                   context: context,
                   moduleId: announcementManagementModuleId.toString()) ||
