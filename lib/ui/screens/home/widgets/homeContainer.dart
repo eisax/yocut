@@ -78,7 +78,7 @@ class _HomeContainerState extends State<HomeContainer> {
       builder: (context, state) {
         if (state is SchoolConfigurationFetchSuccess) {
 
-          print()
+          print(state.schoolConfiguration.body.registration.modules.t)
         
           final hasData = state.schoolConfiguration.body.registration.modules.isEmpty ||
               Utils.isModuleEnabled(
