@@ -77,8 +77,7 @@ class _HomeContainerState extends State<HomeContainer> {
       },
       builder: (context, state) {
         if (state is SchoolConfigurationFetchSuccess) {
-          final subjects =
-              context.read<StudentSubjectsAndSlidersCubit>().getSubjects();
+        
           final hasData = subjects.isNotEmpty ||
               Utils.isModuleEnabled(
                   context: context,
