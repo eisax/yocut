@@ -36,25 +36,25 @@ class _HomeContainerState extends State<HomeContainer> {
     super.initState();
     if (!widget.isForBottomMenuBackground) {
       Future.delayed(Duration.zero, () {
-        // fetchSubjectSlidersAndNoticeBoardDetails();
+        fetchSubjectSlidersAndNoticeBoardDetails();
       });
     }
   }
 
-  // void fetchSubjectSlidersAndNoticeBoardDetails() {
-  //   context.read<StudentSubjectsAndSlidersCubit>().fetchSubjectsAndSliders(
-  //       useParentApi: false,
-  //       isSliderModuleEnable: Utils.isModuleEnabled(
-  //           context: context, moduleId: sliderManagementModuleId.toString()));
+  void fetchSubjectSlidersAndNoticeBoardDetails() {
+    context.read<StudentSubjectsAndSlidersCubit>().fetchSubjectsAndSliders(
+        useParentApi: false,
+        isSliderModuleEnable: Utils.isModuleEnabled(
+            context: context, moduleId: sliderManagementModuleId.toString()));
 
-  //   if (Utils.isModuleEnabled(
-  //       context: context,
-  //       moduleId: announcementManagementModuleId.toString())) {
-  //     context
-  //         .read<NoticeBoardCubit>()
-  //         .fetchNoticeBoardDetails(useParentApi: false);
-  //   }
-  // }
+    if (Utils.isModuleEnabled(
+        context: context,
+        moduleId: announcementManagementModuleId.toString())) {
+      context
+          .read<NoticeBoardCubit>()
+          .fetchNoticeBoardDetails(useParentApi: false);
+    }
+  }
 
   Widget _buildAdvertisemntSliders() {
     final sliders = context.read<StudentSubjectsAndSlidersCubit>().getSliders();
