@@ -77,7 +77,7 @@ class _ExamTimeTableState extends State<ExamTimeTableScreen> {
                   showShadow: true,
                   height: boxConstraints.maxWidth * (0.235),
                   radius: 10,
-                  subject:,
+                  subject: ,
                   width: boxConstraints.maxWidth * (0.26),
                 ),
               ),
