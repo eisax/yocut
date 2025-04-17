@@ -66,7 +66,7 @@ class _HomeContainerState extends State<HomeContainer> {
         SchoolConfigurationState>(
       listener: (context, state) {
         if (state is StudentSubjectsAndSlidersFetchSuccess) {
-          if (state. &&
+          if (state.getSchoolConfiguration(). &&
               state.electiveSubjects.isEmpty) {
             if (Get.currentRoute == Routes.selectSubjects) {
               return;
