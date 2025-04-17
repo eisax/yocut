@@ -175,7 +175,7 @@ class _SelectSubjectsScreenState extends State<SelectSubjectsScreen> {
                 showShadow: false,
                 height: 60,
                 radius: 7.5,
-                subject: subject,
+                subject: Module(moduleName:"", moduleId: "", moduleCode: "", moduleUnitCode: "", periodId: "", isEvaluable: "", pastExamPapers: [], vleStatus: true),
                 width: boxConstraints.maxWidth * (0.2),
               ),
               SizedBox(
